@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: #0b1620;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+    color: gold;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 span {
+    color: gold;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.whatsapp { background: #25D366; color: black; }
+.telegram { background: #0088cc; }
+.tiktok { background: black; border: 1px solid white; }
+.youtube { background: red; }
+
+.upload-section {
+    text-align: center;
+    padding: 50px;
+    background: rgba(0,0,0,0.3);
+}
+
+.upload-section input {
+    padding: 10px;
+}
+
+.upload-section button {
+    padding: 10px 20px;
+    background: gold;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    margin: 15px;
+    padding: 25px;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0b1620;
+}
