@@ -1,52 +1,82 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request, render_template_string
 import os
-from werkzeug.utils import secure_filename
+import requests
 
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = {"bin", "rom", "fd", "cap"}
-
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-app.config["MAX_CONTENT_LENGTH"] = 64 * 1024 * 1024  # 64MB limit
+
+ALLOWED_EXTENSIONS = {"bin", "rom", "fd"}
+
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def send_to_telegram(file_path):
+
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        print("Telegram not configured")
+        return
+
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument"
+
+    with open(file_path, "rb") as f:
+        requests.post(
+            url,
+            data={"chat_id": TELEGRAM_CHAT_ID},
+            files={"document": f}
+        )
+
+
+HTML_PAGE = """
+<!doctype html>
+<title>DoctorBIOS Upload</title>
+<h2>Upload BIOS File</h2>
+<form method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input type=submit value=Upload>
+</form>
+<p>Allowed: .bin .rom .fd</p>
+"""
+
+
+@app.route("/upload", methods=["GET", "POST"])
+def upload_file():
+
+    if request.method == "POST":
+
+        if "file" not in request.files:
+            return "No file part"
+
+        file = request.files["file"]
+
+        if file.filename == "":
+            return "No selected file"
+
+        if file and allowed_file(file.filename):
+
+            filepath = os.path.join(UPLOAD_FOLDER, file.filename)
+            file.save(filepath)
+
+            send_to_telegram(filepath)
+
+            return "BIOS Uploaded Successfully ✔️"
+
+        else:
+            return "Only BIOS files allowed!"
+
+    return render_template_string(HTML_PAGE)
+
+
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-
-@app.route("/upload", methods=["POST"])
-def upload():
-
-    if "file" not in request.files:
-        return redirect(url_for("home"))
-
-    file = request.files["file"]
-
-    if file.filename == "":
-        return redirect(url_for("home"))
-
-    if not allowed_file(file.filename):
-        return "Only BIOS files allowed!"
-
-    filename = secure_filename(file.filename)
-
-    # random rename to prevent overwrite or hacking
-    import uuid
-    ext = filename.rsplit(".", 1)[1]
-    filename = str(uuid.uuid4()) + "." + ext
-
-    filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-    file.save(filepath)
-
-    return redirect(url_for("home"))
+    return "DoctorBIOS Online ✔️"
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=10000)
