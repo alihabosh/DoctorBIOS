@@ -1,94 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>DoctorBIOS Diamond</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>DoctorBIOS Upload</title>
 </head>
-
 <body>
 
-<section class="upload-section">
+<h2>DoctorBIOS Upload System</h2>
 
-<h2>Upload BIOS Job</h2>
+<form id="uploadForm" enctype="multipart/form-data">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
 
-<input type="text" id="name" placeholder="Full Name"><br><br>
-<input type="text" id="whatsapp" placeholder="WhatsApp Number"><br><br>
+    <label>WhatsApp:</label><br>
+    <input type="text" name="whatsapp" required><br><br>
 
-<select id="brand">
-<option>Dell</option>
-<option>Lenovo</option>
-<option>HP</option>
-<option>Toshiba</option>
-<option>Sony</option>
-<option>Panasonic</option>
-<option>Acer</option>
-<option>ASUS</option>
-<option>Apple</option>
-<option>Samsung</option>
-<option>Huawei</option>
-<option>Redmi</option>
-</select>
+    <label>Brand:</label><br>
+    <input type="text" name="brand" required><br><br>
 
-<br><br>
+    <label>Model:</label><br>
+    <input type="text" name="model" required><br><br>
 
-<input type="file" id="biosFile"><br><br>
+    <label>Serial:</label><br>
+    <input type="text" name="serial" required><br><br>
 
-<button onclick="detectDMI()">Detect Model & Serial</button>
+    <label>Upload BIOS:</label><br>
+    <input type="file" name="bios" required><br><br>
 
-<br><br>
-
-Model:<br>
-<input type="text" id="model"><br><br>
-
-Serial:<br>
-<input type="text" id="serial"><br><br>
-
-<button onclick="submitJob()">Upload Job</button>
-
-</section>
+    <button type="submit">Submit Job</button>
+</form>
 
 <script>
+document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-function detectDMI(){
+    const formData = new FormData(this);
 
- let file=document.getElementById("biosFile").files[0];
-
- let fd=new FormData();
- fd.append("bios",file);
-
- fetch("/detect_dmi",{
-   method:"POST",
-   body:fd
- })
- .then(res=>res.json())
- .then(data=>{
-   document.getElementById("model").value=data.model;
-   document.getElementById("serial").value=data.serial;
- });
-
-}
-
-function submitJob(){
-
- let fd=new FormData();
-
- fd.append("name",document.getElementById("name").value);
- fd.append("whatsapp",document.getElementById("whatsapp").value);
- fd.append("brand",document.getElementById("brand").value);
- fd.append("model",document.getElementById("model").value);
- fd.append("serial",document.getElementById("serial").value);
- fd.append("bios",document.getElementById("biosFile").files[0]);
-
- fetch("/submit_job",{
-   method:"POST",
-   body:fd
- }).then(()=>{
-   alert("Uploaded Successfully");
- });
-
-}
-
+    fetch("/submit_job", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert(data);
+    });
+});
 </script>
 
 </body>
