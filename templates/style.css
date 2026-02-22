@@ -1,0 +1,12 @@
+body{
+background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+input,select,button{
+padding:10px;
+margin:5px;
+width:250px;
+}
