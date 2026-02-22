@@ -1,3 +1,56 @@
+body {
+background: #0f172a;
+color: white;
+font-family: Arial;
+margin: 0;
+text-align: center;
+}
+
+header {
+padding: 20px;
+}
+
+.logo {
+font-size: 28px;
+font-weight: bold;
+}
+
+nav a {
+color: #60a5fa;
+margin: 0 10px;
+text-decoration: none;
+}
+
+.hero {
+padding: 40px;
+}
+
+.buttons {
+margin-top: 20px;
+}
+
+.btn {
+padding: 10px 15px;
+border-radius: 6px;
+text-decoration: none;
+color: white;
+margin: 5px;
+display: inline-block;
+}
+
+.whatsapp { background: #25d366; }
+.telegram { background: #0088cc; }
+.tiktok { background: #000; }
+.youtube { background: #ff0000; }
+
+.upload-section {
+background: #1e293b;
+padding: 30px;
+margin: 40px auto;
+width: 350px;
+border-radius: 10px;
+}
+
 .upload-form {
 display: flex;
 flex-direction: column;
@@ -18,4 +71,17 @@ padding: 10px;
 border-radius: 6px;
 border: none;
 cursor: pointer;
+}
+
+.services {
+padding: 40px;
+}
+
+.card {
+margin: 20px;
+}
+
+footer {
+margin-top: 40px;
+padding: 20px;
 }

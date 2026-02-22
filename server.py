@@ -1,53 +1,34 @@
-from flask import Flask, render_template, request
-import requests
-import os
+<form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
 
-app = Flask(__name__)
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
 
-BOT_TOKEN = "YOUR_BOT_TOKEN"
-CHAT_ID = "YOUR_CHAT_ID"
+<select name="brand" required>
+<option value="">Laptop Brand</option>
+<option>Dell</option>
+<option>HP</option>
+<option>Lenovo</option>
+<option>Asus</option>
+<option>Acer</option>
+<option>Huawei</option>
+<option>Redmi</option>
+<option>Apple</option>
+<option>Panasonic</option>
+<option>MSI</option>
+<option>Samsung</option>
+<option>Sony</option>
+<option>Toshiba</option>
+<option>Fujitsu</option>
+<option>Gigabyte</option>
+<option>Microsoft Surface</option>
+<option>Razer</option>
+</select>
 
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+<input type="text" name="model" placeholder="Model" required>
+<input type="text" name="serial" placeholder="Serial Number" required>
 
-@app.route('/upload', methods=['POST'])
-def upload():
+<input type="file" name="bios" required>
 
-    name = request.form.get("name")
-    whatsapp = request.form.get("whatsapp")
-    brand = request.form.get("brand")
-    model = request.form.get("model")
-    serial = request.form.get("serial")
+<button type="submit">Submit Job</button>
 
-    file = request.files.get("bios")
-
-    if not file:
-        return "No file uploaded"
-
-    filename = secure_filename(file.filename)
-    path = os.path.join("uploads", filename)
-    file.save(path)
-
-    message = f"""
-📥 NEW BIOS JOB
-
-👤 Name: {name}
-📱 WhatsApp: {whatsapp}
-💻 Brand: {brand}
-📟 Model: {model}
-🔢 Serial: {serial}
-📎 File: {filename}
-"""
-
-    requests.get(
-        f"https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage",
-        params={
-            "chat_id": "YOUR_CHAT_ID",
-            "text": message
-        }
-    )
-
-    return "Job Submitted Successfully ✅"
-
-if __name__ == "__main__":
-    app.run()
+</form>

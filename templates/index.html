@@ -1,3 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DoctorBIOS Diamond</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+<div class="logo">DoctorBIOS 💎 Diamond</div>
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#upload">Upload</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>
+Upgrade Your Repair Business<br>
+With <span>Dr. BIOS – Ali Haboush</span> 🚀
+</h1>
+
+<p>
+Professional BIOS Repair & Unlock Service – Fast, Secure & Trusted Worldwide
+</p>
+
+<div class="buttons">
+<a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp 24/7</a>
+<a class="btn telegram" href="https://t.me/+ldKd3wgyIMU0ZWI0" target="_blank">Telegram Support</a>
+<a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a>
+<a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
+</div>
+</section>
+
+<section id="upload" class="upload-section">
+<h2>Upload BIOS File</h2>
+
 <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
 
 <input type="text" name="name" placeholder="Your Name" required>
@@ -32,3 +73,34 @@
 <button type="submit">Submit Job</button>
 
 </form>
+</section>
+
+<section id="services" class="services">
+<div class="card">
+<h3>Unlock BIOS Protection</h3>
+<p>Admin / Supervisor / Password removal</p>
+</div>
+
+<div class="card">
+<h3>Repair Corrupted BIOS</h3>
+<p>Dead laptop & no display fix</p>
+</div>
+
+<div class="card">
+<h3>Clean ME / NVRAM / EC</h3>
+<p>Full region repair & rebuild</p>
+</div>
+
+<div class="card">
+<h3>MEC / EC Unlock</h3>
+<p>Chip level solutions</p>
+</div>
+</section>
+
+<footer id="contact">
+© 2026 DoctorBIOS Diamond – Ali Haboush <br>
+WhatsApp: 0096176737184
+</footer>
+
+</body>
+</html>
