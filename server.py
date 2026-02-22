@@ -10,27 +10,44 @@ CHAT_ID = "YOUR_CHAT_ID"
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/upload", methods=["POST"])
+@app.route('/upload', methods=['POST'])
 def upload():
-    file = request.files["file"]
 
-    filepath = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(filepath)
+    name = request.form.get("name")
+    whatsapp = request.form.get("whatsapp")
+    brand = request.form.get("brand")
+    model = request.form.get("model")
+    serial = request.form.get("serial")
 
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+    file = request.files.get("bios")
 
-    with open(filepath, "rb") as f:
-        requests.post(
-            url,
-            data={"chat_id": CHAT_ID},
-            files={"document": f}
-        )
+    if not file:
+        return "No file uploaded"
 
-    return "File Sent Successfully ✔"
+    filename = secure_filename(file.filename)
+    path = os.path.join("uploads", filename)
+    file.save(path)
+
+    message = f"""
+📥 NEW BIOS JOB
+
+👤 Name: {name}
+📱 WhatsApp: {whatsapp}
+💻 Brand: {brand}
+📟 Model: {model}
+🔢 Serial: {serial}
+📎 File: {filename}
+"""
+
+    requests.get(
+        f"https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage",
+        params={
+            "chat_id": "YOUR_CHAT_ID",
+            "text": message
+        }
+    )
+
+    return "Job Submitted Successfully ✅"
 
 if __name__ == "__main__":
     app.run()
