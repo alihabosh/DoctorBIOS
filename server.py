@@ -1,34 +1,59 @@
-<form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+from flask import Flask, render_template, request
+import os
+import requests
+from werkzeug.utils import secure_filename
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+app = Flask(__name__)
 
-<select name="brand" required>
-<option value="">Laptop Brand</option>
-<option>Dell</option>
-<option>HP</option>
-<option>Lenovo</option>
-<option>Asus</option>
-<option>Acer</option>
-<option>Huawei</option>
-<option>Redmi</option>
-<option>Apple</option>
-<option>Panasonic</option>
-<option>MSI</option>
-<option>Samsung</option>
-<option>Sony</option>
-<option>Toshiba</option>
-<option>Fujitsu</option>
-<option>Gigabyte</option>
-<option>Microsoft Surface</option>
-<option>Razer</option>
-</select>
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-<input type="text" name="model" placeholder="Model" required>
-<input type="text" name="serial" placeholder="Serial Number" required>
+BOT_TOKEN = "8399796732:AAH07lP33r9C3ITFBEYV7I2hH7tcRYZsBzk"
+CHAT_ID = "YOUR_CHAT_ID"
 
-<input type="file" name="bios" required>
+def send_to_telegram(file_path, name, whatsapp, brand, model, serial):
+    caption = f"""
+🆕 New BIOS Job Received
 
-<button type="submit">Submit Job</button>
+👤 Name: {name}
+📱 WhatsApp: {whatsapp}
+💻 Brand: {brand}
+📦 Model: {model}
+🔑 Serial: {serial}
+"""
 
-</form>
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+
+    with open(file_path, "rb") as file:
+        response = requests.post(
+            url,
+            data={"chat_id": CHAT_ID, "caption": caption},
+            files={"document": file}
+        )
+    return response.status_code
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+@app.route('/upload', methods=['POST'])
+def upload():
+
+    name = request.form['name']
+    whatsapp = request.form['whatsapp']
+    brand = request.form['brand']
+    model = request.form['model']
+    serial = request.form['serial']
+
+    file = request.files['bios']
+    filename = secure_filename(file.filename)
+    filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+    file.save(filepath)
+
+    send_to_telegram(filepath, name, whatsapp, brand, model, serial)
+
+    return "Uploaded Successfully ✅"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
