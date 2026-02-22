@@ -1,0 +1,39 @@
+body {
+background: #0f172a;
+font-family: Arial;
+color: white;
+text-align: center;
+}
+
+.logo {
+font-size: 30px;
+padding: 20px;
+background: #1e293b;
+}
+
+.upload-box {
+margin: 50px auto;
+padding: 30px;
+background: #1e293b;
+width: 400px;
+border-radius: 10px;
+}
+
+input {
+display: block;
+width: 100%;
+margin: 10px 0;
+padding: 10px;
+border-radius: 5px;
+border: none;
+}
+
+button {
+padding: 10px;
+background: #22c55e;
+color: white;
+border: none;
+width: 100%;
+border-radius: 5px;
+cursor: pointer;
+}

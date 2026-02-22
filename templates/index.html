@@ -1,48 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DoctorBIOS Upload</title>
+<meta charset="UTF-8">
+<title>DoctorBIOS Upload</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-<h2>DoctorBIOS Upload System</h2>
+<header>
+    <div class="logo">DoctorBIOS Diamond 💎</div>
+</header>
+
+<section class="upload-box">
+<h2>Upload BIOS File</h2>
 
 <form id="uploadForm" enctype="multipart/form-data">
-    <label>Name:</label><br>
-    <input type="text" name="name" required><br><br>
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+<input type="text" name="brand" placeholder="Laptop Brand" required>
+<input type="text" name="model" placeholder="Model" required>
+<input type="text" name="serial" placeholder="Serial Number" required>
 
-    <label>WhatsApp:</label><br>
-    <input type="text" name="whatsapp" required><br><br>
+<input type="file" name="bios" required>
 
-    <label>Brand:</label><br>
-    <input type="text" name="brand" required><br><br>
-
-    <label>Model:</label><br>
-    <input type="text" name="model" required><br><br>
-
-    <label>Serial:</label><br>
-    <input type="text" name="serial" required><br><br>
-
-    <label>Upload BIOS:</label><br>
-    <input type="file" name="bios" required><br><br>
-
-    <button type="submit">Submit Job</button>
+<button type="submit">Submit Job</button>
 </form>
+
+</section>
 
 <script>
 document.getElementById("uploadForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+e.preventDefault();
 
-    const formData = new FormData(this);
+const formData = new FormData(this);
 
-    fetch("/submit_job", {
-        method: "POST",
-        body: formData
-    })
-    .then(res => res.text())
-    .then(data => {
-        alert(data);
-    });
+fetch("/upload", {
+method: "POST",
+body: formData
+})
+.then(res => res.text())
+.then(data => {
+alert(data);
+});
 });
 </script>
 
