@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>DoctorBIOS Upload</title>
-
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>DoctorBIOS Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
 <header>
-    <div class="logo">DoctorBIOS Diamond 💎</div>
+<div class="logo">DoctorBIOS Diamond 💎</div>
 </header>
 
-<section class="upload-box">
-<h2>Upload BIOS File</h2>
+<section class="upload-section">
+<h2>Upload BIOS Job</h2>
 
 <form id="uploadForm" enctype="multipart/form-data">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-<input type="text" name="brand" placeholder="Laptop Brand" required>
-<input type="text" name="model" placeholder="Model" required>
-<input type="text" name="serial" placeholder="Serial Number" required>
 
+<label>Name:</label>
+<input type="text" name="name" required>
+
+<label>WhatsApp:</label>
+<input type="text" name="whatsapp" required>
+
+<label>Brand:</label>
+<input type="text" name="brand" required>
+
+<label>Model:</label>
+<input type="text" name="model" required>
+
+<label>Serial:</label>
+<input type="text" name="serial" required>
+
+<label>Upload BIOS:</label>
 <input type="file" name="bios" required>
 
 <button type="submit">Submit Job</button>
-</form>
 
+</form>
 </section>
 
 <script>
@@ -36,7 +45,7 @@ e.preventDefault();
 
 const formData = new FormData(this);
 
-fetch("/upload", {
+fetch("/submit_job", {
 method: "POST",
 body: formData
 })

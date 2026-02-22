@@ -4,46 +4,53 @@ import os
 
 app = Flask(__name__)
 
-BOT_TOKEN = "PUT_YOUR_BOT_TOKEN_HERE"
-CHAT_ID = "PUT_YOUR_CHAT_ID_HERE"
+BOT_TOKEN = "8399796732:AAH07lP33r9C3ITFBEYV7I2hH7tcRYZsBzk"
+CHAT_ID = "8399796732"
 
-@app.route('/')
+UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route('/upload', methods=['POST'])
-def upload():
-    name = request.form['name']
-    whatsapp = request.form['whatsapp']
-    brand = request.form['brand']
-    model = request.form['model']
-    serial = request.form['serial']
-    file = request.files['bios']
+@app.route("/submit_job", methods=["POST"])
+def submit_job():
+    name = request.form["name"]
+    whatsapp = request.form["whatsapp"]
+    brand = request.form["brand"]
+    model = request.form["model"]
+    serial = request.form["serial"]
+    bios = request.files["bios"]
+
+    filepath = os.path.join(UPLOAD_FOLDER, bios.filename)
+    bios.save(filepath)
 
     caption = f"""
-📥 New BIOS Job Received!
+🛠 New BIOS Job
 
 👤 Name: {name}
 📱 WhatsApp: {whatsapp}
 💻 Brand: {brand}
 📦 Model: {model}
-🔑 Serial: {serial}
+🔢 Serial: {serial}
 """
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
 
-    files = {
-        "document": (file.filename, file.stream)
-    }
+    with open(filepath, "rb") as f:
+        requests.post(
+            url,
+            data={
+                "chat_id": CHAT_ID,
+                "caption": caption
+            },
+            files={
+                "document": f
+            }
+        )
 
-    data = {
-        "chat_id": CHAT_ID,
-        "caption": caption
-    }
+    return "BIOS Sent Successfully ✔"
 
-    requests.post(url, data=data, files=files)
-
-    return "BIOS File Sent Successfully ✅"
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
