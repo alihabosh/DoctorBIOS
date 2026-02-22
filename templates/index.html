@@ -54,13 +54,38 @@
     </div>
 </section>
 
+<!-- ================= SMART UPLOAD ================= -->
+
 <section id="upload" class="upload-section">
-    <h2>Upload BIOS File</h2>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Upload File</button>
-    </form>
+
+<h2>Upload BIOS Job</h2>
+
+<input type="text" id="name" placeholder="Full Name" required><br><br>
+
+<input type="text" id="whatsapp" placeholder="WhatsApp Number" required><br><br>
+
+<select id="brand">
+  <option value="Dell">Dell</option>
+  <option value="Lenovo">Lenovo</option>
+</select><br><br>
+
+<input type="file" id="biosFile" required><br><br>
+
+<button onclick="detectDMI()">Detect Model & Serial</button>
+
+<br><br>
+
+Model:<br>
+<input type="text" id="model"><br><br>
+
+Serial Number:<br>
+<input type="text" id="serial"><br><br>
+
+<button onclick="submitJob()">Upload Job</button>
+
 </section>
+
+<!-- ================= SERVICES ================= -->
 
 <section id="services" class="services">
     <div class="card">
@@ -89,6 +114,56 @@
     <br>
     WhatsApp: 0096176737184
 </footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function detectDMI(){
+
+ let file=document.getElementById("biosFile").files[0];
+
+ if(!file){
+   alert("Please select BIOS file first");
+   return;
+ }
+
+ let formData=new FormData();
+ formData.append("bios",file);
+
+ fetch("/detect_dmi",{
+   method:"POST",
+   body:formData
+ })
+ .then(res=>res.json())
+ .then(data=>{
+   document.getElementById("model").value=data.model || "";
+   document.getElementById("serial").value=data.serial || "";
+ });
+
+}
+
+function submitJob(){
+
+ let fd=new FormData();
+
+ fd.append("name",document.getElementById("name").value);
+ fd.append("whatsapp",document.getElementById("whatsapp").value);
+ fd.append("brand",document.getElementById("brand").value);
+ fd.append("model",document.getElementById("model").value);
+ fd.append("serial",document.getElementById("serial").value);
+ fd.append("bios",document.getElementById("biosFile").files[0]);
+
+ fetch("/submit_job",{
+   method:"POST",
+   body:fd
+ }).then(()=>{
+   alert("Uploaded Successfully ✅");
+ });
+
+}
+
+</script>
 
 </body>
 </html>
