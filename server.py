@@ -1,87 +1,36 @@
-from flask import Flask, render_template, request, jsonify
 import os
-import requests
+from flask import Flask
+from telegram import Update
+from telegram.ext import ApplicationBuilder, MessageHandler, ContextTypes, filters
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-BOT_TOKEN = "PUT_YOUR_BOT_TOKEN"
-CHAT_ID = "PUT_YOUR_CHAT_ID"
-
-@app.route("/")
+@app.route('/')
 def home():
-    return render_template("index.html")
+    return "DoctorBIOS Telegram Upload Service Running ✅"
 
-@app.route("/detect_dmi", methods=["POST"])
-def detect_dmi():
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
-    file = request.files["bios"]
-    data = file.read()
+async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message.document:
+        file = await update.message.document.get_file()
 
-    model = "Not Detected"
-    serial = "Not Detected"
+        file_name = update.message.document.file_name
+        save_path = f"uploads/{file_name}"
 
-    try:
-        text = data.decode(errors="ignore")
+        if not os.path.exists("uploads"):
+            os.makedirs("uploads")
 
-        if "Dell" in text:
-            model="Dell Laptop"
+        await file.download_to_drive(save_path)
 
-        if "Lenovo" in text:
-            model="Lenovo Laptop"
+        await update.message.reply_text(
+            f"✅ BIOS File Received:\n{file_name}"
+        )
 
-        if "SerialNumber" in text:
-            idx=text.find("SerialNumber")
-            serial=text[idx:idx+30]
+def run_bot():
+    application = ApplicationBuilder().token(BOT_TOKEN).build()
+    application.add_handler(MessageHandler(filters.Document.ALL, handle_file))
+    application.run_polling()
 
-    except:
-        pass
-
-    return jsonify({
-        "model":model,
-        "serial":serial
-    })
-
-@app.route("/submit_job", methods=["POST"])
-def submit_job():
-
-    name=request.form.get("name")
-    whatsapp=request.form.get("whatsapp")
-    brand=request.form.get("brand")
-    model=request.form.get("model")
-    serial=request.form.get("serial")
-    bios=request.files.get("bios")
-
-    filepath=os.path.join(UPLOAD_FOLDER,bios.filename)
-    bios.save(filepath)
-
-    message=f"""
-💎 NEW BIOS JOB
-
-👤 Name: {name}
-📱 WhatsApp: {whatsapp}
-🏷 Brand: {brand}
-💻 Model: {model}
-🔢 Serial: {serial}
-"""
-
-    requests.post(
-        f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
-        data={
-            "chat_id":CHAT_ID,
-            "text":message
-        }
-    )
-
-    requests.post(
-        f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument",
-        data={"chat_id":CHAT_ID},
-        files={"document":open(filepath,"rb")}
-    )
-
-    return "OK"
-
-if __name__=="__main__":
-    app.run()
+if __name__ == "__main__":
+    run_bot()
