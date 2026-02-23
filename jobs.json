@@ -1,1 +1,49 @@
-{}
+@app.route('/track/<jobid>')
+def track(jobid):
+
+    filepath = f"jobs/{jobid}.txt"
+
+    if not os.path.exists(filepath):
+        return """
+        <h2 style='color:red;text-align:center;padding-top:100px'>
+        Job ID Not Found
+        </h2>
+        """
+
+    with open(filepath, "r") as f:
+        status = f.read()
+
+    return f"""
+    <html>
+    <head>
+        <title>Track Job</title>
+        <style>
+            body {{
+                background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+                font-family: Arial;
+                color: white;
+                text-align: center;
+                padding-top:100px;
+            }}
+            .box {{
+                background:#203a43;
+                padding:30px;
+                width:300px;
+                margin:auto;
+                border-radius:10px;
+                box-shadow:0 0 15px gold;
+            }}
+        </style>
+    </head>
+
+    <body>
+        <div class="box">
+            <h2>Tracking Job ID</h2>
+            <h1>{jobid}</h1>
+            <p>Status: {status}</p>
+            <p>Your BIOS file is under review 🔧</p>
+            <p>We will contact you on WhatsApp soon 📞</p>
+        </div>
+    </body>
+    </html>
+    """

@@ -19,7 +19,11 @@ def track(jobid):
     filepath = f"jobs/{jobid}.txt"
 
     if not os.path.exists(filepath):
-        return "<h2 style='color:red;text-align:center'>Job ID Not Found</h2>"
+        return """
+        <h2 style='color:red;text-align:center;padding-top:100px'>
+        Job ID Not Found
+        </h2>
+        """
 
     with open(filepath, "r") as f:
         status = f.read()
@@ -51,15 +55,7 @@ def track(jobid):
         <div class="box">
             <h2>Tracking Job ID</h2>
             <h1>{jobid}</h1>
-            <h3>Status: {status}</h3>
-        </div>
-    </body>
-    </html>
-    """
-    <body>
-        <div class="box">
-            <h2>Tracking Job ID</h2>
-            <h1>{jobid}</h1>
+            <p>Status: {status}</p>
             <p>Your BIOS file is under review 🔧</p>
             <p>We will contact you on WhatsApp soon 📞</p>
         </div>
