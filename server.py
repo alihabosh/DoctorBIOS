@@ -1,59 +1,51 @@
-from flask import Flask, render_template, request
-import os
+
+from flask import Flask, render_template, request, redirect, url_for, flash
 import requests
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+app.secret_key = "doctorbios_secret"
 
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+# 🔐 PUT YOUR DATA HERE
+BOT_TOKEN = "doctorbios_upload_bot"
+CHAT_ID = "1420084231"
 
-BOT_TOKEN = "8399796732:AAH07lP33r9C3ITFBEYV7I2hH7tcRYZsBzk"
-CHAT_ID = "YOUR_CHAT_ID"
-
-def send_to_telegram(file_path, name, whatsapp, brand, model, serial):
+def send_to_telegram(name, whatsapp, brand, model, serial, file):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
     caption = f"""
-🆕 New BIOS Job Received
-
-👤 Name: {name}
+🧑 Name: {name}
 📱 WhatsApp: {whatsapp}
 💻 Brand: {brand}
-📦 Model: {model}
-🔑 Serial: {serial}
+📟 Model: {model}
+🔢 Serial: {serial}
 """
+    files = {'document': (file.filename, file.stream, file.mimetype)}
+    data = {'chat_id': CHAT_ID, 'caption': caption}
+    r = requests.post(url, data=data, files=files)
+    return r.ok
 
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-
-    with open(file_path, "rb") as file:
-        response = requests.post(
-            url,
-            data={"chat_id": CHAT_ID, "caption": caption},
-            files={"document": file}
-        )
-    return response.status_code
-
-@app.route('/')
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route('/upload', methods=['POST'])
+@app.route("/upload", methods=["POST"])
 def upload():
+    name = request.form.get("name")
+    whatsapp = request.form.get("whatsapp")
+    brand = request.form.get("brand")
+    model = request.form.get("model")
+    serial = request.form.get("serial")
+    bios = request.files.get("bios")
 
-    name = request.form['name']
-    whatsapp = request.form['whatsapp']
-    brand = request.form['brand']
-    model = request.form['model']
-    serial = request.form['serial']
+    if bios:
+        ok = send_to_telegram(name, whatsapp, brand, model, serial, bios)
+        if ok:
+            flash("Uploaded Successfully!")
+        else:
+            flash("Telegram Error! Check Token/ChatID")
+    else:
+        flash("No File Selected!")
 
-    file = request.files['bios']
-    filename = secure_filename(file.filename)
-    filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-    file.save(filepath)
-
-    send_to_telegram(filepath, name, whatsapp, brand, model, serial)
-
-    return "Uploaded Successfully ✅"
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    app.run(debug=True)
