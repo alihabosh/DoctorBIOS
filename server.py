@@ -13,18 +13,27 @@ CHAT_ID = "1420084231"
 if not os.path.exists("uploads"):
     os.makedirs("uploads")
 
-@app.route('/track<jobid>')
+@app.route('/track/<jobid>')
 def track(jobid):
+
+    filepath = f"jobs/{jobid}.txt"
+
+    if not os.path.exists(filepath):
+        return "<h2 style='color:red;text-align:center'>Job ID Not Found</h2>"
+
+    with open(filepath, "r") as f:
+        status = f.read()
+
     return f"""
     <html>
     <head>
         <title>Track Job</title>
         <style>
             body {{
-                background:#0f2027;
-                color:white;
-                text-align:center;
-                font-family:Arial;
+                background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+                font-family: Arial;
+                color: white;
+                text-align: center;
                 padding-top:100px;
             }}
             .box {{
@@ -38,6 +47,15 @@ def track(jobid):
         </style>
     </head>
 
+    <body>
+        <div class="box">
+            <h2>Tracking Job ID</h2>
+            <h1>{jobid}</h1>
+            <h3>Status: {status}</h3>
+        </div>
+    </body>
+    </html>
+    """
     <body>
         <div class="box">
             <h2>Tracking Job ID</h2>
