@@ -13,9 +13,20 @@ CHAT_ID = "1420084231"
 if not os.path.exists("uploads"):
     os.makedirs("uploads")
 
-@app.route('/')
-def index():
-    return render_template("index.html")
+@app.route('/track/<job_id>')
+def track_job_direct(job_id):
+    if os.path.exists("jobs.json"):
+        with open("jobs.json", "r") as f:
+            jobs = json.load(f)
+
+        if job_id in jobs:
+            return render_template("track_result.html",
+                                   job_id=job_id,
+                                   status=jobs[job_id]["status"])
+        else:
+            return "Job ID Not Found"
+
+    return "No Jobs Yet"
 
 @app.route('/upload', methods=['POST'])
 def upload():
