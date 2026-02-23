@@ -13,20 +13,41 @@ CHAT_ID = "1420084231"
 if not os.path.exists("uploads"):
     os.makedirs("uploads")
 
-@app.route('/track/<job_id>')
-def track_job_direct(job_id):
-    if os.path.exists("jobs.json"):
-        with open("jobs.json", "r") as f:
-            jobs = json.load(f)
+@app.route('/track<jobid>')
+def track(jobid):
+    return f"""
+    <html>
+    <head>
+        <title>Track Job</title>
+        <style>
+            body {{
+                background:#0f2027;
+                color:white;
+                text-align:center;
+                font-family:Arial;
+                padding-top:100px;
+            }}
+            .box {{
+                background:#203a43;
+                padding:30px;
+                width:300px;
+                margin:auto;
+                border-radius:10px;
+                box-shadow:0 0 15px gold;
+            }}
+        </style>
+    </head>
 
-        if job_id in jobs:
-            return render_template("track_result.html",
-                                   job_id=job_id,
-                                   status=jobs[job_id]["status"])
-        else:
-            return "Job ID Not Found"
-
-    return "No Jobs Yet"
+    <body>
+        <div class="box">
+            <h2>Tracking Job ID</h2>
+            <h1>{jobid}</h1>
+            <p>Your BIOS file is under review 🔧</p>
+            <p>We will contact you on WhatsApp soon 📞</p>
+        </div>
+    </body>
+    </html>
+    """
 
 @app.route('/upload', methods=['POST'])
 def upload():
