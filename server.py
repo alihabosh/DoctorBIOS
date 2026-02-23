@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import os
 import random
+import json
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -31,6 +32,14 @@ def upload():
 # 🆔 Generate Job ID
     job_id = "DB-" + str(random.randint(1000,9999))
 
+# 💾 Save Job
+    jobs = load_jobs()
+    jobs[job_id] = {
+        "name": name,
+        "status": "Under Repair"
+    }
+    save_jobs(jobs)
+
     caption = f"""
 💎 New DoctorBIOS Job
 
@@ -47,9 +56,9 @@ def upload():
         requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
 
     return f"""
-    <h2>✅ File Uploaded Successfully</h2>
+    <h2>✅ Uploaded Successfully</h2>
     <p>Your Job ID: <b>{job_id}</b></p>
-    <p>We will contact you on WhatsApp shortly.</p>
+    <a href='/track'>Track Your Repair Status</a>
     """
 
 if __name__ == "__main__":
