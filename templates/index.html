@@ -1,70 +1,94 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>DoctorBIOS Diamond</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+}
 
-<body>
+/* NAVBAR */
 
-<div class="navbar">
-<h2>DoctorBIOS 💎 Diamond</h2>
-<ul>
-<li>Home</li>
-<li>Upload</li>
-<li>Contact</li>
-</ul>
-</div>
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(8px);
+}
 
-<div class="hero">
-<h1>Upgrade Your Repair Business 🚀</h1>
-<p>Professional BIOS Repair Service</p>
+.navbar ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
 
-<a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp</a>
-<a class="btn telegram" href="https://t.me/+ldKd3wgyIMU0ZWI0" target="_blank">Telegram</a>
-<a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a>
-<a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
-</div>
+.navbar li{
+cursor:pointer;
+}
 
-<div class="upload-section">
+/* HERO */
 
-<form action="/upload" method="POST" enctype="multipart/form-data">
+.hero{
+margin-top:40px;
+}
 
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+/* BUTTONS */
 
-<select name="brand" required>
-<option value="">Laptop Brand</option>
-<option>Dell</option>
-<option>HP</option>
-<option>Lenovo</option>
-<option>Asus</option>
-<option>Acer</option>
-<option>Huawei</option>
-<option>Redmi</option>
-<option>Apple</option>
-<option>Panasonic</option>
-<option>MSI</option>
-<option>Samsung</option>
-<option>Sony</option>
-<option>Toshiba</option>
-<option>Fujitsu</option>
-<option>Gigabyte</option>
-<option>Microsoft Surface</option>
-<option>Razer</option>
-<option>Intel</option>
-</select>
+.btn{
+padding:10px 20px;
+margin:5px;
+border:none;
+color:white;
+text-decoration:none;
+border-radius:5px;
+display:inline-block;
+transition:0.3s;
+}
 
-<input type="text" name="model" placeholder="Model" required>
-<input type="text" name="serial" placeholder="Serial Number" required>
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px gold;
+}
 
-<input type="file" name="bios" required>
+.whatsapp{background:#25D366;}
+.telegram{background:#0088cc;}
+.tiktok{background:black;}
+.youtube{background:red;}
 
-<button type="submit">Submit Job</button>
+/* UPLOAD */
 
-</form>
-</div>
+.upload-section{
+width:350px;
+margin:40px auto;
+padding:25px;
+border-radius:12px;
+background:rgba(255,255,255,0.07);
+box-shadow:0 0 25px gold;
+backdrop-filter:blur(10px);
+}
 
-</body>
-</html>
+input,select{
+display:block;
+margin:10px auto;
+padding:10px;
+width:90%;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:10px;
+width:95%;
+background:gold;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 10px gold;
+}
