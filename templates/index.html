@@ -1,62 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>DoctorBIOS Diamond</title>
-
-<link rel="stylesheet" href="/static/style.css">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
 <div class="navbar">
-  <h2>DoctorBIOS 💎 Diamond</h2>
+<h2>DoctorBIOS 💎 Diamond</h2>
+<ul>
+<li>Home</li>
+<li>Upload</li>
+<li>Contact</li>
+</ul>
 </div>
 
-<div class="container">
+<div class="hero">
+<h1>Upgrade Your Repair Business 🚀</h1>
+<p>Professional BIOS Repair Service</p>
 
-<h1>Upgrade Your Repair Business</h1>
-<p>Professional BIOS Repair & Unlock Service</p>
-
-<form action="/upload" method="post" enctype="multipart/form-data">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-
-<select name="brand">
-<option>Dell</option>
-<option>HP</option>
-<option>Lenovo</option>
-<option>Asus</option>
-<option>Acer</option>
-</select>
-
-<input type="text" name="model" placeholder="Model">
-<input type="text" name="serial" placeholder="Serial Number">
-
-<input type="file" name="bios" required>
-
-<button type="submit">Upload BIOS</button>
-
-</form>
-
+<a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp</a>
+<a class="btn telegram" href="https://t.me/+ldKd3wgyIMU0ZWI0" target="_blank">Telegram</a>
+<a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a>
+<a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
 </div>
-
-<!-- Floating Contact Box -->
-<div class="floating">
-
-<a href="https://wa.me/YOURNUMBER" target="_blank">WhatsApp</a>
-<a href="https://t.me/YOURBOT" target="_blank">Telegram</a>
-<a href="https://tiktok.com/@YOURUSER" target="_blank">TikTok</a>
-<a href="https://youtube.com/YOURCHANNEL" target="_blank">YouTube</a>
-
-</div>
-
-</body>
-</html>
 
 <div class="upload-section">
-<h2>Upload BIOS File</h2>
 
 <form action="/upload" method="POST" enctype="multipart/form-data">
 
@@ -71,12 +42,18 @@
 <option>Asus</option>
 <option>Acer</option>
 <option>Huawei</option>
+<option>Redmi</option>
+<option>Apple</option>
+<option>Panasonic</option>
 <option>MSI</option>
 <option>Samsung</option>
 <option>Sony</option>
 <option>Toshiba</option>
-<option>Apple</option>
-<option>Panasonic</option>
+<option>Fujitsu</option>
+<option>Gigabyte</option>
+<option>Microsoft Surface</option>
+<option>Razer</option>
+<option>Intel</option>
 </select>
 
 <input type="text" name="model" placeholder="Model" required>
@@ -84,7 +61,7 @@
 
 <input type="file" name="bios" required>
 
-<button type="submit">Upload File</button>
+<button type="submit">Submit Job</button>
 
 </form>
 </div>
