@@ -2,16 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DoctorBIOS Upload</title>
+<title>DoctorBIOS Diamond</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-<div class="container">
 
-<h2>DoctorBIOS Service</h2>
+<nav class="navbar">
+<h2>DoctorBIOS 💎 Diamond</h2>
+<ul>
+<li>Home</li>
+<li>Services</li>
+<li>Upload</li>
+<li>Contact</li>
+</ul>
+</nav>
 
-<form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+<div class="hero">
+<h1>Upgrade Your Repair Business</h1>
+<p>Professional BIOS Repair & Unlock Service</p>
+
+<a class="btn whatsapp">WhatsApp 24/7</a>
+<a class="btn telegram">Telegram Support</a>
+<a class="btn tiktok">TikTok</a>
+<a class="btn youtube">YouTube</a>
+</div>
+
+<div class="upload-section">
+<h2>Upload BIOS File</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
 
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
@@ -24,31 +44,23 @@
 <option>Asus</option>
 <option>Acer</option>
 <option>Huawei</option>
-<option>Redmi</option>
-<option>Apple</option>
-<option>Panasonic</option>
 <option>MSI</option>
 <option>Samsung</option>
 <option>Sony</option>
 <option>Toshiba</option>
-<option>Fujitsu</option>
-<option>Gigabyte</option>
-<option>Microsoft Surface</option>
-<option>Razer</option>
-<option>Intel</option>
+<option>Apple</option>
+<option>Panasonic</option>
 </select>
 
-<input type="text" name="model" placeholder="Laptop Model (ex: Inspiron 3520)" required>
+<input type="text" name="model" placeholder="Model" required>
+<input type="text" name="serial" placeholder="Serial Number" required>
 
-<input type="text" name="serial" placeholder="Serial Number (Service Tag)" required>
+<input type="file" name="bios" required>
 
-<label>Upload BIOS File:</label>
-<input type="file" name="bios" accept=".bin,.fd,.rom,.cap,.exe" required>
-
-<button type="submit">Submit Job</button>
+<button type="submit">Upload File</button>
 
 </form>
-
 </div>
+
 </body>
 </html>

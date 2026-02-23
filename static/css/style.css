@@ -1,46 +1,53 @@
 body {
-background:#0d1b2a;
-color:white;
-font-family:Arial;
-text-align:center;
+background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+font-family: Arial;
+color: white;
+text-align: center;
+margin:0;
 }
 
-.logo {
-font-size:30px;
-margin:20px;
+.navbar {
+display:flex;
+justify-content:space-between;
+padding:20px;
+background:#000;
+}
+
+.navbar ul {
+display:flex;
+gap:20px;
+list-style:none;
 }
 
 .hero {
 margin-top:50px;
 }
 
-.upload-box {
-background:#1b263b;
-width:400px;
-margin:auto;
-padding:20px;
-border-radius:10px;
+.btn {
+padding:10px 20px;
+margin:5px;
+border:none;
+color:white;
 }
 
-input,select {
-width:90%;
+.whatsapp {background:green;}
+.telegram {background:blue;}
+.tiktok {background:black;}
+.youtube {background:red;}
+
+.upload-section {
+margin-top:50px;
+}
+
+input, select {
+display:block;
+margin:10px auto;
 padding:10px;
-margin:10px;
+width:250px;
 }
 
 button {
-background:#2ecc71;
-color:white;
 padding:10px 20px;
+background:gold;
 border:none;
-cursor:pointer;
-}
-
-.buttons a {
-display:inline-block;
-margin:5px;
-padding:10px;
-background:#3498db;
-color:white;
-text-decoration:none;
 }
