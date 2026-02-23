@@ -1,53 +1,121 @@
 body {
-background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-font-family: Arial;
-color: white;
-text-align: center;
-margin:0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Segoe UI', Arial;
+    color: white;
+    text-align: center;
+    margin: 0;
 }
 
+/* Navbar */
 .navbar {
-display:flex;
-justify-content:space-between;
-padding:20px;
-background:#000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0,0,0,0.9);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.navbar h2 {
+    color: gold;
+    margin: 0;
 }
 
 .navbar ul {
-display:flex;
-gap:20px;
-list-style:none;
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
 }
 
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: gold;
+}
+
+/* Hero Section */
 .hero {
-margin-top:50px;
+    margin-top: 70px;
 }
 
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: 0.8;
+}
+
+/* Social Buttons */
 .btn {
-padding:10px 20px;
-margin:5px;
-border:none;
-color:white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.whatsapp {background:green;}
-.telegram {background:blue;}
-.tiktok {background:black;}
-.youtube {background:red;}
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
 
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
+.tiktok { background: #111; }
+.youtube { background: #ff0000; }
+
+/* Upload Section */
 .upload-section {
-margin-top:50px;
+    margin-top: 60px;
+    background: rgba(0,0,0,0.5);
+    padding: 30px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,215,0,0.3);
 }
 
 input, select {
-display:block;
-margin:10px auto;
-padding:10px;
-width:250px;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    border: none;
 }
 
 button {
-padding:10px 20px;
-background:gold;
-border:none;
+    padding: 10px 20px;
+    background: gold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: orange;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .upload-section {
+        width: 90%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

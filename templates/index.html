@@ -1,32 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>DoctorBIOS Diamond</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
 
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
 <body>
 
-<nav class="navbar">
-<h2>DoctorBIOS 💎 Diamond</h2>
-<ul>
-<li>Home</li>
-<li>Services</li>
-<li>Upload</li>
-<li>Contact</li>
-</ul>
-</nav>
+<div class="navbar">
+  <h2>DoctorBIOS 💎 Diamond</h2>
+</div>
 
-<div class="hero">
+<div class="container">
+
 <h1>Upgrade Your Repair Business</h1>
 <p>Professional BIOS Repair & Unlock Service</p>
 
-<a class="btn whatsapp">WhatsApp 24/7</a>
-<a class="btn telegram">Telegram Support</a>
-<a class="btn tiktok">TikTok</a>
-<a class="btn youtube">YouTube</a>
+<form action="/upload" method="post" enctype="multipart/form-data">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+
+<select name="brand">
+<option>Dell</option>
+<option>HP</option>
+<option>Lenovo</option>
+<option>Asus</option>
+<option>Acer</option>
+</select>
+
+<input type="text" name="model" placeholder="Model">
+<input type="text" name="serial" placeholder="Serial Number">
+
+<input type="file" name="bios" required>
+
+<button type="submit">Upload BIOS</button>
+
+</form>
+
 </div>
+
+<!-- Floating Contact Box -->
+<div class="floating">
+
+<a href="https://wa.me/YOURNUMBER" target="_blank">WhatsApp</a>
+<a href="https://t.me/YOURBOT" target="_blank">Telegram</a>
+<a href="https://tiktok.com/@YOURUSER" target="_blank">TikTok</a>
+<a href="https://youtube.com/YOURCHANNEL" target="_blank">YouTube</a>
+
+</div>
+
+</body>
+</html>
 
 <div class="upload-section">
 <h2>Upload BIOS File</h2>
