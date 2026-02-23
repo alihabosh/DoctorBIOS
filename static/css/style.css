@@ -1,19 +1,19 @@
 body{
 margin:0;
 font-family:Segoe UI;
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
 color:white;
 text-align:center;
 }
 
 /* NAVBAR */
+
 .navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(8px);
+background:#001f2f;
 }
 
 .navbar ul{
@@ -22,16 +22,22 @@ gap:20px;
 list-style:none;
 }
 
-.navbar li{
-cursor:pointer;
+.logo{
+color:gold;
 }
 
 /* HERO */
+
 .hero{
-margin-top:40px;
+margin-top:60px;
+}
+
+.hero span{
+color:gold;
 }
 
 /* BUTTONS */
+
 .btn{
 padding:10px 20px;
 margin:5px;
@@ -53,15 +59,15 @@ box-shadow:0 0 15px gold;
 .tiktok{background:black;}
 .youtube{background:red;}
 
-/* UPLOAD */
+/* UPLOAD BOX */
+
 .upload-section{
-width:350px;
+width:400px;
 margin:40px auto;
-padding:25px;
-border-radius:12px;
-background:rgba(255,255,255,0.07);
-box-shadow:0 0 25px gold;
-backdrop-filter:blur(10px);
+padding:30px;
+border-radius:10px;
+background:#002f3f;
+box-shadow:0 0 20px gold;
 }
 
 input,select{
@@ -81,10 +87,8 @@ border:none;
 border-radius:6px;
 cursor:pointer;
 font-weight:bold;
-transition:0.3s;
 }
 
 button:hover{
-transform:scale(1.05);
 box-shadow:0 0 10px gold;
 }
