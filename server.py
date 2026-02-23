@@ -15,7 +15,7 @@ if not os.path.exists("uploads"):
 
 @app.route('/track/<jobid>')
 def track(jobid):
-
+return render_template("index.html")
     filepath = f"jobs/{jobid}.txt"
 
     if not os.path.exists(filepath):
