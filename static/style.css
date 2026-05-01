@@ -1,92 +1,78 @@
-/* تأثيرات الـ IC والمسارات الإلكترونية المتقدمة */
-.image-side {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
+:root {
+    --gold: #d4af37;
+    --dark-bg: #05070a;
+    --gold-glow: rgba(212, 175, 55, 0.3);
 }
 
-.tech-canvas {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    margin: 0; background: var(--dark-bg); color: #fff; font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
 }
 
-/* المعالج المركزي المتوهج */
+/* Navbar & General Layout */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 8%; background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    position: fixed; top: 0; width: 84%; z-index: 1000;
+}
+
+.main-container { padding: 120px 8% 50px; }
+.content-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+
+/* Form Styling */
+.upload-container {
+    background: rgba(15, 17, 23, 0.95); padding: 30px; border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.15); box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+input, select {
+    width: 100%; padding: 12px; margin-bottom: 10px; background: #111;
+    border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 11px;
+}
+.file-upload-section {
+    border: 1px dashed var(--gold); padding: 15px; border-radius: 8px;
+    text-align: center; margin-bottom: 15px; background: rgba(212, 175, 55, 0.05);
+}
+.submit-btn {
+    width: 100%; padding: 15px; background: linear-gradient(135deg, #b8860b, #d4af37);
+    border: none; border-radius: 8px; font-weight: 900; cursor: pointer;
+}
+
+/* Tech Canvas & Animations */
+.image-side { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
+.tech-canvas { position: relative; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; }
+
 .ic-chip {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #16181d, #0a0b10);
-    border: 2px solid var(--gold);
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    color: var(--gold);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.2);
-    z-index: 10;
-    animation: float 4s ease-in-out infinite;
+    width: 100px; height: 100px; background: #0a0b10; border: 2px solid var(--gold);
+    border-radius: 15px; display: flex; justify-content: center; align-items: center;
+    font-size: 40px; color: var(--gold); z-index: 10;
+    box-shadow: 0 0 30px var(--gold-glow); animation: float 4s ease-in-out infinite;
 }
 
 .glow-pulse {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: var(--gold);
-    opacity: 0.2;
-    animation: pulse 2s infinite;
+    position: absolute; width: 100%; height: 100%; border-radius: 15px;
+    background: var(--gold); opacity: 0.2; animation: pulse 2s infinite;
 }
 
-/* المسارات الإلكترونية */
 .circuit-path {
-    position: absolute;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    border-radius: 50%;
-    animation: rotatePath 10s linear infinite;
+    position: absolute; border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 50%; animation: rotatePath 10s linear infinite;
 }
+.p1 { width: 180px; height: 180px; border-top: 2px solid var(--gold); }
+.p2 { width: 250px; height: 250px; border-bottom: 2px solid var(--gold); animation-duration: 15s; }
+.p3 { width: 320px; height: 320px; border-left: 2px solid var(--gold); animation-duration: 20s; }
 
-.p1 { width: 200px; height: 200px; border-top: 2px solid var(--gold); }
-.p2 { width: 280px; height: 280px; border-bottom: 2px solid var(--gold); animation-duration: 15s; }
-.p3 { width: 350px; height: 350px; border-left: 2px solid var(--gold); animation-duration: 20s; }
-
-/* الأيقونات العائمة */
 .floating-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #0f1117;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--gold);
-    font-size: 14px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    position: absolute; width: 35px; height: 35px; background: #0f1117;
+    border: 1px solid var(--gold); border-radius: 50%; display: flex;
+    justify-content: center; align-items: center; color: var(--gold); font-size: 12px;
 }
-
 .i1 { top: 10%; right: 10%; animation: float 5s infinite; }
 .i2 { bottom: 15%; left: 5%; animation: float 6s infinite 1s; }
 .i3 { top: 50%; right: -5%; animation: float 4s infinite 0.5s; }
 
-/* الأنميشن */
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-}
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.3; } 100% { transform: scale(1.4); opacity: 0; } }
+@keyframes rotatePath { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 0.3; }
-    100% { transform: scale(1.5); opacity: 0; }
-}
-
-@keyframes rotatePath {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+.footer { text-align: center; padding: 30px; font-size: 10px; color: #444; }

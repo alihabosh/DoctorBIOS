@@ -5,12 +5,12 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# إعدادات بوت الدكتور بايوس
+# البيانات الخاصة ببوت تليجرام
 BOT_TOKEN = "8399796732:AAEHZQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU"
 CHAT_ID = "1420084231"
 
-if not os.path.exists("uploads"):
-    os.makedirs("uploads")
+if not os.path.exists(app.config['UPLOAD_FOLDER']):
+    os.makedirs(app.config['UPLOAD_FOLDER'])
 
 @app.route('/')
 def index():
@@ -18,23 +18,15 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    name = request.form['name']
-    whatsapp = request.form['whatsapp']
-    brand = request.form['brand']
-    model = request.form['model']
-    serial = request.form['serial']
-
-    file = request.files['bios']
-    filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(filepath)
-
-    caption = f"💎 NEW JOB: {brand} {model}\n👤 Client: {name}\n📞 WhatsApp: {whatsapp}\n🔢 S/N: {serial}"
-
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-    with open(filepath, 'rb') as f:
-        requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
-
-    return render_template("index.html")
+    # كود رفع الملف وإرساله للبوت
+    file = request.files.get('bios')
+    if file:
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        file.save(filepath)
+        caption = f"💎 NEW REQUEST\n👤 {request.form.get('name')}\n💻 {request.form.get('brand')} {request.form.get('model')}"
+        requests.post(f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument", 
+                      data={"chat_id": CHAT_ID, "caption": caption}, files={"document": open(filepath, 'rb')})
+    return "SENT SUCCESSFULLY ✅"
 
 if __name__ == "__main__":
     app.run(debug=True)
