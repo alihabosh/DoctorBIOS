@@ -1,36 +1,3 @@
-<select name="brand" required>
-    <option value="">SELECT LAPTOP BRAND</option>
-    <!-- الماركات الأكثر شيوعاً -->
-    <option value="Dell">Dell</option>
-    <option value="HP">HP / Compaq</option>
-    <option value="Lenovo">Lenovo (ThinkPad/IdeaPad)</option>
-    <option value="Apple">Apple (MacBook Pro/Air)</option>
-    <option value="Asus">Asus (ROG/TUF/ZenBook)</option>
-    <option value="Acer">Acer (Predator/Aspire)</option>
-    <option value="Toshiba">Toshiba / Dynabook</option>
-    <option value="Samsung">Samsung</option>
-    <option value="MSI">MSI (Gaming)</option>
-    <option value="Microsoft">Microsoft Surface</option>
-    <option value="Sony">Sony VAIO</option>
-    <option value="Fujitsu">Fujitsu</option>
-    <option value="LG">LG Gram</option>
-    <option value="Razer">Razer Blade</option>
-    <option value="Huawei">Huawei MateBook</option>
-    <option value="Xiaomi">Xiaomi Mi Notebook</option>
-    <option value="Gigabyte">Gigabyte / Aorus</option>
-    <option value="Gateway">Gateway</option>
-    <option value="Panasonic">Panasonic Toughbook</option>
-    <option value="Alienware">Alienware</option>
-    <option value="Other">Other / Not Listed</option>
-</select>
-```[cite: 2]
-
----
-
-### الكود الكامل للملفات (للتأكد من التناسق)
-
-#### 1. ملف `index_3.html` (مع القائمة الجديدة)
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,40 +33,19 @@
                         <input type="text" name="name" placeholder="FULL NAME" required>
                         <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
                     </div>
-                    
                     <select name="brand" required>
                         <option value="">SELECT LAPTOP BRAND</option>
-                        <option value="Dell">Dell</option>
-                        <option value="HP">HP / Compaq</option>
-                        <option value="Lenovo">Lenovo</option>
-                        <option value="Apple">Apple (MacBook)</option>
-                        <option value="Asus">Asus</option>
-                        <option value="Acer">Acer</option>
-                        <option value="Toshiba">Toshiba</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="MSI">MSI</option>
-                        <option value="Microsoft">Microsoft Surface</option>
-                        <option value="Sony">Sony VAIO</option>
-                        <option value="Fujitsu">Fujitsu</option>
-                        <option value="LG">LG Gram</option>
-                        <option value="Razer">Razer</option>
-                        <option value="Huawei">Huawei</option>
-                        <option value="Xiaomi">Xiaomi</option>
-                        <option value="Gigabyte">Gigabyte</option>
-                        <option value="Alienware">Alienware</option>
-                        <option value="Other">Other</option>
+                        <option>Dell</option><option>HP</option><option>Lenovo</option>
+                        <option>Apple</option><option>Asus</option><option>Acer</option>
                     </select>
-
                     <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
                     <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
-                    
-                    <div class="file-upload-section" onclick="document.getElementById('bios-file').click()">
+                    <div class="file-upload-section">
                         <label for="bios-file" class="file-label">
                             <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
                         </label>
                         <input type="file" name="bios" id="bios-file" required>
                     </div>
-                    
                     <button type="submit" class="submit-btn">SUBMIT TO LAB</button>
                 </form>
             </div>
@@ -121,60 +67,3 @@
 
 </body>
 </html>
-```[cite: 2]
-
----
-
-#### 2. ملف السيرفر `server_4.py` (بدون أي تغيير)
-```python
-import os
-from flask import Flask, render_template, request
-import requests
-
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
-
-BOT_TOKEN = "8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU"
-CHAT_ID = "1420084231"
-
-if not os.path.exists("uploads"):
-    os.makedirs("uploads")
-
-@app.route('/')
-def index():
-    return render_template("index.html")
-
-@app.route('/upload', methods=['POST'])
-def upload():
-    try:
-        name = request.form['name']
-        whatsapp = request.form['whatsapp']
-        brand = request.form['brand']
-        model = request.form['model']
-        serial = request.form['serial']
-        file = request.files['bios']
-
-        if file:
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(filepath)
-
-            caption = (f"💎 *New Job Received*\n\n"
-                       f"👤 *Client:* {name}\n"
-                       f"📞 *WhatsApp:* {whatsapp}\n"
-                       f"💻 *Brand:* {brand}\n"
-                       f"📌 *Model:* {model}\n"
-                       f"🔢 *Serial:* {serial}")
-
-            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-            with open(filepath, 'rb') as f:
-                requests.post(url, data={"chat_id": CHAT_ID, "caption": caption, "parse_mode": "Markdown"}, files={"document": f})
-
-            return "<script>alert('Sent Successfully!'); window.location.href='/';</script>"
-    except Exception as e:
-        return f"Error: {e}"
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-```[cite: 3]
-
-بهذا الشكل، أصبح الموقع يدعم جميع الموديلات التي قد يحتاجها العملاء مع الحفاظ على الشكل "الذهب" والأنيميشن الاحترافي[cite: 1, 2]. أي خدمة ثانية أنا جاهز!
