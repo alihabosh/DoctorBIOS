@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Professional Firmware Lab</title>
+    <title>Doctor BIOS | Professional Lab</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,39 +13,36 @@
     <div class="logo">DOCTOR <span>BIOS</span> 💎</div>
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
-        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank"><i class="fab fa-youtube"></i></a></li>
-        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank"><i class="fab fa-tiktok"></i></a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank"><i class="fab fa-telegram"></i></a></li>
+        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank">YOUTUBE</a></li>
+        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank">TIKTOK</a></li>
+        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">TELEGRAM</a></li>
     </ul>
-    <div class="nav-actions">
-        <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> SUPPORT</a>
-    </div>
+    <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> CONTACT SUPPORT</a>
 </nav>
 
 <div class="main-container">
     <div class="content-wrapper">
         <div class="text-side">
             <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
-            <p class="subtitle">Global leader in professional BIOS unlock, firmware engineering, and motherboard repair.[cite: 2]</p>
+            <p class="subtitle">Global leader in professional BIOS unlock and firmware engineering. Unmatched expertise at your fingertips.[cite: 2]</p>
             
             <div class="upload-container">
                 <form action="/upload" method="POST" enctype="multipart/form-data">
                     <h4 class="form-title">QUICK SUBMISSION PORTAL</h4>
                     <div class="input-row">
                         <input type="text" name="name" placeholder="FULL NAME" required>
-                        <input type="text" name="whatsapp" placeholder="WHATSAPP" required>
+                        <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
                     </div>
                     <select name="brand" required>
-                        <option value="">SELECT BRAND</option>
+                        <option value="">SELECT LAPTOP BRAND</option>
                         <option>Dell</option><option>HP</option><option>Lenovo</option>
-                        <option>Apple</option><option>Asus</option><option>Toshiba</option>
-                        <option>Other</option>
+                        <option>Apple</option><option>Asus</option><option>Acer</option>
                     </select>
-                    <input type="text" name="model" placeholder="MODEL" required>
-                    <input type="text" name="serial" placeholder="SERIAL" required>
+                    <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
+                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
                     <div class="file-upload-section">
                         <label for="bios-file" class="file-label">
-                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN)
+                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
                         </label>
                         <input type="file" name="bios" id="bios-file" required>
                     </div>
@@ -56,18 +53,17 @@
 
         <div class="image-side">
             <div class="tech-canvas">
-                <div class="ic-chip"><i class="fas fa-microchip"></i><div class="glow-pulse"></div></div>
+                <div class="ic-chip"><i class="fas fa-microchip"></i></div>
                 <div class="circuit-path p1"></div>
                 <div class="circuit-path p2"></div>
                 <div class="circuit-path p3"></div>
-                <div class="floating-icon i1"><i class="fas fa-unlock-alt"></i></div>
-                <div class="floating-icon i2"><i class="fas fa-code"></i></div>
-                <div class="floating-icon i3"><i class="fas fa-database"></i></div>
+                <div class="floating-icon" style="top:20%; right:15%;"><i class="fas fa-lock"></i></div>
+                <div class="floating-icon" style="bottom:25%; right:10%;"><i class="fas fa-server"></i></div>
+                <div class="floating-icon" style="bottom:30%; left:10%;"><i class="fas fa-code"></i></div>
             </div>
         </div>
     </div>
 </div>
 
-<footer class="footer">&copy; 2026 DOCTOR BIOS | ALI HABOSH.</footer>
 </body>
 </html>
