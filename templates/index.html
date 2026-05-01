@@ -1,76 +1,44 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>DoctorBIOS Diamond</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Doctor BIOS | Premium Repair</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
 <div class="navbar">
-<h2 class="logo">DoctorBIOS 💎 Diamond</h2>
-
-<ul>
-<li>Home</li>
-<li>Services</li>
-<li>Upload</li>
-<li>Contact</li>
-</ul>
+    <div class="logo">DOCTOR BIOS 💎</div>
+    <ul style="display:flex; list-style:none; gap:20px;">
+        <li>Home</li>
+        <li>Track Order</li>
+        <li>About</li>
+    </ul>
 </div>
 
-<div class="hero">
-
-<h1>Upgrade Your Repair Business <br>
-With <span>Dr. BIOS – Ali Haboush 🚀</span></h1>
-
-<p>Professional BIOS Repair & Unlock Service – Fast, Secure & Trusted Worldwide</p>
-
-<a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp 24/7</a> <a class="btn telegram" href="https://t.me/+umBA7AesEX82YmM8" target="_blank">Telegram Support</a> <a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a> <a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
-
+<div class="hero" style="margin-top:80px;">
+    <h1 style="font-size: 50px;">ART OF BIOS REPAIR <br>WITH A <span style="color:#d4af37;">PREMIUM</span> TOUCH</h1>
+    <p style="color:#888;">Professional BIOS Unlock & Firmware Engineering</p>
 </div>
 
 <div class="upload-section">
-
-<h2>Upload BIOS File</h2>
-
-<form action="/upload" method="POST" enctype="multipart/form-data">
-
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-
-<select name="brand" required>
-<option value="">Laptop Brand</option>
-<option>Dell</option>
-<option>HP</option>
-<option>Lenovo</option>
-<option>Asus</option>
-<option>Acer</option>
-<option>Huawei</option>
-<option>Redmi</option>
-<option>Apple</option>
-<option>Panasonic</option>
-<option>MSI</option>
-<option>Samsung</option>
-<option>Sony</option>
-<option>Toshiba</option>
-<option>Fujitsu</option>
-<option>Gigabyte</option>
-<option>Microsoft Surface</option>
-<option>Razer</option>
-<option>Intel</option>
-</select>
-
-<input type="text" name="model" placeholder="Model" required>
-<input type="text" name="serial" placeholder="Serial Number" required>
-
-<input type="file" name="bios" required>
-
-<button type="submit">Upload File</button>
-
-</form>
-
+    <h2 style="margin-top:0;">QUICK SUBMISSION</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+        <select name="brand" required>
+            <option value="">Select Brand</option>
+            <option>Dell</option>
+            <option>HP</option>
+            <option>Lenovo</option>
+            <option>MacBook</option>
+            <option>Asus</option>
+        </select>
+        <input type="text" name="model" placeholder="Model (e.g. Tecra A50)" required>
+        <input type="text" name="serial" placeholder="Serial Number" required>
+        <input type="file" name="bios" required>
+        <button type="submit">SUBMIT TO LAB</button>
+    </form>
 </div>
 
 </body>

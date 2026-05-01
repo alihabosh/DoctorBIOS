@@ -1,94 +1,83 @@
-body{
-margin:0;
-font-family:Segoe UI;
-background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
-color:white;
-text-align:center;
+/* Premium Luxury Style for DoctorBIOS */
+:root {
+    --gold: #d4af37;
+    --dark-bg: #05070a;
+    --glass: rgba(255, 255, 255, 0.03);
+    --gold-glow: rgba(212, 175, 55, 0.3);
 }
 
-/* NAVBAR */
-
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
-background:#001f2f;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: radial-gradient(circle at top right, #1a1c23 0%, var(--dark-bg) 100%);
+    color: #e0e0e0;
+    text-align: center;
 }
 
-.navbar ul{
-display:flex;
-gap:20px;
-list-style:none;
+/* Navbar - Glassmorphism */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(10, 12, 16, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-.logo{
-color:gold;
+.logo {
+    color: var(--gold);
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-/* HERO */
-
-.hero{
-margin-top:60px;
+/* Premium Upload Card */
+.upload-section {
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 45px;
+    background: linear-gradient(145deg, #0f1117 0%, #05070a 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 25px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.7);
 }
 
-.hero span{
-color:gold;
+/* Modern Inputs */
+input, select {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: white;
+    box-sizing: border-box;
 }
 
-/* BUTTONS */
-
-.btn{
-padding:10px 20px;
-margin:5px;
-border:none;
-color:white;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-transition:0.3s;
+input:focus {
+    border-color: var(--gold);
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 15px gold;
+/* Submit Button - Luxury Gold */
+button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px var(--gold-glow);
+    transition: 0.3s;
 }
 
-.whatsapp{background:#25D366;}
-.telegram{background:#0088cc;}
-.tiktok{background:black;}
-.youtube{background:red;}
-
-/* UPLOAD BOX */
-
-.upload-section{
-width:400px;
-margin:40px auto;
-padding:30px;
-border-radius:10px;
-background:#002f3f;
-box-shadow:0 0 20px gold;
-}
-
-input,select{
-display:block;
-margin:10px auto;
-padding:10px;
-width:90%;
-border:none;
-border-radius:6px;
-}
-
-button{
-padding:10px;
-width:95%;
-background:gold;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-}
-
-button:hover{
-box-shadow:0 0 10px gold;
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px var(--gold-glow);
 }
