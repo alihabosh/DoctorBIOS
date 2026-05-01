@@ -1,4 +1,4 @@
-/* Doctor BIOS - Premium Responsive CSS */
+/* Doctor BIOS - Premium Responsive CSS (Complete & Updated) */
 :root {
     --gold: #d4af37;
     --dark-bg: #05070a;
@@ -142,7 +142,7 @@ input:focus { border-color: var(--gold); }
     display: block;
 }
 
-#bios-file { display: none; } /* إخفاء زر الملف التقليدي */
+#bios-file { display: none; }
 
 .submit-btn { 
     width: 100%; 
@@ -182,7 +182,6 @@ input:focus { border-color: var(--gold); }
     align-items: center; 
 }
 
-/* المعالج (IC) */
 .ic-chip { 
     width: 110px; 
     height: 110px; 
@@ -199,7 +198,6 @@ input:focus { border-color: var(--gold); }
     animation: float-ic 3s ease-in-out infinite;[cite: 1]
 }
 
-/* الدوائر الدوارة */
 .circuit-path { 
     position: absolute; 
     border: 1px solid rgba(212, 175, 55, 0.1); 
@@ -220,7 +218,6 @@ input:focus { border-color: var(--gold); }
     animation: spin-circle 20s linear reverse infinite;[cite: 1]
 }
 
-/* الأيقونات الطائرة */
 .floating-icon { 
     position: absolute; 
     width: 40px; 
@@ -236,7 +233,6 @@ input:focus { border-color: var(--gold); }
     animation: float-ic 4s ease-in-out infinite alternate;[cite: 1]
 }
 
-/* --- حركات الأنيميشن (Keyframes) --- */
 @keyframes spin-circle {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -247,7 +243,7 @@ input:focus { border-color: var(--gold); }
     50% { transform: translateY(-20px); }
 }
 
-/* --- التجاوب مع الموبايل (Responsive) --- */
+/* --- التجاوب مع الموبايل (Updated Responsive) --- */
 @media (max-width: 992px) {
     .content-wrapper { flex-direction: column; text-align: center; }
     .text-side { flex: none; width: 100%; }
@@ -256,12 +252,34 @@ input:focus { border-color: var(--gold); }
 }
 
 @media (max-width: 768px) {
-    .navbar { width: 100%; left: 0; padding: 15px 5%; box-sizing: border-box; }
-    .nav-links { display: none; } /* إخفاء الروابط في الموبايل */
+    .navbar { 
+        width: 100%; 
+        left: 0; 
+        padding: 15px 5%; 
+        box-sizing: border-box; 
+        flex-direction: column; /* جعل اللوجو والأيقونات فوق بعض */
+        gap: 15px;
+    }
+
+    /* إظهار الروابط كأيقونات فقط في الموبايل لضمان شكل "دهب" */
+    .nav-links { 
+        display: flex; 
+        list-style: none;
+        gap: 30px; 
+        padding: 0;
+        margin: 0;
+    }
+    .nav-links a { font-size: 22px; opacity: 1; color: var(--gold); }
+    .nav-links li a { font-size: 0; } /* إخفاء النص */
+    .nav-links li a i { font-size: 22px; } /* إظهار الأيقونة */
+
+    .main-container { padding-top: 240px; } /* زيادة المساحة بسبب كبر الهيدر */
     .tech-canvas { width: 300px; height: 300px; }
-    .ic-chip { width: 80px; height: 80px; font-size: 30px; }
-    .p2 { width: 220px; height: 220px; }
-    .p3 { width: 280px; height: 280px; }
-    .upload-container { padding: 25px; }
+    .ic-chip { width: 85px; height: 85px; font-size: 35px; }
+    .p2 { width: 240px; height: 240px; }
+    .p3 { width: 300px; height: 300px; }
+    .upload-container { padding: 30px 20px; }
     .input-row { flex-direction: column; gap: 0; }
+    .btn-contact { width: 100%; text-align: center; padding: 12px 0; }
 }
+```[cite: 1]
