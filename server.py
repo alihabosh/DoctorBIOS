@@ -9,8 +9,8 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 BOT_TOKEN = "8399796732:AAEHZQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU"
 CHAT_ID = "1420084231"
 
-if not os.path.exists(app.config['UPLOAD_FOLDER']):
-    os.makedirs(app.config['UPLOAD_FOLDER'])
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
 
 @app.route('/')
 def index():
@@ -18,7 +18,7 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    try:
+
         name = request.form.get('name')
         whatsapp = request.form.get('whatsapp')
         brand = request.form.get('brand')
