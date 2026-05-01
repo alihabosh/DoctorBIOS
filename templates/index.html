@@ -2,44 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Doctor BIOS | Premium Repair</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor BIOS | Premium Firmwares</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<div class="navbar">
-    <div class="logo">DOCTOR BIOS 💎</div>
-    <ul style="display:flex; list-style:none; gap:20px;">
-        <li>Home</li>
-        <li>Track Order</li>
-        <li>About</li>
+<nav class="navbar">
+    <div class="logo">DOCTOR <span>BIOS</span> 💎</div>
+    <ul class="nav-links">
+        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+        <li><a href="https://t.me/AliHabosh" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
     </ul>
+    <div class="nav-actions">
+        <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> CONTACT SUPPORT</a>
+    </div>
+</nav>
+
+<div class="hero-section">
+    <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
+    <p>Professional Firmware Modification & BIOS Unlock Services</p>
+    
+    <div class="upload-container">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <h3 style="color: #d4af37; margin-bottom: 20px;">QUICK SUBMISSION</h3>
+            <div class="input-group">
+                <input type="text" name="name" placeholder="Your Full Name" required>
+                <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+            </div>
+            <select name="brand" required>
+                <option value="">Select Laptop Brand</option>
+                <option>Dell</option>
+                <option>HP</option>
+                <option>Lenovo</option>
+                <option>MacBook</option>
+                <option>Asus/Acer</option>
+            </select>
+            <input type="text" name="model" placeholder="Model (e.g. Latitude 5400)" required>
+            <input type="text" name="serial" placeholder="Serial Number / Service Tag" required>
+            
+            <div class="file-upload">
+                <label for="bios-file">UPLOAD YOUR BIOS FILE</label>
+                <input type="file" name="bios" id="bios-file" required>
+            </div>
+            
+            <button type="submit">SUBMIT TO LAB</button>
+        </form>
+    </div>
 </div>
 
-<div class="hero" style="margin-top:80px;">
-    <h1 style="font-size: 50px;">ART OF BIOS REPAIR <br>WITH A <span style="color:#d4af37;">PREMIUM</span> TOUCH</h1>
-    <p style="color:#888;">Professional BIOS Unlock & Firmware Engineering</p>
-</div>
-
-<div class="upload-section">
-    <h2 style="margin-top:0;">QUICK SUBMISSION</h2>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-        <select name="brand" required>
-            <option value="">Select Brand</option>
-            <option>Dell</option>
-            <option>HP</option>
-            <option>Lenovo</option>
-            <option>MacBook</option>
-            <option>Asus</option>
-        </select>
-        <input type="text" name="model" placeholder="Model (e.g. Tecra A50)" required>
-        <input type="text" name="serial" placeholder="Serial Number" required>
-        <input type="file" name="bios" required>
-        <button type="submit">SUBMIT TO LAB</button>
-    </form>
-</div>
+<footer style="margin-top: 50px; padding: 20px; color: #555; font-size: 12px;">
+    &copy; 2026 DOCTOR BIOS | ALL RIGHTS RESERVED
+</footer>
 
 </body>
 </html>

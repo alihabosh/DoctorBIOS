@@ -1,83 +1,122 @@
-/* Premium Luxury Style for DoctorBIOS */
 :root {
     --gold: #d4af37;
     --dark-bg: #05070a;
     --glass: rgba(255, 255, 255, 0.03);
-    --gold-glow: rgba(212, 175, 55, 0.3);
+    --gold-glow: rgba(212, 175, 55, 0.2);
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: radial-gradient(circle at top right, #1a1c23 0%, var(--dark-bg) 100%);
-    color: #e0e0e0;
-    text-align: center;
+    padding: 0;
+    background-color: var(--dark-bg);
+    background-image: radial-gradient(circle at 50% -20%, #1a1c23, #05070a);
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Navbar - Glassmorphism */
+/* NAVBAR STYLE */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background: rgba(10, 12, 16, 0.8);
+    padding: 15px 5%;
+    background: rgba(10, 12, 16, 0.85);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    position: fixed;
+    top: 0; width: 90%; z-index: 1000;
 }
 
 .logo {
-    color: var(--gold);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 900;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
-/* Premium Upload Card */
-.upload-section {
-    max-width: 450px;
-    margin: 60px auto;
-    padding: 45px;
+.logo span { color: var(--gold); }
+
+.nav-links { display: flex; list-style: none; gap: 25px; }
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+
+.btn-contact {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-contact:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* HERO SECTION */
+.hero-section {
+    padding-top: 140px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.hero-section h1 span {
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--gold-glow);
+}
+
+/* UPLOAD CARD */
+.upload-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 40px;
     background: linear-gradient(145deg, #0f1117 0%, #05070a 100%);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 25px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
 }
 
-/* Modern Inputs */
 input, select {
-    display: block;
     width: 100%;
-    padding: 14px;
-    margin: 15px 0;
-    background: var(--glass);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
-    color: white;
+    color: #fff;
     box-sizing: border-box;
 }
 
-input:focus {
-    border-color: var(--gold);
-    outline: none;
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* Submit Button - Luxury Gold */
 button {
     width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
-    color: #000;
+    padding: 18px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--gold), #b8860b);
     border: none;
     border-radius: 12px;
     font-weight: 900;
-    font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 10px 25px var(--gold-glow);
     transition: 0.3s;
 }
 
 button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px var(--gold-glow);
+    box-shadow: 0 10px 30px var(--gold-glow);
 }
