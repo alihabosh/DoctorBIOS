@@ -1,217 +1,4 @@
-/* Doctor BIOS - Premium Responsive CSS (Final Gold Version) */
-:root {
-    --gold: #d4af37;
-    --dark-bg: #05070a;
-    --gold-glow: rgba(212, 175, 55, 0.3);
-}
-
-body {
-    margin: 0; 
-    background: var(--dark-bg); 
-    color: #fff; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden; 
-    background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);
-}
-
-/* --- الهيدر (Header) --- */
-.navbar {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 20px 8%; 
-    background: rgba(0,0,0,0.85); 
-    backdrop-filter: blur(10px);
-    position: fixed; 
-    top: 0; 
-    width: 84%; 
-    z-index: 1000;
-}
-
-.logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
-.logo span { color: var(--gold); }
-
-.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
-.nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    opacity: 0.8; 
-    transition: 0.3s; 
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.nav-links a:hover { opacity: 1; color: var(--gold); }
-
-.btn-contact { 
-    border: 1px solid var(--gold); 
-    color: var(--gold); 
-    padding: 8px 18px; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    transition: 0.3s;
-}
-.btn-contact:hover { background: var(--gold); color: #000; }
-
-/* --- الحاوية الرئيسية (Main Layout) --- */
-.main-container { 
-    padding: 160px 8% 80px; 
-    min-height: 80vh; 
-    display: flex; 
-    align-items: center;[cite: 1]
-}
-
-.content-wrapper { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%; 
-    gap: 60px; 
-    flex-wrap: wrap;[cite: 1]
-}
-
-.text-side { flex: 1.1; min-width: 350px; }
-
-h1 { 
-    font-size: 48px; 
-    font-weight: 900; 
-    line-height: 1.1; 
-    margin-bottom: 15px; 
-    text-transform: uppercase; 
-}
-h1 span { color: var(--gold); }
-
-.subtitle { 
-    color: #888; 
-    font-size: 14px; 
-    max-width: 500px; 
-    margin-bottom: 40px; 
-    line-height: 1.6;[cite: 1]
-}
-
-/* --- بوابة الإرسال (Form UI) --- */
-.upload-container { 
-    background: rgba(15, 17, 23, 0.7); 
-    padding: 40px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(255,255,255,0.05); 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);[cite: 1]
-}
-
-.form-title { 
-    font-size: 13px; 
-    letter-spacing: 1.5px; 
-    margin-bottom: 25px; 
-    color: #fff; 
-    font-weight: bold;
-}
-
-.input-row { display: flex; gap: 15px; }
-
-input, select { 
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 15px; 
-    background: rgba(0,0,0,0.4); 
-    border: 1px solid #222; 
-    border-radius: 6px; 
-    color: #fff; 
-    font-size: 12px; 
-    outline: none;
-    transition: 0.3s;
-}
-
-.file-upload-section { 
-    border: 1px dashed var(--gold); 
-    padding: 25px; 
-    border-radius: 6px; 
-    text-align: center; 
-    margin-bottom: 20px; 
-    cursor: pointer;
-    background: rgba(212, 175, 55, 0.02);
-}
-
-.file-label { 
-    color: var(--gold); 
-    font-size: 11px; 
-    font-weight: bold; 
-    text-transform: uppercase; 
-    display: block;
-}
-
-#bios-file { display: none; }
-
-.submit-btn { 
-    width: 100%; 
-    padding: 18px; 
-    background: var(--gold); 
-    border: none; 
-    border-radius: 6px; 
-    font-weight: 900; 
-    cursor: pointer; 
-    transition: 0.4s; 
-    color: #000;
-    text-transform: uppercase;
-}
-
-.submit-btn:hover { background: #fff; transform: translateY(-3px); }
-
-/* --- قسم الأنيميشن (Tech Animation) --- */
-.image-side { 
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    position: relative; 
-    min-width: 350px; 
-}
-
-.tech-canvas { 
-    position: relative; 
-    width: 400px; 
-    height: 400px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.ic-chip { 
-    width: 110px; 
-    height: 110px; 
-    background: #0a0b10; 
-    border: 2px solid var(--gold); 
-    border-radius: 18px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 45px; 
-    color: var(--gold); 
-    z-index: 10; 
-    box-shadow: 0 0 50px var(--gold-glow); 
-    animation: float-ic 3s ease-in-out infinite;[cite: 1]
-}
-
-.circuit-path { position: absolute; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 50%; }
-
-.p2 { 
-    width: 300px; height: 300px; 
-    border-top: 2px solid var(--gold); 
-    animation: spin-circle 12s linear infinite;[cite: 1]
-}
-
-.p3 { 
-    width: 380px; height: 380px; 
-    border-bottom: 2px solid var(--gold); 
-    animation: spin-circle 20s linear reverse infinite;[cite: 1]
-}
-
-@keyframes spin-circle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes float-ic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-/* --- الحل النهائي لمشكلة الموبايل --- */
+/* --- الحل النهائي لإظهار الأيقونات على التلفون --- */
 @media (max-width: 768px) {
     .navbar { 
         width: 100% !important; 
@@ -220,31 +7,46 @@ input, select {
         box-sizing: border-box !important; 
         flex-direction: column !important; 
         gap: 15px !important;
+        display: flex !important;
     }
 
-    /* إظهار الأيقونات بقوة !important */
+    /* إجبار القائمة على الظهور وتوسيطها */
     .nav-links { 
         display: flex !important; 
-        gap: 35px !important; 
-        justify-content: center !important;
-    }
-
-    .nav-links li a { 
-        font-size: 0 !important; /* إخفاء النص فقط */
-        color: var(--gold) !important;
+        visibility: visible !important;
         opacity: 1 !important;
+        gap: 30px !important; 
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+    
+    /* تنسيق الأيقونات (يوتيوب، تيك توك، تليجرام) */
+    .nav-links li a { 
+        font-size: 0 !important; /* إخفاء الكلمات فقط */
+        color: var(--gold) !important;
+        text-decoration: none !important;
     }
 
     .nav-links li a i { 
-        font-size: 28px !important; /* تكبير حجم الأيقونة (تليجرام، يوتيوب، تيك توك) */
-        display: block !important;
+        font-size: 26px !important; /* تكبير حجم الأيقونة لتكون واضحة جداً */
+        display: inline-block !important;
         visibility: visible !important;
     }
 
-    .main-container { padding-top: 250px !important; }
+    /* موازنة المسافات للمحتوى تحت الهيدر */
+    .main-container { padding-top: 250px !important; } 
     .content-wrapper { flex-direction: column !important; text-align: center !important; }
-    h1 { font-size: 30px !important; }
-    .tech-canvas { width: 300px !important; height: 300px !important; }
-    .ic-chip { width: 85px !important; height: 85px !important; }
-    .input-row { flex-direction: column; gap: 0; }
+    
+    h1 { font-size: 32px !important; }
+    .tech-canvas { width: 280px !important; height: 280px !important; }
 }
+```[cite: 1]
+
+---
+
+### نصيحة إضافية لضمان النتيجة:
+1.  **تحديث الكاش:** بعد حفظ الملف، قم بفتح الموقع على هاتفك باستخدام **"وضع التصفح الخفي" (Incognito Mode)** لضمان تحميل التعديلات الجديدة فوراً[cite: 1].
+2.  **مكتبة الأيقونات:** تأكد أنك تستخدم مكتبة `Font Awesome` في ملف الـ HTML (وهي موجودة بالفعل في الكود الذي أرسلته سابقاً) لتعمل الأيقونات بشكل صحيح[cite: 1, 2].
+
+بهذا التعديل، ستظهر الأيقونات الذهبية تحت اللوجو مباشرة في الهاتف بشكل مرتب وأنيق، تماماً كما تظهر الكلمات في نسخة الكمبيوتر الموضحة في الصورة **image_1f1158.jpg**[cite: 1]. هل كل شيء تمام الآن؟
