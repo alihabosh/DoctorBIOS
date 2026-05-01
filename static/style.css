@@ -1,4 +1,4 @@
-/* Doctor BIOS - Premium Responsive CSS (Complete & Updated) */
+/* Doctor BIOS - Premium Responsive CSS (Final Gold Version) */
 :root {
     --gold: #d4af37;
     --dark-bg: #05070a;
@@ -11,7 +11,7 @@ body {
     color: #fff; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden; 
-    background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);[cite: 1]
+    background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);
 }
 
 /* --- الهيدر (Header) --- */
@@ -20,25 +20,28 @@ body {
     justify-content: space-between; 
     align-items: center;
     padding: 20px 8%; 
-    background: rgba(0,0,0,0.8); 
+    background: rgba(0,0,0,0.85); 
     backdrop-filter: blur(10px);
     position: fixed; 
     top: 0; 
     width: 84%; 
-    z-index: 1000;[cite: 1]
+    z-index: 1000;
 }
 
 .logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
 .logo span { color: var(--gold); }
 
-.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { 
     color: #fff; 
     text-decoration: none; 
     font-size: 11px; 
     font-weight: bold; 
-    opacity: 0.7; 
+    opacity: 0.8; 
     transition: 0.3s; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .nav-links a:hover { opacity: 1; color: var(--gold); }
 
@@ -122,8 +125,6 @@ input, select {
     transition: 0.3s;
 }
 
-input:focus { border-color: var(--gold); }
-
 .file-upload-section { 
     border: 1px dashed var(--gold); 
     padding: 25px; 
@@ -155,14 +156,9 @@ input:focus { border-color: var(--gold); }
     transition: 0.4s; 
     color: #000;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-.submit-btn:hover { 
-    background: #fff; 
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); 
-}
+.submit-btn:hover { background: #fff; transform: translateY(-3px); }
 
 /* --- قسم الأنيميشن (Tech Animation) --- */
 .image-side { 
@@ -198,13 +194,7 @@ input:focus { border-color: var(--gold); }
     animation: float-ic 3s ease-in-out infinite;[cite: 1]
 }
 
-.circuit-path { 
-    position: absolute; 
-    border: 1px solid rgba(212, 175, 55, 0.1); 
-    border-radius: 50%; 
-}
-
-.p1 { width: 220px; height: 220px; border: 1px solid rgba(212, 175, 55, 0.05); }
+.circuit-path { position: absolute; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 50%; }
 
 .p2 { 
     width: 300px; height: 300px; 
@@ -218,68 +208,43 @@ input:focus { border-color: var(--gold); }
     animation: spin-circle 20s linear reverse infinite;[cite: 1]
 }
 
-.floating-icon { 
-    position: absolute; 
-    width: 40px; 
-    height: 40px; 
-    background: #0f1117; 
-    border: 1px solid var(--gold); 
-    border-radius: 50%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    color: var(--gold); 
-    font-size: 14px; 
-    animation: float-ic 4s ease-in-out infinite alternate;[cite: 1]
-}
+@keyframes spin-circle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes float-ic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-@keyframes spin-circle {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes float-ic {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-/* --- التجاوب مع الموبايل (Updated Responsive) --- */
-@media (max-width: 992px) {
-    .content-wrapper { flex-direction: column; text-align: center; }
-    .text-side { flex: none; width: 100%; }
-    .subtitle { margin: 0 auto 40px; }
-    h1 { font-size: 36px; }
-}
-
+/* --- الحل النهائي لمشكلة الموبايل --- */
 @media (max-width: 768px) {
     .navbar { 
-        width: 100%; 
-        left: 0; 
-        padding: 15px 5%; 
-        box-sizing: border-box; 
-        flex-direction: column; /* جعل اللوجو والأيقونات فوق بعض */
-        gap: 15px;
+        width: 100% !important; 
+        left: 0 !important; 
+        padding: 15px 5% !important; 
+        box-sizing: border-box !important; 
+        flex-direction: column !important; 
+        gap: 15px !important;
     }
 
-    /* إظهار الروابط كأيقونات فقط في الموبايل لضمان شكل "دهب" */
+    /* إظهار الأيقونات بقوة !important */
     .nav-links { 
-        display: flex; 
-        list-style: none;
-        gap: 30px; 
-        padding: 0;
-        margin: 0;
+        display: flex !important; 
+        gap: 35px !important; 
+        justify-content: center !important;
     }
-    .nav-links a { font-size: 22px; opacity: 1; color: var(--gold); }
-    .nav-links li a { font-size: 0; } /* إخفاء النص */
-    .nav-links li a i { font-size: 22px; } /* إظهار الأيقونة */
 
-    .main-container { padding-top: 240px; } /* زيادة المساحة بسبب كبر الهيدر */
-    .tech-canvas { width: 300px; height: 300px; }
-    .ic-chip { width: 85px; height: 85px; font-size: 35px; }
-    .p2 { width: 240px; height: 240px; }
-    .p3 { width: 300px; height: 300px; }
-    .upload-container { padding: 30px 20px; }
+    .nav-links li a { 
+        font-size: 0 !important; /* إخفاء النص فقط */
+        color: var(--gold) !important;
+        opacity: 1 !important;
+    }
+
+    .nav-links li a i { 
+        font-size: 28px !important; /* تكبير حجم الأيقونة (تليجرام، يوتيوب، تيك توك) */
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .main-container { padding-top: 250px !important; }
+    .content-wrapper { flex-direction: column !important; text-align: center !important; }
+    h1 { font-size: 30px !important; }
+    .tech-canvas { width: 300px !important; height: 300px !important; }
+    .ic-chip { width: 85px !important; height: 85px !important; }
     .input-row { flex-direction: column; gap: 0; }
-    .btn-contact { width: 100%; text-align: center; padding: 12px 0; }
 }
-```[cite: 1]
