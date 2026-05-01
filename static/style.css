@@ -6,73 +6,58 @@
 
 body {
     margin: 0; background: var(--dark-bg); color: #fff; font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; background-image: radial-gradient(circle at 70% 30%, #1a1c23, #05070a);
 }
 
-/* Navbar & General Layout */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 8%; background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    position: fixed; top: 0; width: 84%; z-index: 1000;
+    padding: 15px 8%; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1); position: fixed; top: 0; width: 84%; z-index: 1000;
 }
+.logo { font-weight: 900; letter-spacing: 1px; }
+.logo span { color: var(--gold); }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: bold; opacity: 0.6; transition: 0.3s; }
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+
+.btn-contact { border: 1px solid #25d366; color: #25d366; padding: 7px 15px; border-radius: 5px; text-decoration: none; font-size: 11px; font-weight: bold; }
 
 .main-container { padding: 120px 8% 50px; }
 .content-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 
-/* Form Styling */
-.upload-container {
-    background: rgba(15, 17, 23, 0.95); padding: 30px; border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.15); box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
-input, select {
-    width: 100%; padding: 12px; margin-bottom: 10px; background: #111;
-    border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 11px;
-}
-.file-upload-section {
-    border: 1px dashed var(--gold); padding: 15px; border-radius: 8px;
-    text-align: center; margin-bottom: 15px; background: rgba(212, 175, 55, 0.05);
-}
-.submit-btn {
-    width: 100%; padding: 15px; background: linear-gradient(135deg, #b8860b, #d4af37);
-    border: none; border-radius: 8px; font-weight: 900; cursor: pointer;
-}
+.text-side { flex: 1.2; }
+h1 { font-size: 45px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
+h1 span { color: var(--gold); font-style: italic; }
+.subtitle { color: #666; font-size: 13px; max-width: 500px; margin-bottom: 30px; }
 
-/* Tech Canvas & Animations */
-.image-side { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
-.tech-canvas { position: relative; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; }
+.upload-container { background: rgba(15, 17, 23, 0.95); padding: 30px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.15); box-shadow: 0 10px 50px rgba(0,0,0,0.7); }
+.input-row { display: flex; gap: 10px; }
+input, select { width: 100%; padding: 12px; margin-bottom: 10px; background: #111; border: 1px solid #222; border-radius: 8px; color: #fff; font-size: 11px; }
 
-.ic-chip {
-    width: 100px; height: 100px; background: #0a0b10; border: 2px solid var(--gold);
-    border-radius: 15px; display: flex; justify-content: center; align-items: center;
-    font-size: 40px; color: var(--gold); z-index: 10;
-    box-shadow: 0 0 30px var(--gold-glow); animation: float 4s ease-in-out infinite;
-}
+.file-upload-section { border: 1px dashed var(--gold); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 15px; background: rgba(212, 175, 55, 0.03); }
+.file-label { color: var(--gold); font-size: 11px; font-weight: bold; cursor: pointer; }
+#bios-file { display: none; }
 
-.glow-pulse {
-    position: absolute; width: 100%; height: 100%; border-radius: 15px;
-    background: var(--gold); opacity: 0.2; animation: pulse 2s infinite;
-}
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #b8860b, #d4af37); border: none; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s; }
+.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--gold-glow); }
 
-.circuit-path {
-    position: absolute; border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 50%; animation: rotatePath 10s linear infinite;
-}
+/* Tech IC Animation */
+.image-side { flex: 1; display: flex; justify-content: center; position: relative; }
+.tech-canvas { position: relative; width: 350px; height: 350px; display: flex; justify-content: center; align-items: center; }
+
+.ic-chip { width: 100px; height: 100px; background: #0a0b10; border: 2px solid var(--gold); border-radius: 15px; display: flex; justify-content: center; align-items: center; font-size: 40px; color: var(--gold); z-index: 10; box-shadow: 0 0 30px var(--gold-glow); animation: float 4s ease-in-out infinite; }
+.glow-pulse { position: absolute; width: 100%; height: 100%; border-radius: 15px; background: var(--gold); opacity: 0.2; animation: pulse 2s infinite; }
+
+.circuit-path { position: absolute; border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 50%; animation: rotatePath 10s linear infinite; }
 .p1 { width: 180px; height: 180px; border-top: 2px solid var(--gold); }
-.p2 { width: 250px; height: 250px; border-bottom: 2px solid var(--gold); animation-duration: 15s; }
-.p3 { width: 320px; height: 320px; border-left: 2px solid var(--gold); animation-duration: 20s; }
+.p2 { width: 260px; height: 260px; border-bottom: 2px solid var(--gold); animation-duration: 15s; }
+.p3 { width: 330px; height: 330px; border-left: 2px solid var(--gold); animation-duration: 20s; }
 
-.floating-icon {
-    position: absolute; width: 35px; height: 35px; background: #0f1117;
-    border: 1px solid var(--gold); border-radius: 50%; display: flex;
-    justify-content: center; align-items: center; color: var(--gold); font-size: 12px;
-}
-.i1 { top: 10%; right: 10%; animation: float 5s infinite; }
-.i2 { bottom: 15%; left: 5%; animation: float 6s infinite 1s; }
-.i3 { top: 50%; right: -5%; animation: float 4s infinite 0.5s; }
+.floating-icon { position: absolute; width: 35px; height: 35px; background: #0f1117; border: 1px solid var(--gold); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--gold); font-size: 12px; }
+.i1 { top: 5%; right: 5%; } .i2 { bottom: 10%; left: 0%; } .i3 { top: 40%; right: -10%; }
 
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 @keyframes pulse { 0% { transform: scale(1); opacity: 0.3; } 100% { transform: scale(1.4); opacity: 0; } }
 @keyframes rotatePath { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.footer { text-align: center; padding: 30px; font-size: 10px; color: #444; }
+.footer { text-align: center; padding: 40px; font-size: 10px; color: #333; }

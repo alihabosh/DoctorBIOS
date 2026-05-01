@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Premium Tech Lab</title>
+    <title>Doctor BIOS | Professional Firmware Lab</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,8 +13,9 @@
     <div class="logo">DOCTOR <span>BIOS</span> 💎</div>
     <ul class="nav-links">
         <li><a href="/">HOME</a></li>
-        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank">YOUTUBE</a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">TELEGRAM</a></li>
+        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a></li>
+        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank"><i class="fab fa-tiktok"></i> TIKTOK</a></li>
+        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank"><i class="fab fa-telegram"></i> TELEGRAM</a></li>
     </ul>
     <div class="nav-actions">
         <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> CONTACT SUPPORT</a>
@@ -23,9 +24,10 @@
 
 <div class="main-container">
     <div class="content-wrapper">
+        <!-- قسم النصوص والطلب -->
         <div class="text-side">
             <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
-            <p class="subtitle">Professional BIOS unlock & firmware engineering. Fast, secure, and unmatched expertise.</p>
+            <p class="subtitle">Global leader in professional BIOS unlock, firmware engineering, and motherboard repair. Fast. Secure. Unmatched expertise.</p>
             
             <div class="upload-container">
                 <form action="/upload" method="POST" enctype="multipart/form-data">
@@ -41,15 +43,15 @@
                         <option>Dell</option><option>HP</option><option>Lenovo</option>
                         <option>Apple (MacBook)</option><option>Asus</option><option>Acer</option>
                         <option>Toshiba</option><option>Samsung</option><option>MSI</option>
-                        <option>Other / Custom</option>
+                        <option>Microsoft Surface</option><option>Other</option>
                     </select>
                     
                     <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
-                    <input type="text" name="serial" placeholder="SERIAL NUMBER / SERVICE TAG" required>
+                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
                     
                     <div class="file-upload-section">
                         <label for="bios-file" class="file-label">
-                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM, .CAP)
+                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
                         </label>
                         <input type="file" name="bios" id="bios-file" required>
                     </div>
@@ -59,7 +61,7 @@
             </div>
         </div>
 
-        <!-- الجانب الأيمن المحدث بالتأثيرات التقنية -->
+        <!-- قسم الـ IC المتحرك الجديد -->
         <div class="image-side">
             <div class="tech-canvas">
                 <div class="ic-chip">
@@ -69,7 +71,6 @@
                 <div class="circuit-path p1"></div>
                 <div class="circuit-path p2"></div>
                 <div class="circuit-path p3"></div>
-                <div class="circuit-path p4"></div>
                 <div class="floating-icon i1"><i class="fas fa-unlock-alt"></i></div>
                 <div class="floating-icon i2"><i class="fas fa-code"></i></div>
                 <div class="floating-icon i3"><i class="fas fa-database"></i></div>

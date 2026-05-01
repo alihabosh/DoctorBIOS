@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# البيانات الخاصة ببوت تليجرام
+# بيانات البوت الخاصة بك
 BOT_TOKEN = "8399796732:AAEHZQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU"
 CHAT_ID = "1420084231"
 
@@ -18,15 +18,46 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # كود رفع الملف وإرساله للبوت
-    file = request.files.get('bios')
-    if file:
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-        file.save(filepath)
-        caption = f"💎 NEW REQUEST\n👤 {request.form.get('name')}\n💻 {request.form.get('brand')} {request.form.get('model')}"
-        requests.post(f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument", 
-                      data={"chat_id": CHAT_ID, "caption": caption}, files={"document": open(filepath, 'rb')})
-    return "SENT SUCCESSFULLY ✅"
+    try:
+        name = request.form.get('name')
+        whatsapp = request.form.get('whatsapp')
+        brand = request.form.get('brand')
+        model = request.form.get('model')
+        serial = request.form.get('serial')
+        file = request.files.get('bios')
+
+        if file:
+            filename = file.filename
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+
+            # تنسيق الرسالة
+            caption = (
+                f"💎 *NEW BIOS JOB RECEIVED*\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n"
+                f"👤 *Client:* {name}\n"
+                f"📞 *WhatsApp:* {whatsapp}\n"
+                f"💻 *Device:* {brand} {model}\n"
+                f"🔢 *Serial:* {serial}\n"
+                f"━━━━━━━━━━━━━━━━━━━━"
+            )
+
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+            
+            # فتح الملف وإرساله
+            with open(filepath, 'rb') as doc:
+                files = {'document': (filename, doc)}
+                data = {'chat_id': CHAT_ID, 'caption': caption, 'parse_mode': 'Markdown'}
+                response = requests.post(url, data=data, files=files)
+
+            if response.status_code == 200:
+                return "SUCCESS: File Sent to Lab! ✅"
+            else:
+                return f"Telegram Error: {response.text}"
+                
+        return "No file selected!"
+    except Exception as e:
+        return f"System Error: {str(e)}"
 
 if __name__ == "__main__":
     app.run(debug=True)
