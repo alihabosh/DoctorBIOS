@@ -24,7 +24,7 @@
     <div class="content-wrapper">
         <div class="text-side">
             <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
-            <p class="subtitle">Global leader in professional BIOS unlock and firmware engineering. Unmatched expertise at your fingertips.[cite: 2]</p>
+            <p class="subtitle">Global leader in professional BIOS unlock and firmware engineering. Unmatched expertise at your fingertips.</p>
             
             <div class="upload-container">
                 <form action="/upload" method="POST" enctype="multipart/form-data">
@@ -33,19 +33,42 @@
                         <input type="text" name="name" placeholder="FULL NAME" required>
                         <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
                     </div>
+                    
+                    <!-- القائمة الشاملة لجميع الموديلات -->
                     <select name="brand" required>
                         <option value="">SELECT LAPTOP BRAND</option>
-                        <option>Dell</option><option>HP</option><option>Lenovo</option>
-                        <option>Apple</option><option>Asus</option><option>Acer</option>
+                        <option value="Dell">Dell</option>
+                        <option value="HP">HP / Compaq</option>
+                        <option value="Lenovo">Lenovo (ThinkPad/IdeaPad)</option>
+                        <option value="Apple">Apple (MacBook Pro/Air)</option>
+                        <option value="Asus">Asus (ROG/TUF/ZenBook)</option>
+                        <option value="Acer">Acer (Predator/Aspire)</option>
+                        <option value="Toshiba">Toshiba / Dynabook</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="MSI">MSI (Gaming)</option>
+                        <option value="Microsoft">Microsoft Surface</option>
+                        <option value="Sony">Sony VAIO</option>
+                        <option value="Fujitsu">Fujitsu</option>
+                        <option value="LG">LG Gram</option>
+                        <option value="Razer">Razer Blade</option>
+                        <option value="Huawei">Huawei MateBook</option>
+                        <option value="Xiaomi">Xiaomi Mi Notebook</option>
+                        <option value="Gigabyte">Gigabyte / Aorus</option>
+                        <option value="Panasonic">Panasonic Toughbook</option>
+                        <option value="Alienware">Alienware</option>
+                        <option value="Other">Other / Not Listed</option>
                     </select>
+
                     <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
                     <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
-                    <div class="file-upload-section">
+                    
+                    <div class="file-upload-section" onclick="document.getElementById('bios-file').click()">
                         <label for="bios-file" class="file-label">
                             <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
                         </label>
-                        <input type="file" name="bios" id="bios-file" required>
+                        <input type="file" name="bios" id="bios-file" required style="display: none;">
                     </div>
+                    
                     <button type="submit" class="submit-btn">SUBMIT TO LAB</button>
                 </form>
             </div>
