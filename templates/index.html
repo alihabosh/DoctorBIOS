@@ -1,92 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Professional Lab</title>
+    <title>Doctor BIOS | Premium Service</title>
+    
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ربط الـ CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">DOCTOR <span>BIOS</span> 💎</div>
-    <ul class="nav-links">
-        <li><a href="/">HOME</a></li>
-        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank">YOUTUBE</a></li>
-        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank">TIKTOK</a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">TELEGRAM</a></li>
-    </ul>
-    <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> CONTACT SUPPORT</a>
-</nav>
+    <nav class="navbar">
+        <a href="/" class="logo">DOCTOR <span>BIOS</span> <i class="fas fa-microchip"></i></a>
+        
+        <ul class="nav-links">
+            <li><a href="#"><i class="fas fa-home"></i> <span>HOME</span></a></li>
+            <li><a href="#"><i class="fab fa-youtube"></i> <span>YOUTUBE</span></a></li>
+            <li><a href="#"><i class="fab fa-tiktok"></i> <span>TIKTOK</span></a></li>
+            <li><a href="#"><i class="fab fa-telegram"></i> <span>TELEGRAM</span></a></li>
+        </ul>
 
-<div class="main-container">
-    <div class="content-wrapper">
-        <div class="text-side">
-            <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
-            <p class="subtitle">Global leader in professional BIOS unlock and firmware engineering. Unmatched expertise at your fingertips.</p>
+        <a href="#" class="btn-contact">CONTACT SUPPORT</a>
+    </nav>
+
+    <main class="main-container">
+        <div class="content-wrapper">
             
-            <div class="upload-container">
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <h4 class="form-title">QUICK SUBMISSION PORTAL</h4>
-                    <div class="input-row">
-                        <input type="text" name="name" placeholder="FULL NAME" required>
-                        <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
-                    </div>
-                    
-                    <!-- القائمة الشاملة لجميع الموديلات -->
-                    <select name="brand" required>
-                        <option value="">SELECT LAPTOP BRAND</option>
-                        <option value="Dell">Dell</option>
-                        <option value="HP">HP / Compaq</option>
-                        <option value="Lenovo">Lenovo (ThinkPad/IdeaPad)</option>
-                        <option value="Apple">Apple (MacBook Pro/Air)</option>
-                        <option value="Asus">Asus (ROG/TUF/ZenBook)</option>
-                        <option value="Acer">Acer (Predator/Aspire)</option>
-                        <option value="Toshiba">Toshiba / Dynabook</option>
-                        <option value="Samsung">Samsung</option>
-                        <option value="MSI">MSI (Gaming)</option>
-                        <option value="Microsoft">Microsoft Surface</option>
-                        <option value="Sony">Sony VAIO</option>
-                        <option value="Fujitsu">Fujitsu</option>
-                        <option value="LG">LG Gram</option>
-                        <option value="Razer">Razer Blade</option>
-                        <option value="Huawei">Huawei MateBook</option>
-                        <option value="Xiaomi">Xiaomi Mi Notebook</option>
-                        <option value="Gigabyte">Gigabyte / Aorus</option>
-                        <option value="Panasonic">Panasonic Toughbook</option>
-                        <option value="Alienware">Alienware</option>
-                        <option value="Other">Other / Not Listed</option>
-                    </select>
+            <div class="text-side">
+                <h1>ART OF BIOS REPAIR<br><span>FOR ALL LAPTOPS</span></h1>
+                <p class="subtitle">نحن متخصصون في فك تشفير وصيانة أنظمة البيوس لجميع الماركات العالمية بدقة متناهية.</p>
 
-                    <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
-                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
-                    
-                    <div class="file-upload-section" onclick="document.getElementById('bios-file').click()">
-                        <label for="bios-file" class="file-label">
-                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
-                        </label>
-                        <input type="file" name="bios" id="bios-file" required style="display: none;">
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">SUBMIT TO LAB</button>
-                </form>
-            </div>
-        </div>
+                <div class="upload-container">
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <div class="input-row">
+                            <input type="text" name="full_name" placeholder="FULL NAME" required>
+                            <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
+                        </div>
+                        
+                        <!-- قائمة شاملة لكل أنواع اللابتوبات -->
+                        <select name="laptop_brand" required>
+                            <option value="" disabled selected>SELECT LAPTOP BRAND</option>
+                            <option value="hp">HP (Pavilion, EliteBook, ProBook)</option>
+                            <option value="dell">DELL (Latitude, XPS, Inspiron)</option>
+                            <option value="lenovo">LENOVO (ThinkPad, IdeaPad, Legion)</option>
+                            <option value="apple">APPLE (MacBook Pro, Air)</option>
+                            <option value="asus">ASUS (ROG, ZenBook, VivoBook)</option>
+                            <option value="acer">ACER (Aspire, Predator, Nitro)</option>
+                            <option value="toshiba">TOSHIBA / DY NABOOK</option>
+                            <option value="msi">MSI GAMING</option>
+                            <option value="samsung">SAMSUNG</option>
+                            <option value="microsoft">MICROSOFT SURFACE</option>
+                            <option value="fujitsu">FUJITSU</option>
+                            <option value="razer">RAZER BLADE</option>
+                            <option value="other">OTHER BRANDS / CUSTOM</option>
+                        </select>
 
-        <div class="image-side">
-            <div class="tech-canvas">
-                <div class="ic-chip"><i class="fas fa-microchip"></i></div>
-                <div class="circuit-path p1"></div>
-                <div class="circuit-path p2"></div>
-                <div class="circuit-path p3"></div>
-                <div class="floating-icon" style="top:20%; right:15%;"><i class="fas fa-lock"></i></div>
-                <div class="floating-icon" style="bottom:25%; right:10%;"><i class="fas fa-server"></i></div>
-                <div class="floating-icon" style="bottom:30%; left:10%;"><i class="fas fa-code"></i></div>
+                        <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400 / A1502)" required>
+                        <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
+
+                        <div class="file-upload-section" onclick="document.getElementById('bios-file').click()">
+                            <input type="file" id="bios-file" name="bios_file" style="display:none" required>
+                            <label for="bios-file" class="file-label">
+                                <i class="fas fa-upload"></i> CHOOSE BIOS FILE (.BIN, .ROM)
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">START REPAIR PROCESS</button>
+                    </form>
+                </div>
             </div>
+
+            <div class="image-side">
+                <div class="tech-canvas">
+                    <div class="circuit-path p1"></div>
+                    <div class="circuit-path p2"></div>
+                    <div class="circuit-path p3"></div>
+                    <div class="ic-chip"><i class="fas fa-microchip"></i></div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</div>
+    </main>
 
 </body>
 </html>
