@@ -1,267 +1,180 @@
-/* Doctor BIOS - Premium Responsive CSS */
-:root {
-    --gold: #d4af37;
-    --dark-bg: #05070a;
-    --gold-glow: rgba(212, 175, 55, 0.3);
-}
+<select name="brand" required>
+    <option value="">SELECT LAPTOP BRAND</option>
+    <!-- الماركات الأكثر شيوعاً -->
+    <option value="Dell">Dell</option>
+    <option value="HP">HP / Compaq</option>
+    <option value="Lenovo">Lenovo (ThinkPad/IdeaPad)</option>
+    <option value="Apple">Apple (MacBook Pro/Air)</option>
+    <option value="Asus">Asus (ROG/TUF/ZenBook)</option>
+    <option value="Acer">Acer (Predator/Aspire)</option>
+    <option value="Toshiba">Toshiba / Dynabook</option>
+    <option value="Samsung">Samsung</option>
+    <option value="MSI">MSI (Gaming)</option>
+    <option value="Microsoft">Microsoft Surface</option>
+    <option value="Sony">Sony VAIO</option>
+    <option value="Fujitsu">Fujitsu</option>
+    <option value="LG">LG Gram</option>
+    <option value="Razer">Razer Blade</option>
+    <option value="Huawei">Huawei MateBook</option>
+    <option value="Xiaomi">Xiaomi Mi Notebook</option>
+    <option value="Gigabyte">Gigabyte / Aorus</option>
+    <option value="Gateway">Gateway</option>
+    <option value="Panasonic">Panasonic Toughbook</option>
+    <option value="Alienware">Alienware</option>
+    <option value="Other">Other / Not Listed</option>
+</select>
+```[cite: 2]
 
-body {
-    margin: 0; 
-    background: var(--dark-bg); 
-    color: #fff; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden; 
-    background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);[cite: 1]
-}
+---
 
-/* --- الهيدر (Header) --- */
-.navbar {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 20px 8%; 
-    background: rgba(0,0,0,0.8); 
-    backdrop-filter: blur(10px);
-    position: fixed; 
-    top: 0; 
-    width: 84%; 
-    z-index: 1000;[cite: 1]
-}
+### الكود الكامل للملفات (للتأكد من التناسق)
 
-.logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
-.logo span { color: var(--gold); }
+#### 1. ملف `index_3.html` (مع القائمة الجديدة)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor BIOS | Professional Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    opacity: 0.7; 
-    transition: 0.3s; 
-}
-.nav-links a:hover { opacity: 1; color: var(--gold); }
+<nav class="navbar">
+    <div class="logo">DOCTOR <span>BIOS</span> 💎</div>
+    <ul class="nav-links">
+        <li><a href="/">HOME</a></li>
+        <li><a href="https://www.youtube.com/@AliHabosh" target="_blank">YOUTUBE</a></li>
+        <li><a href="https://www.tiktok.com/@alihabosh" target="_blank">TIKTOK</a></li>
+        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">TELEGRAM</a></li>
+    </ul>
+    <a href="https://wa.me/96176737184" class="btn-contact"><i class="fab fa-whatsapp"></i> CONTACT SUPPORT</a>
+</nav>
 
-.btn-contact { 
-    border: 1px solid var(--gold); 
-    color: var(--gold); 
-    padding: 8px 18px; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    transition: 0.3s;
-}
-.btn-contact:hover { background: var(--gold); color: #000; }
+<div class="main-container">
+    <div class="content-wrapper">
+        <div class="text-side">
+            <h1>ART OF BIOS REPAIR <br>WITH A <span>PREMIUM</span> TOUCH</h1>
+            <p class="subtitle">Global leader in professional BIOS unlock and firmware engineering. Unmatched expertise at your fingertips.[cite: 2]</p>
+            
+            <div class="upload-container">
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <h4 class="form-title">QUICK SUBMISSION PORTAL</h4>
+                    <div class="input-row">
+                        <input type="text" name="name" placeholder="FULL NAME" required>
+                        <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
+                    </div>
+                    
+                    <select name="brand" required>
+                        <option value="">SELECT LAPTOP BRAND</option>
+                        <option value="Dell">Dell</option>
+                        <option value="HP">HP / Compaq</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="Apple">Apple (MacBook)</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Acer">Acer</option>
+                        <option value="Toshiba">Toshiba</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="MSI">MSI</option>
+                        <option value="Microsoft">Microsoft Surface</option>
+                        <option value="Sony">Sony VAIO</option>
+                        <option value="Fujitsu">Fujitsu</option>
+                        <option value="LG">LG Gram</option>
+                        <option value="Razer">Razer</option>
+                        <option value="Huawei">Huawei</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Gigabyte">Gigabyte</option>
+                        <option value="Alienware">Alienware</option>
+                        <option value="Other">Other</option>
+                    </select>
 
-/* --- الحاوية الرئيسية (Main Layout) --- */
-.main-container { 
-    padding: 160px 8% 80px; 
-    min-height: 80vh; 
-    display: flex; 
-    align-items: center;[cite: 1]
-}
+                    <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)" required>
+                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG" required>
+                    
+                    <div class="file-upload-section" onclick="document.getElementById('bios-file').click()">
+                        <label for="bios-file" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)
+                        </label>
+                        <input type="file" name="bios" id="bios-file" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">SUBMIT TO LAB</button>
+                </form>
+            </div>
+        </div>
 
-.content-wrapper { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%; 
-    gap: 60px; 
-    flex-wrap: wrap;[cite: 1]
-}
+        <div class="image-side">
+            <div class="tech-canvas">
+                <div class="ic-chip"><i class="fas fa-microchip"></i></div>
+                <div class="circuit-path p1"></div>
+                <div class="circuit-path p2"></div>
+                <div class="circuit-path p3"></div>
+                <div class="floating-icon" style="top:20%; right:15%;"><i class="fas fa-lock"></i></div>
+                <div class="floating-icon" style="bottom:25%; right:10%;"><i class="fas fa-server"></i></div>
+                <div class="floating-icon" style="bottom:30%; left:10%;"><i class="fas fa-code"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-.text-side { flex: 1.1; min-width: 350px; }
+</body>
+</html>
+```[cite: 2]
 
-h1 { 
-    font-size: 48px; 
-    font-weight: 900; 
-    line-height: 1.1; 
-    margin-bottom: 15px; 
-    text-transform: uppercase; 
-}
-h1 span { color: var(--gold); }
+---
 
-.subtitle { 
-    color: #888; 
-    font-size: 14px; 
-    max-width: 500px; 
-    margin-bottom: 40px; 
-    line-height: 1.6;[cite: 1]
-}
+#### 2. ملف السيرفر `server_4.py` (بدون أي تغيير)
+```python
+import os
+from flask import Flask, render_template, request
+import requests
 
-/* --- بوابة الإرسال (Form UI) --- */
-.upload-container { 
-    background: rgba(15, 17, 23, 0.7); 
-    padding: 40px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(255,255,255,0.05); 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);[cite: 1]
-}
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
-.form-title { 
-    font-size: 13px; 
-    letter-spacing: 1.5px; 
-    margin-bottom: 25px; 
-    color: #fff; 
-    font-weight: bold;
-}
+BOT_TOKEN = "8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU"
+CHAT_ID = "1420084231"
 
-.input-row { display: flex; gap: 15px; }
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
 
-input, select { 
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 15px; 
-    background: rgba(0,0,0,0.4); 
-    border: 1px solid #222; 
-    border-radius: 6px; 
-    color: #fff; 
-    font-size: 12px; 
-    outline: none;
-    transition: 0.3s;
-}
+@app.route('/')
+def index():
+    return render_template("index.html")
 
-input:focus { border-color: var(--gold); }
+@app.route('/upload', methods=['POST'])
+def upload():
+    try:
+        name = request.form['name']
+        whatsapp = request.form['whatsapp']
+        brand = request.form['brand']
+        model = request.form['model']
+        serial = request.form['serial']
+        file = request.files['bios']
 
-.file-upload-section { 
-    border: 1px dashed var(--gold); 
-    padding: 25px; 
-    border-radius: 6px; 
-    text-align: center; 
-    margin-bottom: 20px; 
-    cursor: pointer;
-    background: rgba(212, 175, 55, 0.02);
-}
+        if file:
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(filepath)
 
-.file-label { 
-    color: var(--gold); 
-    font-size: 11px; 
-    font-weight: bold; 
-    text-transform: uppercase; 
-    display: block;
-}
+            caption = (f"💎 *New Job Received*\n\n"
+                       f"👤 *Client:* {name}\n"
+                       f"📞 *WhatsApp:* {whatsapp}\n"
+                       f"💻 *Brand:* {brand}\n"
+                       f"📌 *Model:* {model}\n"
+                       f"🔢 *Serial:* {serial}")
 
-#bios-file { display: none; } /* إخفاء زر الملف التقليدي */
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+            with open(filepath, 'rb') as f:
+                requests.post(url, data={"chat_id": CHAT_ID, "caption": caption, "parse_mode": "Markdown"}, files={"document": f})
 
-.submit-btn { 
-    width: 100%; 
-    padding: 18px; 
-    background: var(--gold); 
-    border: none; 
-    border-radius: 6px; 
-    font-weight: 900; 
-    cursor: pointer; 
-    transition: 0.4s; 
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+            return "<script>alert('Sent Successfully!'); window.location.href='/';</script>"
+    except Exception as e:
+        return f"Error: {e}"
 
-.submit-btn:hover { 
-    background: #fff; 
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); 
-}
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+```[cite: 3]
 
-/* --- قسم الأنيميشن (Tech Animation) --- */
-.image-side { 
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    position: relative; 
-    min-width: 350px; 
-}
-
-.tech-canvas { 
-    position: relative; 
-    width: 400px; 
-    height: 400px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-/* المعالج (IC) */
-.ic-chip { 
-    width: 110px; 
-    height: 110px; 
-    background: #0a0b10; 
-    border: 2px solid var(--gold); 
-    border-radius: 18px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 45px; 
-    color: var(--gold); 
-    z-index: 10; 
-    box-shadow: 0 0 50px var(--gold-glow); 
-    animation: float-ic 3s ease-in-out infinite;[cite: 1]
-}
-
-/* الدوائر الدوارة */
-.circuit-path { 
-    position: absolute; 
-    border: 1px solid rgba(212, 175, 55, 0.1); 
-    border-radius: 50%; 
-}
-
-.p1 { width: 220px; height: 220px; border: 1px solid rgba(212, 175, 55, 0.05); }
-
-.p2 { 
-    width: 300px; height: 300px; 
-    border-top: 2px solid var(--gold); 
-    animation: spin-circle 12s linear infinite;[cite: 1]
-}
-
-.p3 { 
-    width: 380px; height: 380px; 
-    border-bottom: 2px solid var(--gold); 
-    animation: spin-circle 20s linear reverse infinite;[cite: 1]
-}
-
-/* الأيقونات الطائرة */
-.floating-icon { 
-    position: absolute; 
-    width: 40px; 
-    height: 40px; 
-    background: #0f1117; 
-    border: 1px solid var(--gold); 
-    border-radius: 50%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    color: var(--gold); 
-    font-size: 14px; 
-    animation: float-ic 4s ease-in-out infinite alternate;[cite: 1]
-}
-
-/* --- حركات الأنيميشن (Keyframes) --- */
-@keyframes spin-circle {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes float-ic {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-/* --- التجاوب مع الموبايل (Responsive) --- */
-@media (max-width: 992px) {
-    .content-wrapper { flex-direction: column; text-align: center; }
-    .text-side { flex: none; width: 100%; }
-    .subtitle { margin: 0 auto 40px; }
-    h1 { font-size: 36px; }
-}
-
-@media (max-width: 768px) {
-    .navbar { width: 100%; left: 0; padding: 15px 5%; box-sizing: border-box; }
-    .nav-links { display: none; } /* إخفاء الروابط في الموبايل */
-    .tech-canvas { width: 300px; height: 300px; }
-    .ic-chip { width: 80px; height: 80px; font-size: 30px; }
-    .p2 { width: 220px; height: 220px; }
-    .p3 { width: 280px; height: 280px; }
-    .upload-container { padding: 25px; }
-    .input-row { flex-direction: column; gap: 0; }
-}
+بهذا الشكل، أصبح الموقع يدعم جميع الموديلات التي قد يحتاجها العملاء مع الحفاظ على الشكل "الذهب" والأنيميشن الاحترافي[cite: 1, 2]. أي خدمة ثانية أنا جاهز!
