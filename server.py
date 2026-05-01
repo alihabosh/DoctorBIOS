@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 import requests
 import os
-import random
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
+# بيانات البوت والدردشة الخاصة بك
 BOT_TOKEN = "8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU"
 CHAT_ID = "1420084231"
 
@@ -18,35 +18,34 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    try:
+        name = request.form['name']
+        whatsapp = request.form['whatsapp']
+        brand = request.form['brand']
+        model = request.form['model']
+        serial = request.form['serial']
 
-    name = request.form['name']
-    whatsapp = request.form['whatsapp']
-    brand = request.form['brand']
-    model = request.form['model']
-    serial = request.form['serial']
+        file = request.files['bios']
+        if file:
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(filepath)
 
-    file = request.files['bios']
-    filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(filepath)
+            caption = f"💎 *New DoctorBIOS Job*\n\n👤 *Name:* {name}\n📞 *WhatsApp:* {whatsapp}\n💻 *Brand:* {brand}\n📌 *Model:* {model}\n🔢 *Serial:* {serial}"
 
-    caption = f"""
-💎 New DoctorBIOS Job
+            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
 
-👤 Name: {name}
-📞 WhatsApp: {whatsapp}
-💻 Brand: {brand}
-📌 Model: {model}
-🔢 Serial: {serial}
-"""
+            with open(filepath, 'rb') as f:
+                requests.post(url, data={"chat_id": CHAT_ID, "caption": caption, "parse_mode": "Markdown"}, files={"document": f})
 
-    url = f"https://api.telegram.org/bot8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU/sendDocument"
-
-    with open(filepath, 'rb') as f:
-        requests.post(url,
-        data={"chat_id": CHAT_ID, "caption": caption},
-        files={"document": f})
-
-    return render_template("index.html")
+            return """
+            <script>
+                alert('SUCCESS: File Sent to Lab! ✅');
+                window.location.href = '/';
+            </script>
+            """
+    except Exception as e:
+        return f"Error: {str(e)}"
 
 if __name__ == "__main__":
-    app.run()
+    # تعديل المنفذ ليعمل على الاستضافات السحابية مثل Render
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
