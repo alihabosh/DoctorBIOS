@@ -1,82 +1,92 @@
-:root {
-    --gold: #d4af37;
-    --dark-bg: #05070a;
-    --card-bg: rgba(15, 17, 23, 0.9);
-    --gold-glow: rgba(212, 175, 55, 0.3);
+/* تأثيرات الـ IC والمسارات الإلكترونية المتقدمة */
+.image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
 }
 
-body {
-    margin: 0; padding: 0;
-    background: var(--dark-bg);
-    background-image: radial-gradient(circle at 70% 30%, #1a1c23, #05070a);
-    color: #ffffff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden;
+.tech-canvas {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 8%; background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    position: fixed; top: 0; width: 84%; z-index: 1000;
-}
-.logo { font-weight: 900; letter-spacing: 1px; }
-.logo span { color: var(--gold); }
-.nav-links { display: flex; list-style: none; gap: 25px; }
-.nav-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: bold; opacity: 0.6; transition: 0.3s; }
-.nav-links a:hover { opacity: 1; color: var(--gold); }
-
-.btn-contact {
-    border: 1px solid #25d366; color: #25d366; padding: 7px 15px;
-    border-radius: 5px; text-decoration: none; font-size: 11px; font-weight: bold;
-}
-
-.main-container { padding: 120px 8% 50px; }
-.content-wrapper { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-.text-side { flex: 1.2; }
-
-h1 { font-size: 45px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
-h1 span { color: var(--gold); font-style: italic; text-shadow: 0 0 15px var(--gold-glow); }
-.subtitle { color: #777; font-size: 13px; max-width: 500px; margin-bottom: 30px; }
-
-.upload-container {
-    background: var(--card-bg); padding: 30px; border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-}
-.form-title { color: var(--gold); text-align: center; font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; }
-
-.input-row { display: flex; gap: 10px; }
-input, select {
-    background: #111318; border: 1px solid #222; padding: 13px;
-    border-radius: 8px; color: #fff; width: 100%; margin-bottom: 12px; font-size: 11px;
+/* المعالج المركزي المتوهج */
+.ic-chip {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #16181d, #0a0b10);
+    border: 2px solid var(--gold);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: var(--gold);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.2);
+    z-index: 10;
+    animation: float 4s ease-in-out infinite;
 }
 
-.file-drop-area {
-    border: 1px dashed #444; padding: 20px; text-align: center; margin-bottom: 15px; border-radius: 8px;
-}
-.file-drop-area label { color: var(--gold); font-size: 11px; cursor: pointer; font-weight: bold; }
-
-.submit-btn {
-    background: linear-gradient(135deg, #b8860b, #d4af37); width: 100%; padding: 16px;
-    border: none; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.3s;
-}
-.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--gold-glow); }
-
-.stats-bar { display: flex; gap: 15px; margin-top: 40px; }
-.stat-item { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; flex: 1; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-.stat-item i { color: var(--gold); font-size: 18px; margin-bottom: 8px; display: block; }
-.stat-item span { display: block; font-size: 9px; color: #555; font-weight: bold; }
-
-/* تأثير الـ IC المتوهج */
-.image-side { flex: 1; display: flex; justify-content: center; }
-.ic-chip-glow {
-    width: 320px; height: 320px;
-    background: #0f1117; border-radius: 20px;
-    box-shadow: 0 0 100px var(--gold-glow);
-    position: relative; border: 2px solid #222;
-}
-.inner-chip {
-    position: absolute; top: 25%; left: 25%; width: 50%; height: 50%;
-    background: #1a1c23; border: 1px solid var(--gold); border-radius: 10px;
-    box-shadow: inset 0 0 20px var(--gold-glow);
+.glow-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: var(--gold);
+    opacity: 0.2;
+    animation: pulse 2s infinite;
 }
 
-.footer { text-align: center; padding: 50px; font-size: 10px; color: #333; letter-spacing: 1px; }
+/* المسارات الإلكترونية */
+.circuit-path {
+    position: absolute;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    animation: rotatePath 10s linear infinite;
+}
+
+.p1 { width: 200px; height: 200px; border-top: 2px solid var(--gold); }
+.p2 { width: 280px; height: 280px; border-bottom: 2px solid var(--gold); animation-duration: 15s; }
+.p3 { width: 350px; height: 350px; border-left: 2px solid var(--gold); animation-duration: 20s; }
+
+/* الأيقونات العائمة */
+.floating-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #0f1117;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold);
+    font-size: 14px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.i1 { top: 10%; right: 10%; animation: float 5s infinite; }
+.i2 { bottom: 15%; left: 5%; animation: float 6s infinite 1s; }
+.i3 { top: 50%; right: -5%; animation: float 4s infinite 0.5s; }
+
+/* الأنميشن */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes rotatePath {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
