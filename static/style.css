@@ -1,52 +1,52 @@
-/* --- الحل النهائي لإظهار الأيقونات على التلفون --- */
+/* --- تعديل الموبايل لإظهار الروابط (تليجرام، يوتيوب، تيك توك) --- */
 @media (max-width: 768px) {
-    .navbar { 
-        width: 100% !important; 
-        left: 0 !important; 
-        padding: 15px 5% !important; 
-        box-sizing: border-box !important; 
-        flex-direction: column !important; 
-        gap: 15px !important;
-        display: flex !important;
-    }
+    .navbar { 
+        width: 100%; 
+        padding: 10px 5%; 
+        left: 0; 
+        box-sizing: border-box; 
+        flex-direction: column; /* ترتيب العناصر عمودياً في الهيدر */
+        gap: 10px;
+    }
 
-    /* إجبار القائمة على الظهور وتوسيطها */
-    .nav-links { 
-        display: flex !important; 
-        visibility: visible !important;
-        opacity: 1 !important;
-        gap: 30px !important; 
-        padding: 0 !important;
-        margin: 0 !important;
-        list-style: none !important;
-    }
-    
-    /* تنسيق الأيقونات (يوتيوب، تيك توك، تليجرام) */
-    .nav-links li a { 
-        font-size: 0 !important; /* إخفاء الكلمات فقط */
-        color: var(--gold) !important;
-        text-decoration: none !important;
-    }
+    /* إظهار الروابط وتنسيقها بشكل أيقونات للموبايل */
+    .nav-links { 
+        display: flex; 
+        gap: 20px; 
+        padding: 0;
+        margin: 5px 0;
+    }
+    
+    .nav-links a {
+        font-size: 20px; /* تكبير حجم الأيقونات لسهولة الضغط باللمس */
+        opacity: 1;
+        color: var(--gold);
+    }
 
-    .nav-links li a i { 
-        font-size: 26px !important; /* تكبير حجم الأيقونة لتكون واضحة جداً */
-        display: inline-block !important;
-        visibility: visible !important;
-    }
+    /* إخفاء الكلمات في الموبايل وإبقاء الأيقونات فقط */
+    .nav-links li a {
+        display: flex;
+        font-size: 0; /* إخفاء النص */
+    }
+    .nav-links li a i {
+        font-size: 22px; /* إظهار الأيقونة فقط بحجم مناسب */
+    }
 
-    /* موازنة المسافات للمحتوى تحت الهيدر */
-    .main-container { padding-top: 250px !important; } 
-    .content-wrapper { flex-direction: column !important; text-align: center !important; }
-    
-    h1 { font-size: 32px !important; }
-    .tech-canvas { width: 280px !important; height: 280px !important; }
+    .btn-contact {
+        width: 90%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .main-container { padding-top: 220px; } /* زيادة المسافة لأن الهيدر أصبح أكبر */
+    .content-wrapper { flex-direction: column; text-align: center; }
+    h1 { font-size: 30px; }
+    .tech-canvas { width: 300px; height: 300px; }
 }
 ```[cite: 1]
 
----
+### ما الذي سيتغير الآن؟
+*   **على اللابتوب:** ستبقى الروابط كما هي (نص وأيقونة)[cite: 1].
+*   **على التلفون:** ستظهر أيقونات (يوتيوب، تيك توك، تليجرام) بشكل واضح تحت اللوجو مباشرة، مما يسمح للزبائن بالوصول لقنواتك بسهولة من الموبايل أيضاً[cite: 1].
 
-### نصيحة إضافية لضمان النتيجة:
-1.  **تحديث الكاش:** بعد حفظ الملف، قم بفتح الموقع على هاتفك باستخدام **"وضع التصفح الخفي" (Incognito Mode)** لضمان تحميل التعديلات الجديدة فوراً[cite: 1].
-2.  **مكتبة الأيقونات:** تأكد أنك تستخدم مكتبة `Font Awesome` في ملف الـ HTML (وهي موجودة بالفعل في الكود الذي أرسلته سابقاً) لتعمل الأيقونات بشكل صحيح[cite: 1, 2].
-
-بهذا التعديل، ستظهر الأيقونات الذهبية تحت اللوجو مباشرة في الهاتف بشكل مرتب وأنيق، تماماً كما تظهر الكلمات في نسخة الكمبيوتر الموضحة في الصورة **image_1f1158.jpg**[cite: 1]. هل كل شيء تمام الآن؟
+قم بحفظ ملف الـ **CSS** وحدث الصفحة، وستجد أن كل شيء أصبح تماماً كما طلبت[cite: 1]. هل تحتاج لأي تعديل إضافي؟
