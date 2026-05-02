@@ -1,92 +1,39 @@
-/* Doctor BIOS - Final Premium Style */
-:root {
-    --gold: #d4af37;
-    --dark-bg: #05070a;
-    --gold-glow: rgba(212, 175, 55, 0.3);
-}
+:root { --gold: #d4af37; --dark-bg: #05070a; --gold-glow: rgba(212, 175, 55, 0.3); }
+body { margin: 0; background: var(--dark-bg); color: #fff; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; background-image: radial-gradient(circle, #1a1c23, #05070a); }
 
-body {
-    margin: 0; background: var(--dark-bg); color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);
+.navbar { 
+    display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; 
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); position: fixed; 
+    top: 0; left: 0; right: 0; z-index: 9999; 
 }
-
-/* الهيدر */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 8%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-}
-
-.logo { font-size: 22px; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: 1px; }
+.logo { font-size: 22px; font-weight: 900; text-decoration: none; color: #fff; }
 .logo span { color: var(--gold); }
-
 .nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
-.nav-links a { 
-    color: #fff; text-decoration: none; font-size: 11px; font-weight: bold; 
-    opacity: 0.8; transition: 0.3s; display: flex; align-items: center; gap: 8px;
-}
-.nav-links a:hover { opacity: 1; color: var(--gold); }
+.nav-links a { color: #fff; text-decoration: none; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.btn-contact { border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 11px; font-weight: bold; }
 
-.btn-contact { 
-    border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; 
-    border-radius: 5px; text-decoration: none; font-size: 11px; font-weight: bold;
-}
-
-/* الحاوية الرئيسية */
 .main-container { padding: 160px 8% 80px; display: flex; align-items: center; min-height: 80vh; }
 .content-wrapper { display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 60px; }
-
 .text-side { flex: 1.1; min-width: 350px; }
-h1 { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 15px; text-transform: uppercase; }
+h1 { font-size: 48px; font-weight: 900; line-height: 1.1; text-transform: uppercase; margin-bottom: 10px; }
 h1 span { color: var(--gold); }
-.subtitle { color: #888; font-size: 14px; max-width: 500px; margin-bottom: 40px; line-height: 1.6; }
+.subtitle { color: #888; font-size: 14px; margin-bottom: 30px; }
 
-/* الفورم وبوابة الإرسال */
-.upload-container { 
-    background: rgba(15, 17, 23, 0.7); padding: 40px; border-radius: 20px; 
-    border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-}
-
+.upload-container { background: rgba(15, 17, 23, 0.7); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
 .input-row { display: flex; gap: 15px; }
-input, select { 
-    width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(0,0,0,0.4); 
-    border: 1px solid #222; border-radius: 6px; color: #fff; font-size: 12px; outline: none; box-sizing: border-box;
-}
+input, select { width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(0,0,0,0.4); border: 1px solid #222; border-radius: 6px; color: #fff; font-size: 12px; outline: none; box-sizing: border-box; }
+select option { background: #111; color: #fff; }
 
-.file-upload-section { 
-    border: 1px dashed var(--gold); padding: 25px; border-radius: 6px; 
-    text-align: center; margin-bottom: 20px; cursor: pointer; color: var(--gold); font-weight: bold;
-}
+.file-upload-section { border: 1px dashed var(--gold); padding: 25px; border-radius: 6px; text-align: center; margin-bottom: 20px; cursor: pointer; color: var(--gold); font-weight: bold; }
+.submit-btn { width: 100%; padding: 18px; background: var(--gold); border: none; border-radius: 6px; font-weight: 900; cursor: pointer; color: #000; text-transform: uppercase; transition: 0.3s; }
+.submit-btn:hover { background: #fff; transform: translateY(-3px); }
 
-.submit-btn { 
-    width: 100%; padding: 18px; background: var(--gold); border: none; 
-    border-radius: 6px; font-weight: 900; cursor: pointer; color: #000; text-transform: uppercase;
-}
-
-/* الأنيميشن */
 .tech-canvas { position: relative; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; }
-.ic-chip { 
-    width: 110px; height: 110px; background: #0a0b10; border: 2px solid var(--gold); 
-    border-radius: 18px; display: flex; justify-content: center; align-items: center; 
-    font-size: 45px; color: var(--gold); z-index: 10; box-shadow: 0 0 50px var(--gold-glow);
-    animation: float-ic 3s ease-in-out infinite;
-}
-.p2 { width: 300px; height: 300px; border-top: 2px solid var(--gold); border-radius: 50%; position: absolute; animation: spin-circle 12s linear infinite; }
-.p3 { width: 380px; height: 380px; border-bottom: 2px solid var(--gold); border-radius: 50%; position: absolute; animation: spin-circle 20s linear reverse infinite; }
+.ic-chip { width: 110px; height: 110px; border: 2px solid var(--gold); border-radius: 18px; display: flex; justify-content: center; align-items: center; font-size: 45px; color: var(--gold); animation: float-ic 3s ease-in-out infinite; }
+.p2, .p3 { border-radius: 50%; position: absolute; border: 2px solid var(--gold); opacity: 0.3; }
+.p2 { width: 300px; height: 300px; border-top-color: transparent; animation: spin 12s linear infinite; }
+.p3 { width: 380px; height: 380px; border-bottom-color: transparent; animation: spin 20s linear reverse infinite; }
 
-@keyframes spin-circle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes float-ic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-/* الموبايل */
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; padding: 15px; gap: 15px; width: 100%; left: 0; box-sizing: border-box; }
-    .nav-links { display: flex !important; gap: 30px; }
-    .nav-links a { font-size: 0; }
-    .nav-links a i { font-size: 24px; color: var(--gold); display: block !important; }
-    .main-container { padding-top: 260px; }
-    .content-wrapper { flex-direction: column; text-align: center; }
-    h1 { font-size: 30px; }
-    .input-row { flex-direction: column; gap: 0; }
-}
