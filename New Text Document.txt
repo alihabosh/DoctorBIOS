@@ -1,0 +1,5 @@
+git add .
+
+git commit -m "Full brand update and bot integration"
+
+git push origin main

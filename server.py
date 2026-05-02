@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # بيانات البوت والدردشة الخاصة بك
-BOT_TOKEN = "8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU"
+BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
 if not os.path.exists("uploads"):
@@ -32,7 +32,7 @@ def upload():
 
             caption = f"💎 *New DoctorBIOS Job*\n\n👤 *Name:* {name}\n📞 *WhatsApp:* {whatsapp}\n💻 *Brand:* {brand}\n📌 *Model:* {model}\n🔢 *Serial:* {serial}"
 
-            url = f"https://api.telegram.org/bot8399796732:AAF1ZeZI61WLkJvcfd6VhT5-QqvU4OAJKTU/sendDocument"
+            url = f"https://api.telegram.org/bot8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI/sendDocument"
 
 
             with open(filepath, 'rb') as f:
