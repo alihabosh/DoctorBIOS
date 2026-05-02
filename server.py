@@ -32,7 +32,8 @@ def upload():
 
             caption = f"💎 *New DoctorBIOS Job*\n\n👤 *Name:* {name}\n📞 *WhatsApp:* {whatsapp}\n💻 *Brand:* {brand}\n📌 *Model:* {model}\n🔢 *Serial:* {serial}"
 
-            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+            url = f"https://api.telegram.org/bot8399796732:AAEHzQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU/sendDocument"
+
 
             with open(filepath, 'rb') as f:
                 requests.post(url, data={"chat_id": CHAT_ID, "caption": caption, "parse_mode": "Markdown"}, files={"document": f})
