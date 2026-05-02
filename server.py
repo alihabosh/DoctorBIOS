@@ -4,20 +4,19 @@ import os
 
 app = Flask(__name__)
 
-# إعداد المجلدات
+# إعداد مجلد الرفع
 UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# --- بيانات البوت الخاصة بك ---
+# --- بيانات البوت المدمجة ---
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
 @app.route('/')
 def index():
-    # تأكد أن الملف اسمه index_4.html وموجود داخل مجلد templates
     return render_template("index_4.html")
 
 @app.route('/upload', methods=['POST'])
@@ -49,6 +48,9 @@ def upload():
                     "caption": caption, 
                     "parse_mode": "Markdown"
                 }, files={"document": f})
+
+            if os.path.exists(filepath):
+                os.remove(filepath)
 
             if response.status_code == 200:
                 return "<script>alert('SUCCESS: File Sent! ✅'); window.location.href = '/';</script>"
