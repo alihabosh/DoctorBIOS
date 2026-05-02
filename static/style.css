@@ -1,268 +1,92 @@
-/* 
-   Doctor BIOS - Official Premium CSS 
-   Version: 3.0 (Final Stable & Responsive)
-*/
-
+/* Doctor BIOS - Final Premium Style */
 :root {
     --gold: #d4af37;
     --dark-bg: #05070a;
     --gold-glow: rgba(212, 175, 55, 0.3);
 }
 
-/* --- التنسيق العام --- */
 body {
-    margin: 0; 
-    background: var(--dark-bg); 
-    color: #fff; 
+    margin: 0; background: var(--dark-bg); color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     background-image: radial-gradient(circle at 50% 50%, #1a1c23, #05070a);
 }
 
-/* --- الهيدر (Header) --- */
+/* الهيدر */
 .navbar {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 20px 8%; 
-    background: rgba(0,0,0,0.85); 
-    backdrop-filter: blur(10px);
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 8%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
 }
 
-.logo { 
-    font-size: 22px; 
-    font-weight: 900; 
-    letter-spacing: 1px; 
-    text-decoration: none; 
-    color: #fff; 
-}
+.logo { font-size: 22px; font-weight: 900; text-decoration: none; color: #fff; letter-spacing: 1px; }
 .logo span { color: var(--gold); }
 
-.nav-links { 
-    display: flex; 
-    list-style: none; 
-    gap: 25px; 
-    margin: 0; 
-    padding: 0; 
-}
+.nav-links { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 .nav-links a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    opacity: 0.8; 
-    transition: 0.3s; 
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: #fff; text-decoration: none; font-size: 11px; font-weight: bold; 
+    opacity: 0.8; transition: 0.3s; display: flex; align-items: center; gap: 8px;
 }
 .nav-links a:hover { opacity: 1; color: var(--gold); }
 
 .btn-contact { 
-    border: 1px solid var(--gold); 
-    color: var(--gold); 
-    padding: 8px 18px; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-size: 11px; 
-    font-weight: bold; 
-    transition: 0.3s;
-}
-.btn-contact:hover { 
-    background: var(--gold); 
-    color: #000; 
+    border: 1px solid var(--gold); color: var(--gold); padding: 8px 18px; 
+    border-radius: 5px; text-decoration: none; font-size: 11px; font-weight: bold;
 }
 
-/* --- الحاوية الرئيسية (Main Container) --- */
-.main-container { 
-    padding: 160px 8% 80px; 
-    min-height: 80vh; 
-    display: flex; 
-    align-items: center; 
-}
-
-.content-wrapper { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%; 
-    gap: 60px; 
-    flex-wrap: wrap;
-}
+/* الحاوية الرئيسية */
+.main-container { padding: 160px 8% 80px; display: flex; align-items: center; min-height: 80vh; }
+.content-wrapper { display: flex; width: 100%; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 60px; }
 
 .text-side { flex: 1.1; min-width: 350px; }
-
-h1 { 
-    font-size: 48px; 
-    font-weight: 900; 
-    line-height: 1.1; 
-    margin-bottom: 15px; 
-    text-transform: uppercase; 
-}
+h1 { font-size: 48px; font-weight: 900; line-height: 1.1; margin-bottom: 15px; text-transform: uppercase; }
 h1 span { color: var(--gold); }
+.subtitle { color: #888; font-size: 14px; max-width: 500px; margin-bottom: 40px; line-height: 1.6; }
 
-.subtitle { 
-    color: #888; 
-    font-size: 14px; 
-    max-width: 500px; 
-    margin-bottom: 40px; 
-    line-height: 1.6; 
-}
-
-/* --- بوابة الإرسال (Form UI) --- */
+/* الفورم وبوابة الإرسال */
 .upload-container { 
-    background: rgba(15, 17, 23, 0.7); 
-    padding: 40px; 
-    border-radius: 20px; 
-    border: 1px solid rgba(255,255,255,0.05); 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    background: rgba(15, 17, 23, 0.7); padding: 40px; border-radius: 20px; 
+    border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 25px 50px rgba(0,0,0,0.6);
 }
 
 .input-row { display: flex; gap: 15px; }
-
 input, select { 
-    width: 100%; 
-    padding: 15px; 
-    margin-bottom: 15px; 
-    background: rgba(0,0,0,0.4); 
-    border: 1px solid #222; 
-    border-radius: 6px; 
-    color: #fff; 
-    font-size: 12px; 
-    outline: none;
-    box-sizing: border-box;
-    transition: 0.3s;
+    width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(0,0,0,0.4); 
+    border: 1px solid #222; border-radius: 6px; color: #fff; font-size: 12px; outline: none; box-sizing: border-box;
 }
 
-input:focus, select:focus { border-color: var(--gold); }
-
 .file-upload-section { 
-    border: 1px dashed var(--gold); 
-    padding: 25px; 
-    border-radius: 6px; 
-    text-align: center; 
-    margin-bottom: 20px; 
-    cursor: pointer;
-    background: rgba(212, 175, 55, 0.02);
-    color: var(--gold);
-    font-weight: bold;
+    border: 1px dashed var(--gold); padding: 25px; border-radius: 6px; 
+    text-align: center; margin-bottom: 20px; cursor: pointer; color: var(--gold); font-weight: bold;
 }
 
 .submit-btn { 
-    width: 100%; 
-    padding: 18px; 
-    background: var(--gold); 
-    border: none; 
-    border-radius: 6px; 
-    font-weight: 900; 
-    cursor: pointer; 
-    transition: 0.4s; 
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.submit-btn:hover { 
-    background: #fff; 
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); 
+    width: 100%; padding: 18px; background: var(--gold); border: none; 
+    border-radius: 6px; font-weight: 900; cursor: pointer; color: #000; text-transform: uppercase;
 }
 
-/* --- الأنيميشن (Tech Animation) --- */
-.image-side { 
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    position: relative; 
-    min-width: 350px; 
-}
-
-.tech-canvas { 
-    position: relative; 
-    width: 400px; 
-    height: 400px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
+/* الأنيميشن */
+.tech-canvas { position: relative; width: 400px; height: 400px; display: flex; justify-content: center; align-items: center; }
 .ic-chip { 
-    width: 110px; 
-    height: 110px; 
-    background: #0a0b10; 
-    border: 2px solid var(--gold); 
-    border-radius: 18px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 45px; 
-    color: var(--gold); 
-    z-index: 10; 
-    box-shadow: 0 0 50px var(--gold-glow); 
+    width: 110px; height: 110px; background: #0a0b10; border: 2px solid var(--gold); 
+    border-radius: 18px; display: flex; justify-content: center; align-items: center; 
+    font-size: 45px; color: var(--gold); z-index: 10; box-shadow: 0 0 50px var(--gold-glow);
     animation: float-ic 3s ease-in-out infinite;
 }
-
-.circuit-path { 
-    position: absolute; 
-    border: 1px solid rgba(212, 175, 55, 0.1); 
-    border-radius: 50%; 
-}
-
-.p2 { 
-    width: 300px; height: 300px; 
-    border-top: 2px solid var(--gold); 
-    animation: spin-circle 12s linear infinite;
-}
-
-.p3 { 
-    width: 380px; height: 380px; 
-    border-bottom: 2px solid var(--gold); 
-    animation: spin-circle 20s linear reverse infinite;
-}
+.p2 { width: 300px; height: 300px; border-top: 2px solid var(--gold); border-radius: 50%; position: absolute; animation: spin-circle 12s linear infinite; }
+.p3 { width: 380px; height: 380px; border-bottom: 2px solid var(--gold); border-radius: 50%; position: absolute; animation: spin-circle 20s linear reverse infinite; }
 
 @keyframes spin-circle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes float-ic { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* --- التجاوب مع الموبايل (Mobile Fix) --- */
+/* الموبايل */
 @media (max-width: 768px) {
-    .navbar { 
-        width: 100% !important; 
-        left: 0 !important; 
-        padding: 15px 5% !important; 
-        box-sizing: border-box !important; 
-        flex-direction: column !important; 
-        gap: 15px !important;
-    }
-
-    /* إظهار الأيقونات (تليجرام، يوتيوب، تيك توك) بقوة */
-    .nav-links { 
-        display: flex !important; 
-        gap: 35px !important; 
-        justify-content: center !important;
-    }
-
-    .nav-links li a { 
-        font-size: 0 !important; /* إخفاء النص فقط */
-        color: var(--gold) !important;
-        opacity: 1 !important;
-    }
-
-    .nav-links li a i { 
-        font-size: 26px !important; /* حجم أيقونة ذهبي كبير */
-        display: block !important;
-        visibility: visible !important;
-    }
-
-    .main-container { padding-top: 260px !important; }
-    .content-wrapper { flex-direction: column !important; text-align: center !important; }
-    
-    h1 { font-size: 32px !important; }
-    .tech-canvas { width: 300px !important; height: 300px !important; }
-    .ic-chip { width: 85px !important; height: 85px !important; font-size: 35px !important; }
+    .navbar { flex-direction: column; padding: 15px; gap: 15px; width: 100%; left: 0; box-sizing: border-box; }
+    .nav-links { display: flex !important; gap: 30px; }
+    .nav-links a { font-size: 0; }
+    .nav-links a i { font-size: 24px; color: var(--gold); display: block !important; }
+    .main-container { padding-top: 260px; }
+    .content-wrapper { flex-direction: column; text-align: center; }
+    h1 { font-size: 30px; }
     .input-row { flex-direction: column; gap: 0; }
-    .btn-contact { width: 100%; text-align: center; }
 }
