@@ -4,20 +4,21 @@ import os
 
 app = Flask(__name__)
 
-# إعداد مجلد الرفع
+# إعداد المجلدات
 UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# --- بيانات البوت المدمجة ---
+# --- بيانات البوت الخاصة بك ---
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
 @app.route('/')
 def index():
-    return render_template("index_4.html")
+    # تأكد أن الملف في مجلد templates اسمه index.html
+    return render_template("index.html")
 
 @app.route('/upload', methods=['POST'])
 def upload():
