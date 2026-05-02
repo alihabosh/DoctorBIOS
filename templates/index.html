@@ -3,47 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | All Laptops Repair</title>
+    <title>Doctor BIOS | Professional Repair</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_4.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
     <nav class="navbar">
-        <a href="/" class="logo">DOCTOR <span>BIOS</span> <i class="fas fa-microchip"></i></a>
+        <div class="nav-right">
+            <a href="/" class="logo">DOCTOR <span>BIOS</span> <i class="fas fa-microchip"></i></a>
+        </div>
         <ul class="nav-links">
-            <li><a href="/"><i class="fas fa-home"></i> <span>HOME</span></a></li>
-            <li><a href="https://www.youtube.com/@DoctorBIOS" target="_blank"><i class="fab fa-youtube"></i> <span>YOUTUBE</span></a></li>
-            <li><a href="https://t.me/DoctorBIOS" target="_blank"><i class="fab fa-telegram"></i> <span>TELEGRAM</span></a></li>
+            <li><a href="/"><i class="fas fa-home"></i> HOME</a></li>
+            <li><a href="https://www.youtube.com/@DoctorBIOS" target="_blank">YOUTUBE</a></li>
+            <li><a href="https://t.me/DoctorBIOS" target="_blank">TELEGRAM</a></li>
         </ul>
-        <a href="#" class="btn-contact">CONTACT SUPPORT</a>
+        <div class="nav-left">
+            <a href="#" class="btn-contact">CONTACT SUPPORT</a>
+        </div>
     </nav>
 
     <main class="main-container">
-        <div class="content-wrapper">
-            <div class="text-side">
+        <div class="hero-section">
+            <div class="text-content">
                 <h1>ART OF BIOS REPAIR<br><span>FOR ALL LAPTOPS</span></h1>
-                <div class="upload-container">
-                    <form action="/upload" method="POST" enctype="multipart/form-data">
-                        <div class="input-row">
-                            <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
-                            <input type="text" name="name" placeholder="FULL NAME" required>
-                        </div>
-                        <select name="brand" required>
-                            <option value="" disabled selected>SELECT BRAND</option>
-                            <option value="hp">HP</option>
-                            <option value="dell">DELL</option>
-                            <option value="lenovo">LENOVO</option>
-                            <option value="apple">APPLE</option>
-                            <option value="other">OTHER</option>
-                        </select>
-                        <input type="text" name="model" placeholder="MODEL" required>
-                        <input type="text" name="serial" placeholder="SERIAL" required>
-                        <input type="file" name="bios" required>
-                        <button type="submit" class="submit-btn">START REPAIR</button>
-                    </form>
-                </div>
+                <p>خدمات احترافية لفك تشفير وصيانة أنظمة البيوس لجميع الماركات العالمية بدقة 100%.</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="FULL NAME" required>
+                        <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
+                    </div>
+                    
+                    <select name="brand" required>
+                        <option value="" disabled selected>SELECT LAPTOP BRAND</option>
+                        <option value="hp">HP</option>
+                        <option value="dell">DELL</option>
+                        <option value="lenovo">LENOVO</option>
+                        <option value="apple">APPLE</option>
+                    </select>
+
+                    <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)">
+                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG">
+
+                    <div class="upload-area" onclick="document.getElementById('file-input').click()">
+                        <input type="file" id="file-input" name="bios" style="display:none" required>
+                        <p><i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)</p>
+                    </div>
+
+                    <button type="submit" class="btn-submit">START REPAIR PROCESS</button>
+                </form>
             </div>
         </div>
     </main>
+
 </body>
 </html>

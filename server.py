@@ -4,20 +4,20 @@ import os
 
 app = Flask(__name__)
 
-# إعداد المجلدات
+# إعداد المجلدات اللازمة
 UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# --- بيانات البوت الخاصة بك ---
+# --- التوكن الجديد والآيدي الخاص بك ---
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
 @app.route('/')
 def index():
-    # تأكد أن الملف في مجلد templates اسمه index.html
+    # استدعاء ملف الواجهة الأساسي
     return render_template("index.html")
 
 @app.route('/upload', methods=['POST'])
@@ -34,6 +34,7 @@ def upload():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(filepath)
 
+            # نص الرسالة المنسق لتليجرام
             caption = (f"💎 *New DoctorBIOS Job*\n\n"
                        f"👤 *Customer:* {name}\n"
                        f"📞 *WhatsApp:* {whatsapp}\n"
@@ -50,16 +51,17 @@ def upload():
                     "parse_mode": "Markdown"
                 }, files={"document": f})
 
+            # تنظيف السيرفر من الملف بعد الإرسال
             if os.path.exists(filepath):
                 os.remove(filepath)
 
             if response.status_code == 200:
-                return "<script>alert('SUCCESS: File Sent! ✅'); window.location.href = '/';</script>"
+                return "<script>alert('تم إرسال الملف بنجاح! ✅'); window.location.href = '/';</script>"
             return f"Telegram Error: {response.text}"
         
-        return "Missing fields!"
+        return "الرجاء ملء جميع الحقول المطلوبة."
     except Exception as e:
-        return f"Server Error: {str(e)}"
+        return f"خطأ في السيرفر: {str(e)}"
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
