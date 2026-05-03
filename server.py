@@ -5,7 +5,6 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# بيانات البوت الخاصة بك
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
@@ -18,7 +17,6 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # استلام البيانات
     name = request.form['name']
     whatsapp = request.form['whatsapp']
     service = request.form['service_type']
@@ -30,25 +28,23 @@ def upload():
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(filepath)
 
-    # تنسيق الرسالة لتليجرام مع رابط واتساب مباشر
     caption = f"""
-💎 DOCTOR BIOS - JOB RECEIVED 🛠️
+🚀 DOCTOR BIOS - NEW 3D ORDER
 --------------------------
 👤 العميل: {name}
 🛠 الخدمة: {service}
 💻 الجهاز: {brand} {model}
 🔢 السيريال: {serial}
 --------------------------
-💬 تواصل مع العميل فوراً: 
+💬 تواصل الآن: 
 https://wa.me/{whatsapp.replace('+', '').replace(' ', '')}
 """
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-
     with open(filepath, 'rb') as f:
         requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
 
-    return "<h1>تم استلام ملفك بنجاح! علي حبوش سيتواصل معك قريباً.</h1>"
+    return "<h1>تم استلام طلبك بنجاح! سيتم التواصل معك عبر واتساب.</h1>"
 
 if __name__ == "__main__":
     app.run()

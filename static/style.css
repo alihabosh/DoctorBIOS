@@ -1,119 +1,116 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: radial-gradient(circle, #0f2027, #203a43, #000000);
-    background-attachment: fixed;
-    color: white;
-    direction: rtl;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid gold;
+    padding: 20px 50px;
+    background: rgba(0, 20, 30, 0.9);
+    border-bottom: 2px solid gold;
 }
 
-.logo { color: gold; text-shadow: 0 0 10px gold; }
-.navbar ul { display: flex; gap: 20px; list-style: none; }
-.navbar a { color: white; text-decoration: none; font-weight: bold; }
+.logo { color: gold; text-shadow: 0 0 15px gold; }
 
-/* أنيميشن الهكرز والشريحة */
-.bios-animation {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
+/* مكعب 3D دوار */
+.bios-3d-animation {
+    perspective: 800px;
+    margin: 50px 0;
 }
 
-.chip-container {
+.cube {
+    width: 100px;
+    height: 100px;
     position: relative;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+    margin: auto;
 }
 
-.main-chip {
-    width: 80px;
-    z-index: 10;
-    filter: drop-shadow(0 0 20px #00ff41);
-    animation: pulse 2s infinite ease-in-out;
-}
-
-.binary-ring {
+.face {
     position: absolute;
-    font-family: 'Courier New', monospace;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 255, 65, 0.1);
+    border: 2px solid #00ff41;
+    line-height: 100px;
     font-weight: bold;
-    white-space: nowrap;
-    opacity: 0.7;
-}
-
-.ring-1 {
-    color: #00ff41; /* أخضر هكرز */
-    font-size: 14px;
-    animation: rotate1 10s infinite linear;
-}
-
-.ring-2 {
     color: gold;
-    font-size: 12px;
-    animation: rotate2 15s infinite linear;
+    text-align: center;
+    backdrop-filter: blur(5px);
 }
 
-@keyframes rotate1 {
-    from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+.front  { transform: translateZ(50px); }
+.back   { transform: rotateY(180deg) translateZ(50px); }
+.right  { transform: rotateY(90deg) translateZ(50px); }
+.left   { transform: rotateY(-90deg) translateZ(50px); }
+.top    { transform: rotateX(90deg) translateZ(50px); }
+.bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
 }
 
-@keyframes rotate2 {
-    from { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
-    to { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+/* كروت الخدمات 3D */
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    perspective: 1000px;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px gold); }
-    50% { transform: scale(1.1); filter: drop-shadow(0 0 30px #00ff41); }
-}
-
-/* تنسيق الرفع */
-.upload-section {
-    width: 90%;
-    max-width: 500px;
-    margin: 40px auto;
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
     padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid gold;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+}
+
+.service-card:hover {
+    transform: rotateY(20deg) translateZ(20px);
+    box-shadow: 0 0 30px gold;
+}
+
+.upload-section {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
     border-radius: 20px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 input, select {
-    width: 95%;
-    padding: 12px;
+    width: 90%;
     margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-    background: rgba(0, 0, 0, 0.6);
-    color: gold;
+    padding: 12px;
+    background: #111;
+    color: #00ff41;
+    border: 1px solid #333;
 }
 
 button {
-    width: 100%;
+    width: 95%;
     padding: 15px;
-    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    background: linear-gradient(45deg, #00ff41, #ffd700);
     border: none;
-    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 1.1em;
+    box-shadow: 0 0 15px #00ff41;
 }
-
-.btn { padding: 10px 20px; border-radius: 20px; text-decoration: none; color: white; margin: 5px; display: inline-block; font-size: 0.9em; }
-.whatsapp { background: #25D366; }
-.tiktok { background: #000; border: 1px solid #fff; }
-.youtube { background: #f00; }
-.instagram { background: #e1306c; }

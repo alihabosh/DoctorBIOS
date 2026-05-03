@@ -3,72 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoctorBIOS Diamond - Ali Haboush</title>
+    <title>Dr. BIOS | Ali Haboush 3D Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
+<canvas id="matrix"></canvas> <!-- خلفية الماتريكس المتحركة -->
+
 <div class="navbar">
-    <h2 class="logo">DoctorBIOS 💎</h2>
+    <h2 class="logo">Dr. BIOS 💎</h2>
     <ul>
-        <li><a href="https://www.youtube.com/@ALIHABOSH" target="_blank">الأكاديمية</a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">تليجرام</a></li>
-        <li><a href="#upload">رفع ملف</a></li>
+        <li><a href="https://www.youtube.com/@ALIHABOSH" target="_blank">Academy</a></li>
+        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">Telegram</a></li>
     </ul>
 </div>
 
 <div class="hero">
-    <!-- تأثير الأنيميشن الجديد (شريحة مع أكواد هكرز) -->
-    <div class="bios-animation">
-        <div class="chip-container">
-            <div class="binary-ring ring-1">01101001 10110010 01101101</div>
-            <div class="binary-ring ring-2">10101010 00110011 11110000</div>
-            <img src="https://img.icons8.com/fluency/96/cpu.png" alt="BIOS Chip" class="main-chip">
+    <div class="bios-3d-animation">
+        <div class="cube">
+            <div class="face front">BIOS</div>
+            <div class="face back">UNLOCK</div>
+            <div class="face right">CLEAR</div>
+            <div class="face left">DMI</div>
+            <div class="face top">T2</div>
+            <div class="face bottom">ALI</div>
         </div>
     </div>
+    <h1>Upgrade Your Business With <span>Dr. BIOS 🚀</span></h1>
+    <p>Professional Chip-Level Solutions by Ali Haboush</p>
+</div>
 
-    <h1>تطوير أعمال الصيانة مع <br> <span>علي حبوش 🚀</span></h1>
-    <p>خبير صيانة هادروسير - Clear ME - فك شفرات BIOS - تعليم أونلاين</p>
-    
-    <div class="social-links">
-        <a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">واتساب</a>
-        <a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">تيك توك</a>
-        <a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">يوتيوب</a>
-        <a class="btn instagram" href="https://www.instagram.com/alihabosh/" target="_blank">إنستجرام</a>
+<div class="services-grid">
+    <div class="service-card">
+        <i class="fas fa-unlock"></i>
+        <h3>Unlock</h3>
+        <p>BIOS & EFI PIN</p>
+    </div>
+    <div class="service-card">
+        <i class="fas fa-microchip"></i>
+        <h3>Clear ME</h3>
+        <p>Clean Regions</p>
+    </div>
+    <div class="service-card">
+        <i class="fas fa-copy"></i>
+        <h3>DMI Data</h3>
+        <p>Copy & Fix Info</p>
     </div>
 </div>
 
-<div class="upload-section" id="upload">
-    <h2>ارفع ملف البايوس للإصلاح</h2>
+<div class="upload-section">
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="الاسم الكامل" required>
-        <input type="text" name="whatsapp" placeholder="رقم الواتساب مع مفتاح الدولة" required>
-        
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
         <select name="service_type" required>
-            <option value="">-- اختر نوع الخدمة --</option>
-            <option value="Clear ME / NVRAM">Clear ME / NVRAM Clean</option>
-            <option value="BIOS Unlock">BIOS Password Unlock</option>
-            <option value="DMI Copy">DMI Data Transfer</option>
-            <option value="Repair Course">استفسار عن دورة صيانة</option>
+            <option value="Unlock">BIOS Unlock</option>
+            <option value="Clear ME">Clear ME</option>
+            <option value="T2">Mac iCloud T2</option>
         </select>
-
-        <select name="brand" required>
-            <option value="">ماركة الجهاز</option>
-            <option>HP</option>
-            <option>Lenovo</option>
-            <option>Dell</option>
-            <option>Apple (T2/M1)</option>
-            <option>Other</option>
-        </select>
-
-        <input type="text" name="model" placeholder="الموديل (مثال: A2289)" required>
-        <input type="text" name="serial" placeholder="السيريال نمبر" required>
-        
+        <input type="text" name="model" placeholder="Model" required>
+        <input type="text" name="serial" placeholder="Serial" required>
         <input type="file" name="bios" required>
-
-        <button type="submit">إرسال الملف للإصلاح 🛠️</button>
+        <button type="submit">SUBMIT REPAIR 🛠️</button>
     </form>
 </div>
 
+<script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const letters = "01";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters.charAt(Math.floor(Math.random() * letters.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 33);
+</script>
 </body>
 </html>
