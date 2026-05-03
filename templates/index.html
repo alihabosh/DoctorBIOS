@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. BIOS | Ali Haboush 3D Experience</title>
+    <title>Doctor BIOS | Ali Haboush AI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<canvas id="matrix"></canvas> <!-- خلفية الماتريكس المتحركة -->
+<canvas id="matrix"></canvas>
 
 <div class="navbar">
-    <h2 class="logo">Dr. BIOS 💎</h2>
-    <ul>
-        <li><a href="https://www.youtube.com/@ALIHABOSH" target="_blank">Academy</a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">Telegram</a></li>
-    </ul>
+    <h2 class="logo">Doctor BIOS 💎</h2>
+    <div class="social-nav">
+        <a href="https://wa.me/96176737184" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://t.me/+umBA7AesEX82YmM8" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.tiktok.com/@alihabosh" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@ALIHABOSH" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
 </div>
 
 <div class="hero">
-    <div class="bios-3d-animation">
-        <div class="cube">
-            <div class="face front">BIOS</div>
-            <div class="face back">UNLOCK</div>
-            <div class="face right">CLEAR</div>
-            <div class="face left">DMI</div>
-            <div class="face top">T2</div>
-            <div class="face bottom">ALI</div>
+    <div class="container-3d">
+        <div class="cube-3d">
+            <div class="side front">BIOS</div>
+            <div class="side back">REPAIR</div>
+            <div class="side right">NVRAM</div>
+            <div class="side left">RAM</div>
+            <div class="side top">UNLOCK</div>
+            <div class="side bottom">AI</div>
         </div>
     </div>
-    <h1>Upgrade Your Business With <span>Dr. BIOS 🚀</span></h1>
+    <h1>Upgrade Your Business With <br> <span>Doctor BIOS AI 🚀</span></h1>
     <p>Professional Chip-Level Solutions by Ali Haboush</p>
 </div>
 
-<div class="services-grid">
-    <div class="service-card">
-        <i class="fas fa-unlock"></i>
-        <h3>Unlock</h3>
-        <p>BIOS & EFI PIN</p>
-    </div>
-    <div class="service-card">
+<div class="services-container">
+    <div class="card-3d">
         <i class="fas fa-microchip"></i>
-        <h3>Clear ME</h3>
-        <p>Clean Regions</p>
+        <h3>Repair BIOS</h3>
+        <p>Fix Corrupted Files</p>
     </div>
-    <div class="service-card">
-        <i class="fas fa-copy"></i>
-        <h3>DMI Data</h3>
-        <p>Copy & Fix Info</p>
+    <div class="card-3d">
+        <i class="fas fa-memory"></i>
+        <h3>Reset NVRAM</h3>
+        <p>Clear ME Regions</p>
+    </div>
+    <div class="card-3d">
+        <i class="fas fa-ban"></i>
+        <h3>Disable RAM</h3>
+        <p>On-Board RAM Fix</p>
     </div>
 </div>
 
 <div class="upload-section">
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="name" placeholder="Full Name" required>
         <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+        
         <select name="service_type" required>
-            <option value="Unlock">BIOS Unlock</option>
-            <option value="Clear ME">Clear ME</option>
-            <option value="T2">Mac iCloud T2</option>
+            <option value="">-- Select AI Service --</option>
+            <option value="Repair BIOS">Repair BIOS File</option>
+            <option value="Reset NVRAM">Reset NVRAM / Clear ME</option>
+            <option value="Disable RAM">Disable Built-in RAM</option>
+            <option value="Unlock T2">Mac iCloud T2 Unlock</option>
         </select>
+
+        <input type="text" name="brand" placeholder="Laptop Brand" required>
         <input type="text" name="model" placeholder="Model" required>
-        <input type="text" name="serial" placeholder="Serial" required>
-        <input type="file" name="bios" required>
-        <button type="submit">SUBMIT REPAIR 🛠️</button>
+        <input type="text" name="serial" placeholder="Serial Number" required>
+        
+        <input type="file" name="bios" id="bios" required>
+        <button type="submit">SUBMIT TO AI REPAIR 🛠️</button>
     </form>
 </div>
 

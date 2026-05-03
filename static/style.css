@@ -4,6 +4,7 @@ body {
     background: #000;
     color: #fff;
     overflow-x: hidden;
+    text-align: center;
 }
 
 #matrix {
@@ -11,106 +12,107 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
-    background: rgba(0, 20, 30, 0.9);
-    border-bottom: 2px solid gold;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid #00ff41;
 }
 
-.logo { color: gold; text-shadow: 0 0 15px gold; }
+.logo { color: gold; font-size: 1.2rem; }
 
-/* مكعب 3D دوار */
-.bios-3d-animation {
-    perspective: 800px;
-    margin: 50px 0;
+.social-nav a {
+    color: white;
+    margin-left: 10px;
+    font-size: 1.2rem;
 }
 
-.cube {
-    width: 100px;
-    height: 100px;
+/* 3D CUBE - Responsive Size */
+.container-3d { perspective: 1000px; margin: 20px 0; }
+.cube-3d {
+    width: 80px; height: 80px;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotateCube 10s infinite linear;
+    animation: rotate 15s infinite linear;
     margin: auto;
 }
-
-.face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
+.side {
+    position: absolute; width: 80px; height: 80px;
     background: rgba(0, 255, 65, 0.1);
-    border: 2px solid #00ff41;
-    line-height: 100px;
-    font-weight: bold;
-    color: gold;
-    text-align: center;
-    backdrop-filter: blur(5px);
+    border: 1px solid #00ff41;
+    line-height: 80px; font-size: 10px; color: gold;
+}
+.front { transform: translateZ(40px); }
+.back { transform: rotateY(180deg) translateZ(40px); }
+/* ... باقي الجهات تتبع نفس الـ translateZ(40px) */
+
+@keyframes rotate { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
+
+/* Hero Section */
+.hero h1 { font-size: 1.8rem; padding: 0 10px; }
+.hero span { color: gold; }
+
+/* الخدمات - تترتب تلقائياً */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
 }
 
-.front  { transform: translateZ(50px); }
-.back   { transform: rotateY(180deg) translateZ(50px); }
-.right  { transform: rotateY(90deg) translateZ(50px); }
-.left   { transform: rotateY(-90deg) translateZ(50px); }
-.top    { transform: rotateX(90deg) translateZ(50px); }
-.bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-@keyframes rotateCube {
-    from { transform: rotateX(0deg) rotateY(0deg); }
-    to { transform: rotateX(360deg) rotateY(360deg); }
+.card-3d {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ff41;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
 }
 
-/* كروت الخدمات 3D */
-.services-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 50px;
-    perspective: 1000px;
-}
+.card-3d i { font-size: 2rem; color: gold; }
 
-.service-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid gold;
-    transition: 0.5s;
-    transform-style: preserve-3d;
-}
-
-.service-card:hover {
-    transform: rotateY(20deg) translateZ(20px);
-    box-shadow: 0 0 30px gold;
-}
-
+/* نموذج الرفع - يتناسب مع عرض الشاشة */
 .upload-section {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ff41;
+    width: 90%;
     max-width: 450px;
-    margin: 50px auto;
-    padding: 30px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 20, 30, 0.9);
+    border: 2px solid gold;
     border-radius: 20px;
 }
 
 input, select {
-    width: 90%;
-    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px;
+    margin: 8px 0;
     background: #111;
-    color: #00ff41;
     border: 1px solid #333;
+    color: #00ff41;
+    border-radius: 8px;
 }
 
 button {
-    width: 95%;
+    width: 100%;
     padding: 15px;
     background: linear-gradient(45deg, #00ff41, #ffd700);
     border: none;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 0 15px #00ff41;
+}
+
+/* شاشات اللابتوب الكبيرة */
+@media (min-width: 768px) {
+    .logo { font-size: 2rem; }
+    .hero h1 { font-size: 3rem; }
+    .cube-3d { width: 120px; height: 120px; }
+    .side { width: 120px; height: 120px; line-height: 120px; font-size: 14px; }
+    .front { transform: translateZ(60px); }
+    /* تعديل الـ Z ليتناسب مع الحجم الأكبر */
 }

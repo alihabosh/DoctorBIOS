@@ -5,6 +5,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
+# بياناتك
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
@@ -29,22 +30,21 @@ def upload():
     file.save(filepath)
 
     caption = f"""
-🚀 DOCTOR BIOS - NEW 3D ORDER
+💎 DOCTOR BIOS AI - NEW ORDER
 --------------------------
-👤 العميل: {name}
-🛠 الخدمة: {service}
-💻 الجهاز: {brand} {model}
-🔢 السيريال: {serial}
+👤 Client: {name}
+🛠 Service: {service}
+💻 Device: {brand} {model}
+🔢 Serial: {serial}
 --------------------------
-💬 تواصل الآن: 
-https://wa.me/{whatsapp.replace('+', '').replace(' ', '')}
+💬 Contact: https://wa.me/{whatsapp.replace('+', '').replace(' ', '')}
 """
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
     with open(filepath, 'rb') as f:
         requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
 
-    return "<h1>تم استلام طلبك بنجاح! سيتم التواصل معك عبر واتساب.</h1>"
+    return "<h1>Success! Ali Haboush will contact you.</h1>"
 
 if __name__ == "__main__":
     app.run()
