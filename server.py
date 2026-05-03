@@ -6,7 +6,7 @@ import random
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-BOT_TOKEN = "8399796732:AAEHZQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU"
+BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
 if not os.path.exists("uploads"):
@@ -39,7 +39,7 @@ def upload():
 🔢 Serial: {serial}
 """
 
-    url = f"https://api.telegram.org/bot8399796732:AAEHzQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU/sendDocument"
+    url = f"https://api.telegram.org/bot8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI/sendDocument"
 
     with open(filepath, 'rb') as f:
         requests.post(url,
