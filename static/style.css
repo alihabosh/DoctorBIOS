@@ -1,94 +1,69 @@
-body{
-margin:0;
-font-family:Segoe UI;
-background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
-color:white;
-text-align:center;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d); /* ألوان نارية تقنية */
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
 }
 
-/* NAVBAR */
-
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
-background:#001f2f;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar ul{
-display:flex;
-gap:20px;
-list-style:none;
+.logo { color: #ffd700; text-shadow: 0 0 10px #ffd700; }
+
+.navbar ul { display: flex; gap: 25px; list-style: none; }
+.navbar a { color: white; text-decoration: none; font-weight: bold; }
+
+.hero h1 span { color: #ffd700; }
+
+.upload-section {
+    width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.logo{
-color:gold;
+input, select {
+    display: block;
+    margin: 15px auto;
+    padding: 12px;
+    width: 90%;
+    border-radius: 8px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: gold;
 }
 
-/* HERO */
-
-.hero{
-margin-top:60px;
+button {
+    padding: 15px;
+    width: 95%;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: 0.4s;
 }
 
-.hero span{
-color:gold;
-}
+button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4); }
 
-/* BUTTONS */
-
-.btn{
-padding:10px 20px;
-margin:5px;
-border:none;
-color:white;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 15px gold;
-}
-
-.whatsapp{background:#25D366;}
-.telegram{background:#0088cc;}
-.tiktok{background:black;}
-.youtube{background:red;}
-
-/* UPLOAD BOX */
-
-.upload-section{
-width:400px;
-margin:40px auto;
-padding:30px;
-border-radius:10px;
-background:#002f3f;
-box-shadow:0 0 20px gold;
-}
-
-input,select{
-display:block;
-margin:10px auto;
-padding:10px;
-width:90%;
-border:none;
-border-radius:6px;
-}
-
-button{
-padding:10px;
-width:95%;
-background:gold;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-}
-
-button:hover{
-box-shadow:0 0 10px gold;
-}
+.btn { padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; }
+.whatsapp { background: #25D366; }
+.tiktok { background: #000000; border: 1px solid white; }
+.youtube { background: #FF0000; }
+.instagram { background: #E1306C; }

@@ -1,26 +1,9 @@
-from flask import Flask, render_template, request
-import requests
-import os
-import random
-
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
-
-BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
-CHAT_ID = "1420084231"
-
-if not os.path.exists("uploads"):
-    os.makedirs("uploads")
-
-@app.route('/')
-def index():
-    return render_template("index.html")
-
 @app.route('/upload', methods=['POST'])
 def upload():
-
+    # استلام البيانات الجديدة
     name = request.form['name']
     whatsapp = request.form['whatsapp']
+    service = request.form['service_type'] # الخدمة المختارة
     brand = request.form['brand']
     model = request.form['model']
     serial = request.form['serial']
@@ -29,24 +12,22 @@ def upload():
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(filepath)
 
+    # تنسيق الرسالة لتليجرام لتكون عملية أكثر
     caption = f"""
-💎 New DoctorBIOS Job
-
-👤 Name: {name}
-📞 WhatsApp: {whatsapp}
-💻 Brand: {brand}
-📌 Model: {model}
+💎 DOCTOR BIOS - NEW JOB
+--------------------------
+🛠 Service: {service}
+👤 Customer: {name}
+💻 Device: {brand} {model}
 🔢 Serial: {serial}
+--------------------------
+💬 Chat on WhatsApp: 
+https://wa.me/{whatsapp.replace('+', '')}
 """
 
-    url = f"https://api.telegram.org/bot8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI/sendDocument"
-
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+    
     with open(filepath, 'rb') as f:
-        requests.post(url,
-        data={"chat_id": CHAT_ID, "caption": caption},
-        files={"document": f})
+        requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
 
-    return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run()
+    return "<h1>File Received! Ali Haboush will contact you soon.</h1>"
