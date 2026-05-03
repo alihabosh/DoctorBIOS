@@ -34,7 +34,7 @@ body {
 }
 .social-nav a:hover { color: #00ff41; transform: scale(1.2); }
 
-/* 3D CUBE Section */
+/* 3D Cube Section */
 .container-3d { perspective: 1000px; margin: 30px 0; }
 .cube-3d {
     width: 80px; height: 80px;
@@ -122,6 +122,17 @@ body {
     font-size: 0.85rem;
 }
 
+/* Course Button Inside Card */
+.course-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: #00ff41;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
 /* Upload Form */
 .upload-section {
     width: 90%;
@@ -156,7 +167,7 @@ button {
     box-shadow: 0 0 15px #00ff41;
 }
 
-/* Laptop High Resolution Adjustment */
+/* Laptop Adjustment */
 @media (min-width: 768px) {
     .logo { font-size: 2rem; }
     .hero h1 { font-size: 3rem; }
@@ -164,8 +175,4 @@ button {
     .side { width: 120px; height: 120px; line-height: 120px; font-size: 14px; }
     .front { transform: translateZ(60px); }
     .back { transform: rotateY(180deg) translateZ(60px); }
-    .right { transform: rotateY(90deg) translateZ(60px); }
-    .left { transform: rotateY(-90deg) translateZ(60px); }
-    .top { transform: rotateX(90deg) translateZ(60px); }
-    .bottom { transform: rotateX(-90deg) translateZ(60px); }
 }

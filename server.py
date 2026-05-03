@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# بيانات البوت الخاصة بك
+# بيانات البوت الخاصة بك (مباشرة)
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
@@ -41,10 +41,12 @@ def upload():
 """
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
-    with open(filepath, 'rb') as f:
-        requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
-
-    return "<h1>Success! Your file has been sent to Ali Haboush.</h1>"
+    try:
+        with open(filepath, 'rb') as f:
+            requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
+        return "<h1>Success! Your file has been sent to Ali Haboush.</h1>"
+    except Exception as e:
+        return f"<h1>Error: {str(e)}</h1>"
 
 if __name__ == "__main__":
     app.run()
