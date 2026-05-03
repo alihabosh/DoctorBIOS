@@ -1,68 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>DoctorBIOS Diamond - Professional Repair</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorBIOS 💎 Ali Haboush</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
 <div class="navbar">
-    <h2 class="logo">DoctorBIOS 💎 Ali Haboush</h2>
+    <h2 class="logo">DoctorBIOS 💎</h2>
     <ul>
-        <li><a href="https://www.youtube.com/@ALIHABOSH" target="_blank">Academy</a></li>
-        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">Telegram</a></li>
-        <li><a href="#upload">Upload File</a></li>
+        <li><a href="https://www.youtube.com/@ALIHABOSH" target="_blank">الأكاديمية</a></li>
+        <li><a href="https://t.me/+Q_Fl_dVGSac5ZGVk" target="_blank">تليجرام</a></li>
+        <li><a href="#upload">رفع ملف</a></li>
     </ul>
 </div>
 
 <div class="hero">
-    <h1>Upgrade Your Repair Business <br>
-    With <span>Ali Haboush Academy 🚀</span></h1>
-    <p>تصليح لابتوبات - تعليم أونلاين - فك شفرات BIOS و Clear ME بكل احترافية</p>
+    <h1>تطوير أعمال الصيانة مع <br> <span>علي حبوش 🚀</span></h1>
+    <p>خبير صيانة هاردوير - Clear ME - فك شفرات BIOS - تعليم أونلاين</p>
     
     <div class="social-links">
-        <a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp</a>
-        <a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a>
-        <a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
-        <a class="btn instagram" href="https://www.instagram.com/alihabosh/" target="_blank">Instagram</a>
+        <a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">واتساب</a>
+        <a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">تيك توك</a>
+        <a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">يوتيوب</a>
+        <a class="btn instagram" href="https://www.instagram.com/alihabosh/" target="_blank">إنستجرام</a>
     </div>
 </div>
 
 <div class="upload-section" id="upload">
-    <h2>Upload BIOS & Start Repair</h2>
+    <h2>ارفع ملف البايوس للإصلاح</h2>
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="whatsapp" placeholder="WhatsApp Number (With Key)" required>
+        <input type="text" name="name" placeholder="الاسم الكامل" required>
+        <input type="text" name="whatsapp" placeholder="رقم الواتساب مع مفتاح الدولة" required>
         
         <select name="service_type" required>
-            <option value="">-- Select Service Type --</option>
+            <option value="">-- اختر نوع الخدمة --</option>
             <option value="Clear ME / NVRAM">Clear ME / NVRAM Clean</option>
             <option value="BIOS Unlock">BIOS Password Unlock</option>
             <option value="DMI Copy">DMI Data Transfer</option>
-            <option value="Online Course">Enroll in Repair Course</option>
+            <option value="Repair Course">استفسار عن دورة صيانة</option>
         </select>
 
         <select name="brand" required>
-            <option value="">Laptop Brand</option>
+            <option value="">ماركة الجهاز</option>
             <option>HP</option>
             <option>Lenovo</option>
             <option>Dell</option>
             <option>Apple (T2/M1)</option>
-            <option>Asus</option>
             <option>Other</option>
         </select>
 
-        <input type="text" name="model" placeholder="Model (e.g. A2289)" required>
-        <input type="text" name="serial" placeholder="Serial / Challenge Code" required>
+        <input type="text" name="model" placeholder="الموديل (مثال: A2289)" required>
+        <input type="text" name="serial" placeholder="السيريال نمبر" required>
         
-        <div class="file-input">
-            <label>Select BIOS Dump File:</label>
-            <input type="file" name="bios" required>
-        </div>
+        <input type="file" name="bios" required>
 
-        <button type="submit">Submit for Repair 🛠️</button>
+        <button type="submit">إرسال الملف للإصلاح 🛠️</button>
     </form>
 </div>
+
 </body>
 </html>
