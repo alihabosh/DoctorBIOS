@@ -1,68 +1,52 @@
 from flask import Flask, render_template, request
 import requests
 import os
+import random
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# إعداد المجلدات اللازمة
-UPLOAD_FOLDER = 'uploads'
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# --- التوكن الجديد والآيدي الخاص بك ---
-BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
+BOT_TOKEN = "8399796732:AAEHZQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU"
 CHAT_ID = "1420084231"
+
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
 
 @app.route('/')
 def index():
-    # استدعاء ملف الواجهة الأساسي
     return render_template("index.html")
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    try:
-        name = request.form.get('name')
-        whatsapp = request.form.get('whatsapp')
-        brand = request.form.get('brand')
-        model = request.form.get('model')
-        serial = request.form.get('serial')
-        file = request.files.get('bios')
 
-        if file and name:
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(filepath)
+    name = request.form['name']
+    whatsapp = request.form['whatsapp']
+    brand = request.form['brand']
+    model = request.form['model']
+    serial = request.form['serial']
 
-            # نص الرسالة المنسق لتليجرام
-            caption = (f"💎 *New DoctorBIOS Job*\n\n"
-                       f"👤 *Customer:* {name}\n"
-                       f"📞 *WhatsApp:* {whatsapp}\n"
-                       f"💻 *Brand:* {brand.upper() if brand else 'N/A'}\n"
-                       f"📌 *Model:* {model}\n"
-                       f"🔢 *Serial:* {serial}")
+    file = request.files['bios']
+    filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    file.save(filepath)
 
-            url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendDocument"
+    caption = f"""
+💎 New DoctorBIOS Job
 
-            with open(filepath, 'rb') as f:
-                response = requests.post(url, data={
-                    "chat_id": CHAT_ID, 
-                    "caption": caption, 
-                    "parse_mode": "Markdown"
-                }, files={"document": f})
+👤 Name: {name}
+📞 WhatsApp: {whatsapp}
+💻 Brand: {brand}
+📌 Model: {model}
+🔢 Serial: {serial}
+"""
 
-            # تنظيف السيرفر من الملف بعد الإرسال
-            if os.path.exists(filepath):
-                os.remove(filepath)
+    url = f"https://api.telegram.org/bot8399796732:AAEHzQ_9d9g1lCPPdMc6VCW3Jfjhma2vDMU/sendDocument"
 
-            if response.status_code == 200:
-                return "<script>alert('تم إرسال الملف بنجاح! ✅'); window.location.href = '/';</script>"
-            return f"Telegram Error: {response.text}"
-        
-        return "الرجاء ملء جميع الحقول المطلوبة."
-    except Exception as e:
-        return f"خطأ في السيرفر: {str(e)}"
+    with open(filepath, 'rb') as f:
+        requests.post(url,
+        data={"chat_id": CHAT_ID, "caption": caption},
+        files={"document": f})
+
+    return render_template("index.html")
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run()

@@ -1,63 +1,77 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Professional Repair</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8">
+<title>DoctorBIOS Diamond</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-right">
-            <a href="/" class="logo">DOCTOR <span>BIOS</span> <i class="fas fa-microchip"></i></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="/"><i class="fas fa-home"></i> HOME</a></li>
-            <li><a href="https://www.youtube.com/@DoctorBIOS" target="_blank">YOUTUBE</a></li>
-            <li><a href="https://t.me/DoctorBIOS" target="_blank">TELEGRAM</a></li>
-        </ul>
-        <div class="nav-left">
-            <a href="#" class="btn-contact">CONTACT SUPPORT</a>
-        </div>
-    </nav>
+<div class="navbar">
+<h2 class="logo">DoctorBIOS 💎 Diamond</h2>
 
-    <main class="main-container">
-        <div class="hero-section">
-            <div class="text-content">
-                <h1>ART OF BIOS REPAIR<br><span>FOR ALL LAPTOPS</span></h1>
-                <p>خدمات احترافية لفك تشفير وصيانة أنظمة البيوس لجميع الماركات العالمية بدقة 100%.</p>
-            </div>
+<ul>
+<li>Home</li>
+<li>Services</li>
+<li>Upload</li>
+<li>Contact</li>
+</ul>
+</div>
 
-            <div class="form-wrapper">
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <div class="input-group">
-                        <input type="text" name="name" placeholder="FULL NAME" required>
-                        <input type="text" name="whatsapp" placeholder="WHATSAPP NUMBER" required>
-                    </div>
-                    
-                    <select name="brand" required>
-                        <option value="" disabled selected>SELECT LAPTOP BRAND</option>
-                        <option value="hp">HP</option>
-                        <option value="dell">DELL</option>
-                        <option value="lenovo">LENOVO</option>
-                        <option value="apple">APPLE</option>
-                    </select>
+<div class="hero">
 
-                    <input type="text" name="model" placeholder="MODEL (e.g. Latitude 5400)">
-                    <input type="text" name="serial" placeholder="SERIAL / SERVICE TAG">
+<h1>Upgrade Your Repair Business <br>
+With <span>Dr. BIOS – Ali Haboush 🚀</span></h1>
 
-                    <div class="upload-area" onclick="document.getElementById('file-input').click()">
-                        <input type="file" id="file-input" name="bios" style="display:none" required>
-                        <p><i class="fas fa-cloud-upload-alt"></i> CHOOSE BIOS FILE (.BIN, .ROM)</p>
-                    </div>
+<p>Professional BIOS Repair & Unlock Service – Fast, Secure & Trusted Worldwide</p>
 
-                    <button type="submit" class="btn-submit">START REPAIR PROCESS</button>
-                </form>
-            </div>
-        </div>
-    </main>
+<a class="btn whatsapp" href="https://wa.me/96176737184" target="_blank">WhatsApp 24/7</a> <a class="btn telegram" href="https://t.me/+umBA7AesEX82YmM8" target="_blank">Telegram Support</a> <a class="btn tiktok" href="https://www.tiktok.com/@alihabosh" target="_blank">TikTok</a> <a class="btn youtube" href="https://www.youtube.com/@ALIHABOSH" target="_blank">YouTube</a>
+
+</div>
+
+<div class="upload-section">
+
+<h2>Upload BIOS File</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+
+<select name="brand" required>
+<option value="">Laptop Brand</option>
+<option>Dell</option>
+<option>HP</option>
+<option>Lenovo</option>
+<option>Asus</option>
+<option>Acer</option>
+<option>Huawei</option>
+<option>Redmi</option>
+<option>Apple</option>
+<option>Panasonic</option>
+<option>MSI</option>
+<option>Samsung</option>
+<option>Sony</option>
+<option>Toshiba</option>
+<option>Fujitsu</option>
+<option>Gigabyte</option>
+<option>Microsoft Surface</option>
+<option>Razer</option>
+<option>Intel</option>
+</select>
+
+<input type="text" name="model" placeholder="Model" required>
+<input type="text" name="serial" placeholder="Serial Number" required>
+
+<input type="file" name="bios" required>
+
+<button type="submit">Upload File</button>
+
+</form>
+
+</div>
 
 </body>
 </html>
