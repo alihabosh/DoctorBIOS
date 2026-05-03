@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Ali Haboush AI</title>
+    <title>Doctor BIOS | Ali Haboush AI Expert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -37,20 +37,49 @@
 </div>
 
 <div class="services-container">
-    <div class="card-3d">
-        <i class="fas fa-microchip"></i>
-        <h3>Repair BIOS</h3>
-        <p>Fix Corrupted Files</p>
+    <!-- Card 1: Repair BIOS -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <i class="fas fa-microchip"></i>
+                <h3>Repair BIOS</h3>
+                <p>Fix Corrupted Files</p>
+            </div>
+            <div class="flip-card-back">
+                <h3>How it works?</h3>
+                <p>We rebuild corrupted firmware to fix "No Display" or "Dead Board" issues perfectly[cite: 3].</p>
+            </div>
+        </div>
     </div>
-    <div class="card-3d">
-        <i class="fas fa-memory"></i>
-        <h3>Reset NVRAM</h3>
-        <p>Clear ME Regions</p>
+
+    <!-- Card 2: Reset NVRAM -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <i class="fas fa-memory"></i>
+                <h3>Reset NVRAM</h3>
+                <p>Clear ME Regions</p>
+            </div>
+            <div class="flip-card-back">
+                <h3>What is this?</h3>
+                <p>Cleans ME/TXE regions to fix high fan speed, slow boot, and restart issues[cite: 3].</p>
+            </div>
+        </div>
     </div>
-    <div class="card-3d">
-        <i class="fas fa-ban"></i>
-        <h3>Disable RAM</h3>
-        <p>On-Board RAM Fix</p>
+
+    <!-- Card 3: Disable RAM -->
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <i class="fas fa-ban"></i>
+                <h3>Disable RAM</h3>
+                <p>On-Board RAM Fix</p>
+            </div>
+            <div class="flip-card-back">
+                <h3>Hardware Mod</h3>
+                <p>Modifying BIOS to disable faulty built-in RAM and enable external slots[cite: 3].</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -68,10 +97,10 @@
         </select>
 
         <input type="text" name="brand" placeholder="Laptop Brand" required>
-        <input type="text" name="model" placeholder="Model" required>
+        <input type="text" name="model" placeholder="Model (e.g. A2289)" required>
         <input type="text" name="serial" placeholder="Serial Number" required>
         
-        <input type="file" name="bios" id="bios" required>
+        <input type="file" name="bios" required>
         <button type="submit">SUBMIT TO AI REPAIR 🛠️</button>
     </form>
 </div>

@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# بياناتك
+# بيانات البوت الخاصة بك
 BOT_TOKEN = "8399796732:AAG897g1igybOwXMbsqabbNQlKKdGYPBHOI"
 CHAT_ID = "1420084231"
 
@@ -44,7 +44,7 @@ def upload():
     with open(filepath, 'rb') as f:
         requests.post(url, data={"chat_id": CHAT_ID, "caption": caption}, files={"document": f})
 
-    return "<h1>Success! Ali Haboush will contact you.</h1>"
+    return "<h1>Success! Your file has been sent to Ali Haboush.</h1>"
 
 if __name__ == "__main__":
     app.run()

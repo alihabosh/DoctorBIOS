@@ -24,63 +24,110 @@ body {
     border-bottom: 2px solid #00ff41;
 }
 
-.logo { color: gold; font-size: 1.2rem; }
+.logo { color: gold; font-size: 1.2rem; text-shadow: 0 0 10px gold; }
 
 .social-nav a {
     color: white;
     margin-left: 10px;
     font-size: 1.2rem;
+    transition: 0.3s;
 }
+.social-nav a:hover { color: #00ff41; transform: scale(1.2); }
 
-/* 3D CUBE - Responsive Size */
-.container-3d { perspective: 1000px; margin: 20px 0; }
+/* 3D CUBE Section */
+.container-3d { perspective: 1000px; margin: 30px 0; }
 .cube-3d {
     width: 80px; height: 80px;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotate 15s infinite linear;
+    animation: rotateCube 15s infinite linear;
     margin: auto;
 }
 .side {
     position: absolute; width: 80px; height: 80px;
     background: rgba(0, 255, 65, 0.1);
     border: 1px solid #00ff41;
-    line-height: 80px; font-size: 10px; color: gold;
+    line-height: 80px; font-size: 10px; font-weight: bold; color: gold;
 }
-.front { transform: translateZ(40px); }
-.back { transform: rotateY(180deg) translateZ(40px); }
-/* ... باقي الجهات تتبع نفس الـ translateZ(40px) */
+.front  { transform: translateZ(40px); }
+.back   { transform: rotateY(180deg) translateZ(40px); }
+.right  { transform: rotateY(90deg) translateZ(40px); }
+.left   { transform: rotateY(-90deg) translateZ(40px); }
+.top    { transform: rotateX(90deg) translateZ(40px); }
+.bottom { transform: rotateX(-90deg) translateZ(40px); }
 
-@keyframes rotate { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
 
-/* Hero Section */
 .hero h1 { font-size: 1.8rem; padding: 0 10px; }
-.hero span { color: gold; }
+.hero span { color: gold; text-shadow: 0 0 10px gold; }
 
-/* الخدمات - تترتب تلقائياً */
+/* Flip Cards System */
 .services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
 }
 
-.card-3d {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #00ff41;
-    padding: 15px;
-    border-radius: 12px;
-    transition: 0.3s;
+.flip-card {
+    background-color: transparent;
+    width: 280px;
+    height: 180px;
+    perspective: 1000px;
 }
 
-.card-3d i { font-size: 2rem; color: gold; }
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
 
-/* نموذج الرفع - يتناسب مع عرض الشاشة */
+.flip-card:hover .flip-card-inner, .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.flip-card-front {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ff41;
+}
+
+.flip-card-front i { font-size: 2.5rem; color: gold; margin-bottom: 10px; }
+
+.flip-card-back {
+    background: linear-gradient(45deg, #004d1a, #000);
+    color: gold;
+    transform: rotateY(180deg);
+    border: 1px solid gold;
+    font-size: 0.85rem;
+}
+
+/* Upload Form */
 .upload-section {
     width: 90%;
     max-width: 450px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 25px;
     background: rgba(0, 20, 30, 0.9);
     border: 2px solid gold;
     border-radius: 20px;
@@ -88,13 +135,13 @@ body {
 
 input, select {
     width: 100%;
-    box-sizing: border-box;
     padding: 12px;
-    margin: 8px 0;
+    margin: 10px 0;
     background: #111;
     border: 1px solid #333;
     color: #00ff41;
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 button {
@@ -104,15 +151,21 @@ button {
     border: none;
     border-radius: 8px;
     font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
+    box-shadow: 0 0 15px #00ff41;
 }
 
-/* شاشات اللابتوب الكبيرة */
+/* Laptop High Resolution Adjustment */
 @media (min-width: 768px) {
     .logo { font-size: 2rem; }
     .hero h1 { font-size: 3rem; }
     .cube-3d { width: 120px; height: 120px; }
     .side { width: 120px; height: 120px; line-height: 120px; font-size: 14px; }
     .front { transform: translateZ(60px); }
-    /* تعديل الـ Z ليتناسب مع الحجم الأكبر */
+    .back { transform: rotateY(180deg) translateZ(60px); }
+    .right { transform: rotateY(90deg) translateZ(60px); }
+    .left { transform: rotateY(-90deg) translateZ(60px); }
+    .top { transform: rotateX(90deg) translateZ(60px); }
+    .bottom { transform: rotateX(-90deg) translateZ(60px); }
 }
