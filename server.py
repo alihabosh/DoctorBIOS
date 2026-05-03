@@ -18,7 +18,7 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    # استلام البيانات المطورة
+    # استلام البيانات
     name = request.form['name']
     whatsapp = request.form['whatsapp']
     service = request.form['service_type']
@@ -30,16 +30,16 @@ def upload():
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(filepath)
 
-    # رسالة تليجرام احترافية مع رابط واتساب
+    # تنسيق الرسالة لتليجرام مع رابط واتساب مباشر
     caption = f"""
-💎 DOCTOR BIOS - NEW JOB 🛠️
+💎 DOCTOR BIOS - JOB RECEIVED 🛠️
 --------------------------
-👤 Customer: {name}
-🛠 Service: {service}
-💻 Device: {brand} {model}
-🔢 Serial: {serial}
+👤 العميل: {name}
+🛠 الخدمة: {service}
+💻 الجهاز: {brand} {model}
+🔢 السيريال: {serial}
 --------------------------
-💬 Chat with Customer: 
+💬 تواصل مع العميل فوراً: 
 https://wa.me/{whatsapp.replace('+', '').replace(' ', '')}
 """
 

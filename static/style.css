@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: radial-gradient(circle, #0f2027, #203a43, #000000);
     background-attachment: fixed;
     color: white;
     direction: rtl;
@@ -10,28 +10,85 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid gold;
 }
 
 .logo { color: gold; text-shadow: 0 0 10px gold; }
 .navbar ul { display: flex; gap: 20px; list-style: none; }
 .navbar a { color: white; text-decoration: none; font-weight: bold; }
 
-.hero { margin-top: 50px; text-align: center; }
-.hero span { color: gold; font-size: 1.2em; }
+/* أنيميشن الهكرز والشريحة */
+.bios-animation {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
 
+.chip-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-chip {
+    width: 80px;
+    z-index: 10;
+    filter: drop-shadow(0 0 20px #00ff41);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.binary-ring {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0.7;
+}
+
+.ring-1 {
+    color: #00ff41; /* أخضر هكرز */
+    font-size: 14px;
+    animation: rotate1 10s infinite linear;
+}
+
+.ring-2 {
+    color: gold;
+    font-size: 12px;
+    animation: rotate2 15s infinite linear;
+}
+
+@keyframes rotate1 {
+    from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes rotate2 {
+    from { transform: rotate(360deg) translateX(130px) rotate(-360deg); }
+    to { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px gold); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 30px #00ff41); }
+}
+
+/* تنسيق الرفع */
 .upload-section {
     width: 90%;
     max-width: 500px;
     margin: 40px auto;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 input, select {
@@ -40,9 +97,8 @@ input, select {
     margin: 10px 0;
     border-radius: 10px;
     border: none;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     color: gold;
-    font-size: 1em;
 }
 
 button {
@@ -53,12 +109,10 @@ button {
     border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    font-size: 1.1em;
 }
 
-button:hover { transform: scale(1.02); box-shadow: 0 0 20px gold; }
-
-.btn { padding: 10px 20px; border-radius: 20px; text-decoration: none; color: white; margin: 5px; display: inline-block; }
+.btn { padding: 10px 20px; border-radius: 20px; text-decoration: none; color: white; margin: 5px; display: inline-block; font-size: 0.9em; }
 .whatsapp { background: #25D366; }
 .tiktok { background: #000; border: 1px solid #fff; }
 .youtube { background: #f00; }
