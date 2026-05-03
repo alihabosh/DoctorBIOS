@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Ali Haboush</title>
+    <title>Doctor BIOS | Ali Haboush AI Expert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -11,7 +11,6 @@
 
 <canvas id="matrix"></canvas>
 
-<!-- القائمة العلوية وروابط السوشيال ميديا -->
 <div class="navbar">
     <h2 class="logo">Doctor BIOS 💎</h2>
     <div class="social-nav">
@@ -23,11 +22,11 @@
 </div>
 
 <div class="hero">
-    <h1>Ali Haboush <br> <span>Professional Solutions 🚀</span></h1>
-    <p>AI BIOS Repair & Master Training Courses</p>
+    <h1>Upgrade Your Business With <br> <span>Doctor BIOS AI 🚀</span></h1>
+    <p>Professional Chip-Level Solutions by Ali Haboush</p>
 </div>
 
-<!-- القسم الأول: خدمات صيانة البايوس -->
+<!-- SECTION 1: AI SERVICES -->
 <h2 class="section-title">AI Repair Services 🛠️</h2>
 <div class="services-container">
     <div class="flip-card">
@@ -35,9 +34,11 @@
             <div class="flip-card-front">
                 <i class="fas fa-microchip"></i>
                 <h3>Repair BIOS</h3>
+                <p>Fix Corrupted Files</p>
             </div>
             <div class="flip-card-back">
-                <p>إصلاح ملفات البايوس التالفة وإعادة بناء الفيرموير بالكامل.</p>
+                <h3>Technical Details</h3>
+                <p>إعادة بناء الفيرموير التالف لحل مشاكل الشاشة السوداء وعدم الإقلاع نهائياً.</p>
             </div>
         </div>
     </div>
@@ -45,59 +46,79 @@
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-memory"></i>
-                <h3>Clear ME Region</h3>
+                <h3>Reset NVRAM</h3>
+                <p>Clear ME Regions</p>
             </div>
             <div class="flip-card-back">
-                <p>حل مشاكل الإقلاع البطيء وسرعة المروحة العالية عبر تنظيف الـ ME[cite: 1].</p>
+                <h3>Speed Fix</h3>
+                <p>تنظيف أقاليم ME/TXE لحل مشاكل دوران المروحة العالي والتشغيل البطيء[cite: 1].</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <i class="fas fa-ban"></i>
+                <h3>Disable RAM</h3>
+                <p>On-Board RAM Fix</p>
+            </div>
+            <div class="flip-card-back">
+                <h3>Hardware Mod</h3>
+                <p>تعديل البايوس لإلغاء الرامات المدمجة التالفة وتفعيل السلوت الخارجي[cite: 1].</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- القسم الثاني: الدورات التعليمية (المطلوب الجديد) -->
+<!-- SECTION 2: TRAINING COURSES -->
 <h2 class="section-title" style="color: #00ff41;">Master Training Courses 🎓</h2>
 <div class="services-container">
-    <div class="flip-card">
+    <div class="flip-card course-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-graduation-cap"></i>
                 <h3>دورة صيانة البايوس</h3>
-                <p>BIOS Engineering</p>
+                <p>BIOS Master Class</p>
             </div>
             <div class="flip-card-back">
-                <h3>محتوى الدورة</h3>
-                <p>تعليم تعديل الهيكس (HEX) يدوياً وإصلاح ملفات البايوس من الصفر[cite: 1].</p>
-                <a href="https://wa.me/96176737184" class="btn-wa">سجل الآن 📞</a>
+                <h3>ماذا ستتعلم؟</h3>
+                <p>تعديل الهيكس يدوياً، سحب السيريال، وإصلاح كافة مشاكل السوفتوير للهاردوير[cite: 1].</p>
+                <a href="https://wa.me/96176737184" class="wa-btn">سجل الآن 📞</a>
             </div>
         </div>
     </div>
-    <div class="flip-card">
+    <div class="flip-card course-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-laptop-medical"></i>
                 <h3>دورة صيانة اللابتوب</h3>
-                <p>Hardware Mastery</p>
+                <p>Laptop Repair Pro</p>
             </div>
             <div class="flip-card-back">
                 <h3>محتوى الدورة</h3>
-                <p>تعليم قراءة المخططات (Schematics) وتتبع الأعطال على البورد[cite: 1].</p>
-                <a href="https://wa.me/96176737184" class="btn-wa">تواصل معنا 📞</a>
+                <p>شرح المخططات، تتبع مسارات الفولتية، وتشخيص أعطال البورد باحترافية[cite: 1].</p>
+                <a href="https://wa.me/96176737184" class="wa-btn">تواصل معنا 📞</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- قسم رفع الملفات -->
 <div class="upload-section">
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="whatsapp" placeholder="WhatsApp (e.g. 961...)" required>
-        <select name="service_type">
-            <option value="BIOS Repair">BIOS Repair</option>
-            <option value="Training">Join Course</option>
+        <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
+        <select name="service_type" required>
+            <option value="">-- Select AI Service --</option>
+            <option value="Repair BIOS">Repair BIOS File</option>
+            <option value="Reset NVRAM">Reset NVRAM / Clear ME</option>
+            <option value="Disable RAM">Disable Built-in RAM</option>
+            <option value="Unlock T2">Mac iCloud T2 Unlock</option>
         </select>
+        <input type="text" name="brand" placeholder="Laptop Brand" required>
+        <input type="text" name="model" placeholder="Model (e.g. A2289)" required>
+        <input type="text" name="serial" placeholder="Serial Number" required>
         <input type="file" name="bios" required>
-        <button type="submit">SUBMIT REQUEST 🛠️</button>
+        <button type="submit">SUBMIT TO AI REPAIR 🛠️</button>
     </form>
 </div>
 
@@ -123,6 +144,10 @@
         }
     }
     setInterval(draw, 33);
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 </script>
 </body>
 </html>
