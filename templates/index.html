@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor BIOS | Ali Haboush AI Expert</title>
+    <title>Doctor BIOS | Ali Haboush</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -11,6 +11,7 @@
 
 <canvas id="matrix"></canvas>
 
+<!-- القائمة العلوية وروابط السوشيال ميديا -->
 <div class="navbar">
     <h2 class="logo">Doctor BIOS 💎</h2>
     <div class="social-nav">
@@ -22,119 +23,81 @@
 </div>
 
 <div class="hero">
-    <div class="container-3d">
-        <div class="cube-3d">
-            <div class="side front">BIOS</div>
-            <div class="side back">REPAIR</div>
-            <div class="side right">NVRAM</div>
-            <div class="side left">RAM</div>
-            <div class="side top">UNLOCK</div>
-            <div class="side bottom">AI</div>
-        </div>
-    </div>
-    <h1>Upgrade Your Business With <br> <span>Doctor BIOS AI 🚀</span></h1>
-    <p>Professional Chip-Level Solutions by Ali Haboush</p>
+    <h1>Ali Haboush <br> <span>Professional Solutions 🚀</span></h1>
+    <p>AI BIOS Repair & Master Training Courses</p>
 </div>
 
-<!-- SECTION 1: AI SERVICES -->
-<h2 style="color: gold; margin-top: 30px;">AI Repair Services 🛠️</h2>
+<!-- القسم الأول: خدمات صيانة البايوس -->
+<h2 class="section-title">AI Repair Services 🛠️</h2>
 <div class="services-container">
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-microchip"></i>
                 <h3>Repair BIOS</h3>
-                <p>Fix Corrupted Files</p>
             </div>
             <div class="flip-card-back">
-                <h3>Technical Details</h3>
-                <p>Rebuilding corrupted firmware to fix dead boards and no-display issues.</p>
+                <p>إصلاح ملفات البايوس التالفة وإعادة بناء الفيرموير بالكامل.</p>
             </div>
         </div>
     </div>
-
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-memory"></i>
-                <h3>Reset NVRAM</h3>
-                <p>Clear ME Regions</p>
+                <h3>Clear ME Region</h3>
             </div>
             <div class="flip-card-back">
-                <h3>What is this?</h3>
-                <p>Cleans ME/TXE regions to fix high fan speed, slow boot, and restart issues[cite: 1].</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <i class="fas fa-ban"></i>
-                <h3>Disable RAM</h3>
-                <p>On-Board RAM Fix</p>
-            </div>
-            <div class="flip-card-back">
-                <h3>Hardware Mod</h3>
-                <p>Modifying BIOS to disable faulty built-in RAM and enable external slots[cite: 1].</p>
+                <p>حل مشاكل الإقلاع البطيء وسرعة المروحة العالية عبر تنظيف الـ ME[cite: 1].</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- SECTION 2: TRAINING COURSES -->
-<h2 style="color: #00ff41; margin-top: 50px;">Master Training Courses 🎓</h2>
+<!-- القسم الثاني: الدورات التعليمية (المطلوب الجديد) -->
+<h2 class="section-title" style="color: #00ff41;">Master Training Courses 🎓</h2>
 <div class="services-container">
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-graduation-cap"></i>
-                <h3>BIOS Master Class</h3>
-                <p>Learn Professional Repair</p>
+                <h3>دورة صيانة البايوس</h3>
+                <p>BIOS Engineering</p>
             </div>
             <div class="flip-card-back">
-                <h3>Course Content</h3>
-                <p>HEX editing, ME region cleaning, and firmware manual fixing[cite: 1].</p>
-                <a href="https://wa.me/96176737184" class="course-btn">Join Course 📞</a>
+                <h3>محتوى الدورة</h3>
+                <p>تعليم تعديل الهيكس (HEX) يدوياً وإصلاح ملفات البايوس من الصفر[cite: 1].</p>
+                <a href="https://wa.me/96176737184" class="btn-wa">سجل الآن 📞</a>
             </div>
         </div>
     </div>
-
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <i class="fas fa-laptop-medical"></i>
-                <h3>Laptop Repair Pro</h3>
-                <p>Schematics & Diagnosis</p>
+                <h3>دورة صيانة اللابتوب</h3>
+                <p>Hardware Mastery</p>
             </div>
             <div class="flip-card-back">
-                <h3>Full Training</h3>
-                <p>Learn to read schematics, power sequences, and hardware diagnosis[cite: 1].</p>
-                <a href="https://wa.me/96176737184" class="course-btn">Contact Us 📞</a>
+                <h3>محتوى الدورة</h3>
+                <p>تعليم قراءة المخططات (Schematics) وتتبع الأعطال على البورد[cite: 1].</p>
+                <a href="https://wa.me/96176737184" class="btn-wa">تواصل معنا 📞</a>
             </div>
         </div>
     </div>
 </div>
 
+<!-- قسم رفع الملفات -->
 <div class="upload-section">
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Full Name" required>
-        <input type="text" name="whatsapp" placeholder="WhatsApp Number" required>
-        
-        <select name="service_type" required>
-            <option value="">-- Select AI Service --</option>
-            <option value="Repair BIOS">Repair BIOS File</option>
-            <option value="Reset NVRAM">Reset NVRAM / Clear ME</option>
-            <option value="Disable RAM">Disable Built-in RAM</option>
-            <option value="Unlock T2">Mac iCloud T2 Unlock</option>
+        <input type="text" name="whatsapp" placeholder="WhatsApp (e.g. 961...)" required>
+        <select name="service_type">
+            <option value="BIOS Repair">BIOS Repair</option>
+            <option value="Training">Join Course</option>
         </select>
-
-        <input type="text" name="brand" placeholder="Laptop Brand" required>
-        <input type="text" name="model" placeholder="Model" required>
-        <input type="text" name="serial" placeholder="Serial Number" required>
-        
         <input type="file" name="bios" required>
-        <button type="submit">SUBMIT TO AI REPAIR 🛠️</button>
+        <button type="submit">SUBMIT REQUEST 🛠️</button>
     </form>
 </div>
 
